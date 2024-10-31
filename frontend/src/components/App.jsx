@@ -26,6 +26,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import CopiartsRoutes from './CopiartsRoutes';
+import NavigationBar from './NavigationBar';
 
 /**
  * @component /frontend/src/comonents/App
@@ -51,7 +52,11 @@ function App() {
 	return (
 		<div className="App" style={{minHeight: '100vh'}}>
 			<BrowserRouter>
-				<Box className="SiteBox" component="main">
+				<NavigationBar />
+				<Box className="SiteBox" component="main" 
+					sx={{background: 'linear-gradient(90deg, rgba(98, 18, 130, .85), rgba(15, 107, 29, .85) 50%, rgba(227, 174, 100, .85))',
+						marginTop: '105px'
+					}}>
 					<CopiartsRoutes />
 				</Box>
 			</BrowserRouter>

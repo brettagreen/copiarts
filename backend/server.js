@@ -14,15 +14,26 @@
  */
 const fs = require('fs');
 const app = require("./app");
-const authAndGetEvents = require("./calendar/loadCalendarEvents");
 let server;
 require("dotenv").config();
+
+/**
+ * fetch events and photos so users don't have to do it on the frontend
+ */
+const authAndGetEvents = require("./api/calendar/loadCalendarEvents");
+const getPhotos = require("./api/instagram/loadInstagramPhotos");
 
 async function loadEvents() {
     await authAndGetEvents();
 }
 
+async function loadPhotos() {
+    await getPhotos();
+}
+
 loadEvents();
+loadPhotos();
+
 
 if (process.env.ENVIRONMENT === 'AWS') {
     const https = require('node:https');

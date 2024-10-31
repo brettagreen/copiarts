@@ -35,6 +35,7 @@ const { NotFoundError } = require("./expressError");
  * @const
  */
 const { eventsRoutes } = require("./routes/events");
+const { photosRoutes } = require("./routes/photos");
 
 /**
  * logging middleware
@@ -57,6 +58,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 
 app.use("/events", eventsRoutes);
+app.use("/photos", photosRoutes);
 
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {

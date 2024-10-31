@@ -5,7 +5,7 @@ const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
 const { get } = require('http');
 const { auth } = require('googleapis/build/src/apis/abusiveexperiencereport');
-const { setEvents } = require("../routes/events");
+const { setEvents } = require("../../routes/events");
 
 
 // If modifying these scopes, delete token.json.
@@ -14,8 +14,8 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = path.join(process.cwd(), './calendar/token.json');
-const CREDENTIALS_PATH = path.join(process.cwd(), './calendar/credentials.json');
+const TOKEN_PATH = path.join(process.cwd(), './api/calendar/token.json');
+const CREDENTIALS_PATH = path.join(process.cwd(), './api/calendar/credentials.json');
 let events;
 
 /**
@@ -24,7 +24,6 @@ let events;
  * @return {Promise<OAuth2Client|null>}
  */
 async function loadSavedCredentialsIfExist() {
-	console.log('loadSavedCredentialsIfExist()');
 
 	try {
 		const content = await fs.readFile(TOKEN_PATH);
@@ -44,7 +43,6 @@ async function loadSavedCredentialsIfExist() {
  * @return {Promise<void>}
  */
 async function saveCredentials(client) {
-	console.log('saveCredentials()');
 
 	const content = await fs.readFile(CREDENTIALS_PATH);
 	const keys = JSON.parse(content);
@@ -65,7 +63,6 @@ async function saveCredentials(client) {
  *
  */
 async function authorize() {
-	console.log('authorize()');
 
 	let client = await loadSavedCredentialsIfExist();
 
@@ -90,7 +87,6 @@ async function authorize() {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 async function getEvents(auth) {
-	console.log('listEvents()')
 	const calendar = google.calendar({version: 'v3', auth});
 	const res = await calendar.events.list({
 		calendarId: 'primary',

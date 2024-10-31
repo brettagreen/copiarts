@@ -4,12 +4,6 @@
  */
 const { Client } = require("pg");
 
-/**
- * @function
- * @description returns database uri from config module
- */
-const { getDatabaseUri } = require("./config");
-
 class db {
 
     static dbURI;
@@ -23,7 +17,16 @@ class db {
         let dbClient;
 
         if (!this.dbURI) {
-            this.dbURI = getDatabaseUri();
+            this.dbURI = function getDatabaseUri() {
+                const env = process.env.NODE_ENV;
+                if (env === "test") {
+                    return "copiarts_test"
+                } else if (env === "testing") {
+                    return "copiarts_testing"
+                } else { //production
+                    return "copiarts"
+                }
+            }();
         }
 
         let connectionObject = {

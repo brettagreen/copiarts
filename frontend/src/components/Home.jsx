@@ -5,12 +5,12 @@ function Home() {
 
 	return (
 		<>
-			<div style={{backgroundColor: "rgb(255, 203, 164)"}}>
+			<div style={{backgroundColor: "rgb(255, 203, 164)", marginTop: '-50px'}}>
 				<iframe src="https://calendar.google.com/calendar/embed?src=brettalangreen%40gmail.com&ctz=America%2FChicago" 
 					style={{border: "0", width: "80vw", height: "80vh", frameBorder: "0", scrolling: "yes"}}></iframe> 
 			</div>
 
-			<Link href="/events" underline='always'>View the Events page for more details</Link>
+			<Link href="/events" underline='always' color='#f3f2f2'>View the Events page for more details</Link>
 		</>
 	)
 }

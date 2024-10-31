@@ -1,6 +1,7 @@
 import { Route, Navigate, Routes } from "react-router-dom";
 import Home from "./Home";
 import Events from "./Events";
+import Gallery from "./Gallery";
 import Redirects from "./Redirects";
 
 /**
@@ -23,12 +24,13 @@ import Redirects from "./Redirects";
  * @example url path '/games' will render the Games component. '/heyiamapagethatdoesntexist/tacos!' will be sent to '/badrequest/noPage'
  * to be handled by the Redirects component.
  */
-function TigerlillyRoutes({ updateUserToken, search }) {
+function CopiartsRoutes() {
 
     return (
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/events" element={<Events />}/>
+            <Route path="/gallery" element={<Gallery />}/>
             <Route path="/badrequest/:type" element={<Redirects />}/>
             <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/>
         </Routes>
@@ -36,4 +38,4 @@ function TigerlillyRoutes({ updateUserToken, search }) {
 
 }
 
-export default TigerlillyRoutes;
+export default CopiartsRoutes;
