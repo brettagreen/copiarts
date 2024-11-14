@@ -18,20 +18,14 @@ let server;
 require("dotenv").config();
 
 /**
- * fetch events and photos so users don't have to do it on the frontend
+ * fetch photos so users don't have to do it on the frontend
  */
-const authAndGetEvents = require("./api/calendar/loadCalendarEvents");
 const getPhotos = require("./api/instagram/loadInstagramPhotos");
-
-async function loadEvents() {
-    await authAndGetEvents();
-}
 
 async function loadPhotos() {
     await getPhotos();
 }
 
-loadEvents();
 loadPhotos();
 
 

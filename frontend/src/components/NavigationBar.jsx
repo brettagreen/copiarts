@@ -1,6 +1,6 @@
 //import CopiartsApi from "../api";
 
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
@@ -15,18 +15,12 @@ function NavigationBar() {
             <ThemeProvider theme={toolbarMenuTheme}>
                 <MuiAppBar position="fixed" sx={{backgroundColor: 'rgba(0,0,0,.85)', width: '100%', marginBottom: '80px'}}>
                     <Toolbar>
-                        <div>
-                            <img src={`/images/cornucopia.png`} width={250} height={100} alt="cornucopia logo" />
-                        </div>
                         <div style={{width: '100%'}}>
                             <Link href='/' underline='hover'>
-                                Home
+                                <img src={`/images/cornucopia.png`} width={250} height={100} alt="cornucopia logo" title="Home"/>
                             </Link>
                             <Link href='/about' underline='hover'>
                                 About Us
-                            </Link>
-                            <Link href='/events' underline='hover'>
-                                Events
                             </Link>
                             <Link href='/gallery' underline='hover'>
                                 Gallery

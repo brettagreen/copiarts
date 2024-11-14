@@ -38,18 +38,9 @@ function Error() {
      * @returns {JSX.Element} <h1>message string</h1>
      */
     function msg() {
-        if (type === "noProfile") {
-            return <h1>You must be logged in to view your profile.</h1>
-
-        } else if (type === 'notAdmin') {
-            return <h1>Are you an admin??? Didn't think so!</h1>
-            
-        } else if (type === 'noPage') {
+        if (type === 'noPage') {
             return <h1>The page you're looking for does not exist.</h1>
 
-        } else if (type === 'alreadyLoggedIn') { 
-            return <h1>You are already logged in. To log out, click your user icon on the toolbar.</h1>
-            
         } else { //successful contact form submission
             return <h1>Thank you! We value your feedback!</h1>
         }

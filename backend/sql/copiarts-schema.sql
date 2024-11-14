@@ -7,3 +7,16 @@ CREATE TABLE people (
     DEFAULT 'this author prefers to keep an air of mystery about them',
   icon TEXT DEFAULT 'defaultUserIcon.jpg'
 );
+
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY,
+  nameFirst VARCHAR(30) NOT NULL,
+  nameLast VARCHAR(30) NOT NULL,
+  email TEXT NOT NULL CHECK (position('@' IN email) > 1),
+  comment TEXT NOT NULL CONSTRAINT comment_length CHECK (char_length(comment) <= 1000)
+);
+
+CREATE TABLE admin (
+  id SERIAL PRIMARY KEY,
+  password TEXT NOT NULL
+);

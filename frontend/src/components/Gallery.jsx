@@ -39,11 +39,11 @@ function Gallery() {
 		setModal(
 			<ThemeProvider theme={galleryTheme}>
 				<Modal key={"modal"+photo.media_url} open={true} onClose={() => setModal(null)}
-					aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+					sx={{overflowY: 'auto'}} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 					<Box style={modalStyle}>
-						<div style={{height: 'calc(90%)', width: 'calc(100%)'}}>
+						<div style={{height: 'calc(90%)', width: 'calc(100%)' }}>
 							<img key={"img2"+photo.media_url} src={photo.media_url} style={{height: 'calc(100%)', width: 'calc(100%)'}} alt="modal image" /><br />
-							<Link key={"instalink"+photo.permalink} href={photo.permalink}>View on Instagram app</Link>
+							<Link key={"instalink"+photo.permalink} href={photo.permalink} target="_blank">View on Instagram app</Link>
 						</div>
 					</Box>
 				</Modal>

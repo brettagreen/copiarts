@@ -19,16 +19,17 @@ const BASE_URL = import.meta.env.VITE_COPIARTS_BASE_URL;
  */
 class CopiartsApi {
 
-    /**
-     * pass auth token in the header. initiate axios http request
-     * @function
-     * @name request
-     * @param {string} endpoint - full url
-     * @param {Object={}} data - key/value object
-     * @param {string=get} method - http method: get, post, delete, patch...
-     * @throws {Error} error object related to whatever the backend error was
-     * @returns {Object} data returned from backend
-     */
+    static formData(form) {
+        const formData = new FormData();
+        const formEntries = Object.entries(form);
+        
+        for (let entry of formEntries) {
+            formData.append(entry[0], entry[1]);
+        }
+
+        return formData;
+    }
+
     static async request(endpoint, data = {}, method = "get") {
         /**
          * base_url value + endpoint
@@ -66,6 +67,18 @@ class CopiartsApi {
      */
     static async get(route) {
         return await this.request(`${route}`);
+    }
+
+    static async postComment(form) {
+        return await this.request('comments', form, 'post');
+    }
+
+    static async loginAdmin(form) {
+        return await this.request('admin', form, 'post');
+    }
+
+    static async saveEvent(event) {
+        return await this.request('events', event, 'post');
     }
 
 }

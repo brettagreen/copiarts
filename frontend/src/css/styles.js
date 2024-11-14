@@ -7,7 +7,7 @@ import createTheme from "@mui/material/styles/createTheme";
  * 
  *@type {number}
 */
-const VIEW_WIDTH = document.documentElement.clientWidth;
+//const VIEW_WIDTH = document.documentElement.clientWidth;
 
 /**
  * @module /frontend/src/css/styles
@@ -59,4 +59,95 @@ const VIEW_WIDTH = document.documentElement.clientWidth;
 		 }
 	 }
  });
-export {toolbarMenuTheme, galleryTheme};
+
+const formTheme = 
+ createTheme({
+	 components: {
+		 MuiMenuList: {
+			 styleOverrides: {
+				 root: {
+					 "&.Mui-selected": {
+						 backgroundColor: '#fcfafa'
+					 },
+					 "&.:hover": {
+						 backgroundColor: '#f3f2f2'
+					 }
+				 }
+			 }
+		 },
+		 MuiInputBase: {
+			 styleOverrides: {
+				 root: {
+					 height: '2em',
+					 marginTop: '.5em',
+					 marginBottom: '.8em',
+					 width: '100%',
+					 '&.Mui-focused': {
+						 borderColor: "rgba(0,0,0,.9)"
+					 }
+				 }
+			 }
+		 },
+		 MuiFormLabel:  {
+			 styleOverrides: {
+				 root: {
+					 '&.:after': {
+						 color: "rgba(0, 0, 0, 0.9)"
+					 }
+				 }
+			 }
+		 },
+		 MuiButtonBase: {
+			 styleOverrides: {
+				 root: {
+					 '&.:hover': {
+						 bgcolor: 'transparent',
+						 borderColor: "rgba(0,0,0,.9)"
+					 },
+					 '&.Mui-focused': {
+						 borderColor: "rgba(0,0,0,.9)"
+					 }
+				 }
+			 }
+		 },
+		 MuiFormHelperText: {
+			 styleOverrides: {
+				 root: {
+					 marginTop: '-4px',
+					 marginBottom: '14px'
+				 }
+			 }
+		 }
+	 }
+ });
+
+const textareaTheme =
+ createTheme({
+	 components: {
+		 MuiInputBase: {
+			 styleOverrides: {
+				 root: {
+					 height: 'inherit',
+					 marginTop: '.5em',
+					 marginBottom: '.5em',
+					 width: '100%'
+				 }
+			 }
+		 }
+	 }
+ });
+
+ const eventFormTheme =
+ createTheme({
+	 components: {
+		 MuiTextField: {
+			 styleOverrides: {
+				 root: {
+					 margin: '1rem'
+				 }
+			 }
+		 }
+	 }
+ });
+
+export {toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme};
