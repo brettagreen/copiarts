@@ -17,15 +17,12 @@ function Home() {
 				</h3>
 			</div>
 
-			{/* <Link href="/events" underline='always' color='#f3f2f2'>View the Events page for more details</Link> */}
-
 			<div style={{float: 'left'}}>
 				<Calendar />
 			</div>
 			<div style={{float: 'left'}}>
 				<Events />
 			</div>
-
 		</>
 
 	)

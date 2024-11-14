@@ -11,6 +11,7 @@ import dayjs from 'dayjs';
 
 	let topStart;
 	let topEnd;
+	let delId;
 	
 	const CustomEditor = ({ scheduler }) => {
 		const event = scheduler.edited;
@@ -29,6 +30,7 @@ import dayjs from 'dayjs';
 		const [error, setError] = useState("");
 
 		const handleChange = (value, name) => {
+
 			setState((prev) => {
 				return {
 					...prev,
@@ -38,7 +40,6 @@ import dayjs from 'dayjs';
 		};
 
 		const handleSubmit = async (e) => {
-			//e.preventDefault();
 			let uploadEvent;
 
 			// Your own validation
@@ -153,11 +154,6 @@ function Calendar() {
 		del = true;
 	}
 
-	const handleCellClick = (start, end, resourceKey, resourceValue) => {
-		topStart = start;
-		topEnd = end;
-	}
-
 	const [events, setEvents] = useState(null);
 
 	async function loadEvents() {
@@ -170,6 +166,26 @@ function Calendar() {
 		console.log('allevents', allEvents);
 		setEvents(allEvents);
 	}
+
+	const handleCellClick = (start, end, resourceKey, resourceValue) => {
+		console.log('getting here')
+		topStart = start;
+		topEnd = end;
+	}
+
+	const deleteEvent = async (id) => {
+		return new Promise((res, rej) => {
+			setTimeout(async () => {
+			    res(id);
+			    await CopiartsApi.deleteEvent(id);
+			}, 1500);
+		});		
+	}
+
+	const editEvent = async (event) => {
+		event.start = dayjs(event.start);
+		event.end = dayjs(event.end);
+	}
 	
 	if (!events) {
 		loadEvents();
@@ -177,8 +193,8 @@ function Calendar() {
 		return(
 			<div style={{width: '60vw'}}> 
 				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
-					week={{weekStartOn:0, startHour:8, endHour:22, navigation:true}}
-					customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
+					onDelete={deleteEvent} week={{weekStartOn:0, startHour:8, endHour:22, navigation:true}}
+					onEventEdit={editEvent} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
 					viewerExtraComponent={(fields, event) => {
 						return(
 							<div>

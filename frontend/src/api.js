@@ -81,6 +81,11 @@ class CopiartsApi {
         return await this.request('events', event, 'post');
     }
 
+    static async deleteEvent(eventId) {
+        console.log("API id", eventId)
+        return await this.request('events', {eventId}, 'delete');
+    }
+
 }
 
 export default CopiartsApi;
