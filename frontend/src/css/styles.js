@@ -31,7 +31,6 @@ import createTheme from "@mui/material/styles/createTheme";
 			 styleOverrides: {
 				 root: {
 					 color: '#621282', //violet
-					 background: 'linear-gradient(90deg, rgba(15, 107, 29, .85) 50%, rgba(227, 174, 100, .85))', //medium green, peach
 					 width: '22vw'
 				 }
 			 }

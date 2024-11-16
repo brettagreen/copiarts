@@ -82,7 +82,6 @@ class CopiartsApi {
     }
 
     static async deleteEvent(eventId) {
-        console.log("API id", eventId)
         return await this.request('events', {eventId}, 'delete');
     }
 
