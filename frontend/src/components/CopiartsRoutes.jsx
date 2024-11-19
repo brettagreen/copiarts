@@ -17,8 +17,8 @@ function CopiartsRoutes() {
             <Route path="/admin/login" element={<Login />}/>
             <Route path="/admin/calendar" element={<Admin />}/>
             <Route path="/additional-information" element={<AdditionalInformation />}/>
-            <Route path="/badrequest/:type" element={<Redirects />}/>
-            <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/>
+            {/* <Route path="/badrequest/:type" element={<Redirects />}/> */}
+            {/* <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/> */}
         </Routes>
     )
 
