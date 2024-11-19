@@ -5,7 +5,7 @@ import Gallery from "./Gallery";
 import Admin from "./Admin";
 import Login from "./Login";
 import AdditionalInformation from "./AdditionalInformation";
-import Redirects from "./Redirects";
+// import Redirects from "./Redirects";
 
 function CopiartsRoutes() {
 

@@ -1,5 +1,3 @@
-//import CopiartsApi from "../api";
-
 import { Box } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';

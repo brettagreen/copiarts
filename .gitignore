@@ -3,12 +3,9 @@ backend/node_modules
 backend/api/calendar/node_modules
 backend/.env
 frontend/.env
-frontend/eslint.config.js
-frontend/vite.config.js
 screenshots/
 .vscode/
 backend/calendar/node_modules
 backend/calendar/package-lock.json
 backend/calendar/token.json
 backend/package-lock.json
-frontend/public/
