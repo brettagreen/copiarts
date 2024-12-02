@@ -1,15 +1,20 @@
+@font-face {
+    font-family: "InkFree";
+    src: url("../../public/fonts/inkfree.ttf") format("truetype");
+    font-weight: 200 !important;
+	font-size: xx-large !important;
+    font-style: normal;
+    letter-spacing: 5em;
+}
+
 #root {
 	margin: 0 auto;
 	text-align: center;
 }
 
 .headerfooter {
+	font-family: "InkFree";
+	font-variant: small-caps;
+	font-size: larger !important;
 	background-color: rgb(250, 245, 245, .1);
-}
-
-#calendar {
-	border: 0;
-	width: 80vw;
-	height: 80vh;
-	/* pointer-events: none; */
 }

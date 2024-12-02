@@ -17,7 +17,9 @@ router.post('/', async function(req, res, next) {
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
         const jsonFile = JSON.parse(file);
-        jsonFile.push(req.body);
+        for (let obj of req.body) {
+            jsonFile.push(obj)
+        }
         const saveFile = JSON.stringify(jsonFile, null, "\t");
         fs.writeFileSync('./api/calendar/CalendarEvents.json', saveFile, 'utf-8')
         return res.send('successfully saved event');
@@ -28,14 +30,23 @@ router.post('/', async function(req, res, next) {
 })
 
 router.delete('/', async function(req, res, next) {
-    console.log('eventId', req.body)
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
         const events = JSON.parse(file);
+        let filteredEvents;
+        let id;
 
-        const filteredEvents = events.filter((event) => {
-            return event.event_id !== req.body.eventId
-        });
+        if (req.body.group_id) {
+            id = req.body.group_id;
+            filteredEvents = events.filter((event) => {
+                return event.group_id !== id;
+            });
+        } else {
+            id = req.body.event_id
+            filteredEvents = events.filter((event) => {
+                return event.event_id !== id;
+            });
+        }
 
         const saveFile = JSON.stringify(filteredEvents, null, "\t");
         fs.writeFileSync('./api/calendar/CalendarEvents.json', saveFile, 'utf-8')

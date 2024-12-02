@@ -1,0 +1,8 @@
+.eventItem {
+	font-family: "InkFree";
+	font-variant: small-caps;
+	font-size: larger !important;
+	width: 35vw;
+	text-align: left;
+	margin-left: 2em;
+}

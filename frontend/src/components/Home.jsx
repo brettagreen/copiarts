@@ -1,6 +1,5 @@
 import '../css/Home.css'
 import Calendar from './Calendar';
-import Events from './Events';
 
 function Home() {
 
@@ -17,12 +16,32 @@ function Home() {
 				</h3>
 			</div>
 
-			<div style={{float: 'left'}}>
-				<Calendar />
-			</div>
-			<div style={{float: 'left'}}>
-				<Events />
-			</div>
+			<section style={{marginLeft: '.5em', marginRight: '.5em'}}>
+				<div style={{float: 'left'}}>
+					<embed type="video/mp4" src="https://www.youtube.com/embed/Cb82cy9b7Hk?si=CSp9j8srFAcb_eO0"
+							width="560" height="315" />
+				</div>
+				
+				<div style={{float: 'left', clear: 'both', marginTop: '1em'}}>
+					<Calendar />
+				</div>
+				<div>
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+					<img src="https://picsum.photos/200" alt="homepage image" />
+				</div>
+
+			</section>
+
 		</>
 
 	)

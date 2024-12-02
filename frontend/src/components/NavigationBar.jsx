@@ -9,9 +9,9 @@ import '../css/NavigationBar.css'
 function NavigationBar() {
 
     return (
-        <Box sx={{marginBottom: '70px', fontFamily: 'Roboto'}}>
+        <Box sx={{fontFamily: 'Roboto', marginBottom: '10em'}}>
             <ThemeProvider theme={toolbarMenuTheme}>
-                <MuiAppBar position="fixed" sx={{backgroundColor: 'rgba(0,0,0,.85)', width: '100%', marginBottom: '80px'}}>
+                <MuiAppBar position="fixed" sx={{backgroundColor: 'rgba(0,0,0,.85)', width: '100%'}}>
                     <Toolbar>
                         <div style={{width: '100%'}}>
                             <Link href='/' underline='hover'>

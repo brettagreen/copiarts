@@ -1,0 +1,17 @@
+.footer {
+	float: left;
+	clear: left;
+	width: 100%;
+	background-color: rgb(250, 245, 245, .1);
+    position: absolute;
+    bottom: 0;
+}
+
+html[xmlns] .footer {
+    display: block;
+}
+
+.column {
+    float: left;
+    margin-right: 3em;
+}

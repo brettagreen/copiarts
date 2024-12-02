@@ -1,7 +1,7 @@
 function About() {
 
 	return (
-		<>
+		<aside>
 			<h3>About Cornucopia</h3>
 			<p>
 				We are an arts and wellness center run for and by adult peers in mental health recovery and their allies. 
@@ -38,7 +38,7 @@ function About() {
 				and have a lot of time on their hands. It’s hard to recover when one is isolated and doesn't spend any time in purposeful activity.
 				Cornucopia provides social engagement and purpose through the arts and wellness.
 			</p>
-		</>
+		</aside>
 	)
 }
 

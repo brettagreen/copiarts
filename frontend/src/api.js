@@ -77,12 +77,12 @@ class CopiartsApi {
         return await this.request('admin', form, 'post');
     }
 
-    static async saveEvent(event) {
-        return await this.request('events', event, 'post');
+    static async saveEvents(events) {
+        return await this.request('events', events, 'post');
     }
 
-    static async deleteEvent(eventId) {
-        return await this.request('events', {eventId}, 'delete');
+    static async deleteEvents(eventId) {
+        return await this.request('events', eventId, 'delete');
     }
 
 }

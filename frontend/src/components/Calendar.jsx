@@ -3,15 +3,16 @@ import { useLocation } from 'react-router-dom';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { useState, useEffect } from 'react';
-import { TextField, DialogActions, Button, ThemeProvider } from '@mui/material';
+import { useEffect, useState, useRef } from 'react';
+import { TextField, DialogActions, Button, ThemeProvider, Checkbox, Dialog, DialogContent, DialogContentText,
+			 DialogTitle, Select, MenuItem, InputLabel, FormControl, FormControlLabel } from '@mui/material';
 import { eventFormTheme } from '../css/styles';
 import CopiartsApi from '../api';
 import dayjs from 'dayjs';
+import { RRule } from 'rrule';
 
 	let topStart;
 	let topEnd;
-	let delId;
 	
 	const CustomEditor = ({ scheduler }) => {
 		const event = scheduler.edited;
@@ -23,7 +24,9 @@ import dayjs from 'dayjs';
 				end: event?.end || dayjs(topEnd),
 				location: event?.location || "2 South Ingersoll Madison Wi 53704",
 				host: event?.host || "",
-				description: event?.description || ""
+				description: event?.description || "",
+				repeat: event?.period || false,
+				period: event?.period || ""
 			}
 		);
 
@@ -40,7 +43,71 @@ import dayjs from 'dayjs';
 		};
 
 		const handleSubmit = async (e) => {
-			let uploadEvent;
+			let groupId;
+			let ruleStartTimes;
+			let ruleEndTimes;
+			let uploadEvents = [];
+			const now = scheduler.state.start.value;
+
+			if (state.repeat) {
+				groupId = Math.random();
+
+				ruleStartTimes = new RRule(
+					{
+						freq: state.period === 'weekly' ? RRule.WEEKLY : RRule.MONTHLY,
+						//interval: 5,
+						//byweekday: [RRule.MO, RRule.FR],
+						dtstart: now,
+						until: new Date(new Date(now).setMonth(now.getMonth() + 3)) //three months out, always
+				    }
+				).all()
+
+				ruleEndTimes = new RRule(
+					{
+						freq: state.period === 'weekly' ? RRule.WEEKLY : RRule.MONTHLY,
+						//interval: 5,
+						//byweekday: [RRule.MO, RRule.FR],
+						dtstart: now,
+						until: new Date(new Date(now).setMonth(now.getMonth() + 3)) //three months out, always
+				    }
+				).all();
+
+				ruleStartTimes.forEach((dateStart, index) => {
+
+					/**
+					 * Make sure the event have 4 mandatory fields
+					 * event_id: string|number
+					 * title: string
+					 * start: Date|string
+					 * end: Date|string
+					 */
+					uploadEvents.push(
+						{
+							event_id: Math.random(),
+							group_id: groupId,
+							title: state.title,
+							start: dateStart,
+							end: ruleEndTimes[index],
+							location: state.location,
+							host: state.host,
+							description: state.description,
+							period: state.period
+						}
+					)
+				})
+			} else {
+				uploadEvents = [
+					{
+						event_id: Math.random(),
+						title: state.title,
+						start: scheduler.state.start.value,
+						end: scheduler.state.end.value,
+						location: state.location,
+						host: state.host,
+						description: state.description
+					}
+				]
+			}
 
 			// Your own validation
 			if (state.title.length < 3) {
@@ -50,28 +117,10 @@ import dayjs from 'dayjs';
 			try {
 				scheduler.loading(true);
 		
-				/**Simulate remote data saving */
 				const added_updated_event = (await new Promise((res) => {
-					/**
-					 * Make sure the event have 4 mandatory fields
-					 * event_id: string|number
-					 * title: string
-					 * start: Date|string
-					 * end: Date|string
-					 */
-					uploadEvent = {
-						event_id: event?.event_id || Math.random(),
-						title: state.title,
-						start: scheduler.state.start.value,
-						end: scheduler.state.end.value,
-						location: state.location,
-						host: state.host,
-						description: state.description
-					};
 					setTimeout(async () => {
-						res(uploadEvent);
-			
-						await CopiartsApi.saveEvent(uploadEvent);
+						res(uploadEvents);
+						await CopiartsApi.saveEvents(uploadEvents);
 					}, 3000);
 				}))
 		
@@ -82,6 +131,13 @@ import dayjs from 'dayjs';
 				scheduler.loading(false);
 			}
 		};
+
+		const checkbox = <FormControlLabel control={<Checkbox checked={state.repeat}
+																value={state.repeat}
+																disableRipple={true}
+																onChange={(e) => handleChange(e.target.checked, "repeat")}/>} 
+											label="Repeat event?" 
+						/>
 
 		return (
 			<form>
@@ -131,6 +187,21 @@ import dayjs from 'dayjs';
 							onChange={(e) => handleChange(e.target.value, "description")}
 							fullWidth
 						/>
+						<FormControl>
+							{checkbox}
+						</FormControl>
+
+						<FormControl sx={{m: 1, minWidth: 200}}>
+							<InputLabel id="select-input">Weekly or Monthly?</InputLabel>
+							<Select component="select" name="type" value={state.period}
+									onChange={(e) => handleChange(e.target.value, "period")}
+									fullWidth label="Weekly or Monthly?"
+									labelId="select-input"
+							>
+								<MenuItem key="week" value="weekly">Weekly</MenuItem>
+								<MenuItem key="month" value="monthly">Monthly</MenuItem>
+							</Select>
+						</FormControl>
 					</div>
 				</ThemeProvider>
 				<DialogActions>
@@ -154,7 +225,12 @@ function Calendar() {
 		del = true;
 	}
 
+	const postInitialLoad = useRef(false);
+	const groupId = useRef(null);
+	const deleteId = useRef(null);
 	const [events, setEvents] = useState(null);
+	const [modal, setModal] = useState(false);
+	const [deleteOption, setDeleteOption] = useState(null);
 
 	async function loadEvents() {
 		let allEvents = await CopiartsApi.get('events');
@@ -163,38 +239,120 @@ function Calendar() {
 			event.end = new Date(event.end)
 
 		}
-		console.log('allevents', allEvents);
 		setEvents(allEvents);
 	}
 
 	const handleCellClick = (start, end, resourceKey, resourceValue) => {
-		console.log('getting here')
 		topStart = start;
 		topEnd = end;
 	}
 
-	const deleteEvent = async (id) => {
-		return new Promise((res, rej) => {
-			setTimeout(async () => {
-			    res(id);
-			    await CopiartsApi.deleteEvent(id);
-			}, 1500);
-		});		
+	const handleEventClick = (event) => {
+		console.log("handleEventClick");
+		console.log("groupId (is it a holdover?)", groupId.current);
+
+		if (event.group_id) {
+			console.log("getting here", event.group_id);
+			groupId.current = event.group_id
+		} else {
+			groupId.current = null;
+		}
 	}
 
 	const editEvent = async (event) => {
 		event.start = dayjs(event.start);
 		event.end = dayjs(event.end);
+		event.edit = true;
 	}
-	
+
+	const deleteEvent = async (id) => {
+		console.log('deleteEvent, is there a group id?', groupId.current);
+		deleteId.current = id;
+		if (postInitialLoad.current) {
+			if (groupId.current) {
+				setModal(true);
+			} else {
+				setDeleteOption("");
+			}
+		}
+	}
+
+	useEffect(() => {
+
+		async function processDelete() {
+			if (groupId.current && deleteOption === "all") {
+				console.log('group event ids', ids);
+				setTimeout(async () => {
+					await CopiartsApi.deleteEvents({"group_id": groupId.current});
+					groupId.current = null;
+					deleteId.current = null;
+					loadEvents();
+				}, 1500);
+
+			} else {
+				setTimeout(async () => {
+					await CopiartsApi.deleteEvents({"event_id": deleteId.current});
+					groupId.current = null;
+					deleteId.current = null;
+					loadEvents();
+				}, 1500);
+			}
+
+			document.getElementsByClassName("css-s22wio")[0].remove();
+			
+
+		}
+
+		if (postInitialLoad.current) {
+			processDelete();
+		} else {
+			postInitialLoad.current = true;
+		}
+
+	}, [deleteOption]);
+
+	function DeleteOptions() {
+		const [open, setOpen] = useState(true);
+	  
+		const handleOne = () => {
+		  setOpen(false);
+		  setDeleteOption("one");
+		  setModal(false);
+		};
+
+		const handleAll = () => {
+			setOpen(false);
+			setDeleteOption("all");
+			setModal(false);
+		}
+	  
+		return (
+		    <>
+				<Dialog
+					open={open}
+					aria-labelledby="alert-dialog-title"
+					aria-describedby="alert-dialog-description"
+					>
+					<DialogTitle id="alert-dialog-title">
+						Delete just this event or all events like this on the calendar?
+					</DialogTitle>
+					<DialogActions>
+						<Button onClick={handleOne}>just this event</Button>
+						<Button onClick={handleAll} autoFocus>all events</Button>
+					</DialogActions>
+				</Dialog>
+		    </>
+		);
+	}
+
 	if (!events) {
 		loadEvents();
 	} else {
 		return(
 			<div style={{width: '60vw'}}> 
 				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
-					onDelete={deleteEvent} week={{weekStartOn:0, startHour:8, endHour:22, navigation:true}}
-					onEventEdit={editEvent} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
+					agenda={false} onDelete={deleteEvent} week={{weekStartOn:0, startHour:11, endHour:19, navigation:true}}
+					onEventEdit={editEvent} onEventClick={handleEventClick} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
 					viewerExtraComponent={(fields, event) => {
 						return(
 							<div>
@@ -206,6 +364,7 @@ function Calendar() {
 						);
 					}}
 				/>
+				{modal ? <DeleteOptions /> : null}
 			</div>
 		);
 	}

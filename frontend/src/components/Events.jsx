@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CopiartsApi from '../api';
+import '../css/Events.css'
 
 
 function Events() {
@@ -34,7 +35,7 @@ function Events() {
 			console.log('event', event);
 			return (
 				<>
-					<div style={{width: '35vw', textAlign: 'left', marginLeft: '2em'}}>
+					<div className="eventItem">
 						<div key={idx} style={{float: "left", width: 'calc(60%)'}}>
 							<h2 key={"summary"+idx}>{event.title}</h2>
 							<h3 key={"time"+idx}>Time: {dateStart.toLocaleDateString()} @ {dateStart.toLocaleTimeString()}
