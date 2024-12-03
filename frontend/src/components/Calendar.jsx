@@ -16,6 +16,7 @@ import { RRule } from 'rrule';
 	
 	const CustomEditor = ({ scheduler }) => {
 		const event = scheduler.edited;
+		console.log("EVENT", event);
 
 		const [state, setState] = useState(
 			{
@@ -60,7 +61,7 @@ import { RRule } from 'rrule';
 						dtstart: now,
 						until: new Date(new Date(now).setMonth(now.getMonth() + 3)) //three months out, always
 				    }
-				).all()
+				).all();
 
 				ruleEndTimes = new RRule(
 					{
@@ -121,7 +122,7 @@ import { RRule } from 'rrule';
 					setTimeout(async () => {
 						res(uploadEvents);
 						await CopiartsApi.saveEvents(uploadEvents);
-					}, 3000);
+					}, 1500);
 				}))
 		
 			scheduler.onConfirm(added_updated_event, event ? "edit" : "create");
@@ -191,17 +192,20 @@ import { RRule } from 'rrule';
 							{checkbox}
 						</FormControl>
 
-						<FormControl sx={{m: 1, minWidth: 200}}>
+						{state.repeat || state.period ?
+							<FormControl sx={{m: 1, minWidth: 200}}>
 							<InputLabel id="select-input">Weekly or Monthly?</InputLabel>
-							<Select component="select" name="type" value={state.period}
-									onChange={(e) => handleChange(e.target.value, "period")}
-									fullWidth label="Weekly or Monthly?"
-									labelId="select-input"
-							>
-								<MenuItem key="week" value="weekly">Weekly</MenuItem>
-								<MenuItem key="month" value="monthly">Monthly</MenuItem>
-							</Select>
-						</FormControl>
+								<Select component="select" name="type" value={state.period}
+										onChange={(e) => handleChange(e.target.value, "period")}
+										fullWidth label="Weekly or Monthly?"
+										labelId="select-input"
+								>
+									<MenuItem key="week" value="weekly">Weekly</MenuItem>
+									<MenuItem key="month" value="monthly">Monthly</MenuItem>
+								</Select>
+							</FormControl>
+						: null}
+
 					</div>
 				</ThemeProvider>
 				<DialogActions>
@@ -249,7 +253,6 @@ function Calendar() {
 
 	const handleEventClick = (event) => {
 		console.log("handleEventClick");
-		console.log("groupId (is it a holdover?)", groupId.current);
 
 		if (event.group_id) {
 			console.log("getting here", event.group_id);
@@ -266,7 +269,6 @@ function Calendar() {
 	}
 
 	const deleteEvent = async (id) => {
-		console.log('deleteEvent, is there a group id?', groupId.current);
 		deleteId.current = id;
 		if (postInitialLoad.current) {
 			if (groupId.current) {
@@ -281,7 +283,6 @@ function Calendar() {
 
 		async function processDelete() {
 			if (groupId.current && deleteOption === "all") {
-				console.log('group event ids', ids);
 				setTimeout(async () => {
 					await CopiartsApi.deleteEvents({"group_id": groupId.current});
 					groupId.current = null;
@@ -299,7 +300,6 @@ function Calendar() {
 			}
 
 			document.getElementsByClassName("css-s22wio")[0].remove();
-			
 
 		}
 

@@ -9,10 +9,10 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { ThemeProvider } from '@mui/material';
 import CopiartsApi from '../api';
 import { formTheme, textareaTheme } from '../css/styles';
-import '../css/AdditionalInformation.css';
+import '../css/Contact.css';
 
 
-function AdditionalInformation() {
+function Contact() {
 
     const INIT_STATE = { nameFirst: '', nameLast: '', email: '', comment: '' }
 
@@ -147,4 +147,4 @@ function AdditionalInformation() {
     )
 }
 
-export default AdditionalInformation;
+export default Contact;

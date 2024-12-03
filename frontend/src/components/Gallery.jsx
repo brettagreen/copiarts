@@ -59,7 +59,7 @@ function Gallery() {
 						return (
 							<><Grid key={"grid"+idx} item xs={1} sm={1} md={1}>
 								<Button key={"button"+idx} onClick={() => {showModal(photo)}}>
-									<img key={"img"+idx} src={photo.media_url} height={250} width={250} alt="insta image" />
+									<img key={"img"+idx} src={photo.media_url} loading="lazy" height={250} width={250} alt="insta image" />
 								</Button>
 								<figcaption key={"caption"+idx}>{photo.caption}</figcaption>
 							</Grid>
