@@ -4,19 +4,19 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useEffect, useState, useRef } from 'react';
-import { TextField, DialogActions, Button, ThemeProvider, Checkbox, Dialog, DialogContent, DialogContentText,
-			 DialogTitle, Select, MenuItem, InputLabel, FormControl, FormControlLabel } from '@mui/material';
+import { TextField, DialogActions, Button, ThemeProvider, Checkbox, Dialog, DialogTitle,
+			 Select, MenuItem, InputLabel, FormControl, FormControlLabel } from '@mui/material';
 import { eventFormTheme } from '../css/styles';
 import CopiartsApi from '../api';
 import dayjs from 'dayjs';
 import { RRule } from 'rrule';
+import '../css/Calendar.css'
 
 	let topStart;
 	let topEnd;
 	
 	const CustomEditor = ({ scheduler }) => {
 		const event = scheduler.edited;
-		console.log("EVENT", event);
 
 		const [state, setState] = useState(
 			{
@@ -48,7 +48,8 @@ import { RRule } from 'rrule';
 			let ruleStartTimes;
 			let ruleEndTimes;
 			let uploadEvents = [];
-			const now = scheduler.state.start.value;
+			const start = scheduler.state.start.value;
+			const end = scheduler.state.end.value;
 
 			if (state.repeat) {
 				groupId = Math.random();
@@ -58,8 +59,8 @@ import { RRule } from 'rrule';
 						freq: state.period === 'weekly' ? RRule.WEEKLY : RRule.MONTHLY,
 						//interval: 5,
 						//byweekday: [RRule.MO, RRule.FR],
-						dtstart: now,
-						until: new Date(new Date(now).setMonth(now.getMonth() + 3)) //three months out, always
+						dtstart: start,
+						until: new Date(new Date(start).setMonth(start.getMonth() + 3)) //three months out, always
 				    }
 				).all();
 
@@ -68,15 +69,15 @@ import { RRule } from 'rrule';
 						freq: state.period === 'weekly' ? RRule.WEEKLY : RRule.MONTHLY,
 						//interval: 5,
 						//byweekday: [RRule.MO, RRule.FR],
-						dtstart: now,
-						until: new Date(new Date(now).setMonth(now.getMonth() + 3)) //three months out, always
+						dtstart: end,
+						until: new Date(new Date(end).setMonth(end.getMonth() + 3)) //three months out, always
 				    }
 				).all();
 
 				ruleStartTimes.forEach((dateStart, index) => {
 
 					/**
-					 * Make sure the event have 4 mandatory fields
+					 * Make sure the event has the 4 MANDATORY fields
 					 * event_id: string|number
 					 * title: string
 					 * start: Date|string
@@ -101,8 +102,8 @@ import { RRule } from 'rrule';
 					{
 						event_id: Math.random(),
 						title: state.title,
-						start: scheduler.state.start.value,
-						end: scheduler.state.end.value,
+						start: start,
+						end: end,
 						location: state.location,
 						host: state.host,
 						description: state.description
@@ -350,6 +351,7 @@ function Calendar() {
 	} else {
 		return(
 			<div style={{width: '60vw'}}> 
+				<h2 className="calendarHead">Check out our event calendar</h2>
 				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
 					agenda={false} onDelete={deleteEvent} week={{weekStartOn:0, startHour:11, endHour:19, navigation:true}}
 					onEventEdit={editEvent} onEventClick={handleEventClick} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
