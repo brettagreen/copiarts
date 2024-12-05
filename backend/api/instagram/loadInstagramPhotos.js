@@ -4,11 +4,11 @@ const photoArray = [];
 
 async function authAndGetPhotos() {
 
-	const acct = '17841469935859233'; //copiarts_test
-	const token = 'IGQWRQN1BUNmVkTHJHZAVBnSWY4SUlnclNicFBQZAmdnYjBidm5OblpBOFZAERXlFR25BZAmpkODJlTDAwYWlLWUpob1hKX01ydE4ydFlIRmI2OFJqMkhDRVIzLVVHZAFZAnNGlEb3JjRlFoVnNUcHdnbS1SNUVUT3ZASckUZD';
+	const ACCT = process.env.INSTA_ACCT; //copiarts_test
+	const TOKEN = process.env.INSTA_TOKEN;
 	
 	const responseObject =  await axios.get(
-		`https://graph.instagram.com/v21.0/${acct}/media?access_token=${token}`
+		`https://graph.instagram.com/v21.0/${ACCT}/media?access_token=${TOKEN}`
 	);
 
 	let ids = responseObject.data
@@ -19,7 +19,7 @@ async function authAndGetPhotos() {
 
 	ids.data.forEach(async (id) => {
 		resp1 = await axios.get(
-			`https://graph.instagram.com/v21.0/${id.id}?fields=caption,media_url,permalink,timestamp&access_token=${token}`
+			`https://graph.instagram.com/v21.0/${id.id}?fields=caption,media_url,permalink,timestamp&access_token=${TOKEN}`
 		);
 		// resp2 = await axios.get( //GET /<IG_MEDIA_ID>/comments
 		// 	`https://graph.instagram.com/v21.0/${id.id}/comments?access_token=${token}`

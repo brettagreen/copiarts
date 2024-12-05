@@ -9,3 +9,4 @@ backend/calendar/node_modules
 backend/calendar/package-lock.json
 backend/calendar/token.json
 backend/package-lock.json
+frontend/dist
