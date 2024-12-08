@@ -28,25 +28,9 @@ async function loadPhotos() {
 
 loadPhotos();
 
-
-if (process.env.ENVIRONMENT === 'AWS') {
-    const https = require('node:https');
-    const fs = require('node:fs');
-
-    const privateKey = fs.readFileSync( './certs/privkey.pem' );
-    const certificate = fs.readFileSync( './certs/fullchain.pem' );
-  
-    server = https.createServer({
-        key: privateKey,
-        cert: certificate
-    }, app).listen(process.env.PORT, function () {
-        console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);
-    });
-} else {
-    server = app.listen(process.env.PORT, function () {
-        console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);
-    });
-}
+server = app.listen(process.env.PORT, function () {
+    console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);
+});
 
 server.keepAliveTimeout = 30 * 1000;
 server.headersTimeout = 35 * 1000;

@@ -1,8 +1,37 @@
+/**
+ * @module /backend/routes/comments
+ * @requires module:express
+ * @requires module:/backend/models/Comment
+ * @requires module:express.router
+ * @requires modeule:nodemailer
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * @description handles incoming api requests, initiates appropriate database transaction, returns appriate response
+ * 
+ */
+
+/**
+ * @typedef {Object} comment - returned comment/feedback object 
+ * @property {string} name 
+ * @property {string} email
+ * @property {string} comment
+ *
+*/
+
 const express = require("express");
 const router = express.Router();
 const Comment = require("../models/comment");
 const nodemailer = require("nodemailer");
 
+/**
+ * @description handles request to retrieve all feedback, sends req to
+ *  Comment class to handle the request, returns string confirmation or error
+ * @name get/comments
+ * @function
+ * @param {string} path - /comments
+ * @param {callback} middleware - Express middleware.
+ * @returns {Object[comment]} - { comments: [{ name, email, comment }, ...] }
+ */
 router.get("/", async function(req, res, next) {
     try {
        const comments = await Comment.fetchComments();
@@ -12,6 +41,15 @@ router.get("/", async function(req, res, next) {
     }
 });
 
+/**
+ * @description handles request to enter new user feedback, sends req to
+ *  Comment class to handle the request, returns string confirmation or error
+ * @name post/comments
+ * @function
+ * @param {string} path - /comments
+ * @param {callback} middleware - Express middleware.
+ * @returns {object} - {msg: "thank you for your feedback", feedback: comment.name, comment.email, comment.comment}
+ */
 router.post("/", async function(req, res, next) {
 	try {
 		const feedback = await Comment.postComment(req.body);
@@ -23,6 +61,12 @@ router.post("/", async function(req, res, next) {
 	}
 });
 
+/**
+ * @function mailIt
+ * @description emails/fwds feedback to specified email address
+ * @param {object} feedback - feedback object (name, email, msg)
+ * @returns {undefined}
+ */
 function mailIt(feedback) {
 	const transporter = nodemailer.createTransport({
 		host: process.env.SMTP_HOST,

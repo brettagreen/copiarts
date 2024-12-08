@@ -1,4 +1,11 @@
 "use strict";
+/**
+ * @typedef {Object} comment - returned comment/feedback object 
+ * @property {string} name 
+ * @property {string} email
+ * @property {string} comment
+ *
+*/
 
 /**
  * db module
@@ -6,15 +13,29 @@
  */
 const db = require("../db");
 
-const { NotFoundError, BadRequestError } = require("../expressError");
+const { NotFoundError } = require("../expressError");
 
+/**
+ * @module /backend/models/comment
+ * @requires module:/backend/db
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * @class
+ * @classdesc database CRUD operations related to comments table.
+ * 			  Specifically, posting and retrieving comments/feedback
+ */
 class Comment {
 
     /**
      * return all comments
-     *
+     * @throws {NotFoundError}
+	 * @returns {Object[comment]} - [{ name, email, comment }, ...]
      */
     static async fetchComments() {
+		/**
+		 * all comments/feedback objects from database
+		 * @type {object[]}
+		 */
         const result = await db.getClient().query(
             `SELECT nameFirst + ' ' nameLast AS "name", email, comment
             FROM comments`);
@@ -24,6 +45,15 @@ class Comment {
         return result.rows;
     }
 
+	/**
+     * @description post new feedback item to database
+	 * 
+     * @param {string} nameFirst - feedback leaver's first name
+     * @param {string} nameLast - feedback leaver's last name
+     * @param {string} email - feedback leaver's email address
+     * @param {string} comment - the feedback
+     * @returns {comment} - { name, email, comment }
+     */
 	static async postComment({nameFirst, nameLast, email, comment}) {
 		const result = await db.getClient().query(
 			`INSERT INTO comments
@@ -32,7 +62,7 @@ class Comment {
 			email,
 			comment)
 			VALUES ($1, $2, $3, $4)
-			RETURNING namefirst AS "nameFirst", namelast AS "nameLast", email, comment`,
+			RETURNING nameFirst + ' ' nameLast AS "name", email, comment`,
 			[nameFirst, nameLast, email, comment]
 		)
 

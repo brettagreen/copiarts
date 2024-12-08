@@ -1,7 +1,40 @@
+/**
+ * @typedef {Object} event - calendar event object 
+ * @property {number} event_id 
+ * @property {number=} group_id
+ * @property {string} title
+ * @property {Date} start
+ * @property {Date} end
+ * @property {string} location
+ * @property {string} host
+ * @property {string} description
+ * @property {string=} period
+ * 
+*/
+
+/**
+ * @module /backend/routes/events
+ * @requires module:express
+ * @requires module:express.router
+ * @requires moodule:node.fs
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * @description handles post, get, and delete requests as pertinent to the frontend Calendar.jsx application/component
+ * 
+ */
 const express = require("express");
 const router = express.Router();
 const fs = require("node:fs");
 
+/**
+ * @description handles request to retrieve all calendar events, pulls all
+ * events from /backend/api/calendar/CalendarEvents.json
+ * @name get/events
+ * @function
+ * @param {string} path - /events
+ * @param {callback} middleware - Express middleware.
+ * @returns {object[event]} - { savedEvents: [{event_id, group_id, title, start, end, location, host, description, period}, ...] }
+ */
 router.get("/", async function(req, res, next) {
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
@@ -12,8 +45,15 @@ router.get("/", async function(req, res, next) {
     }
 });
 
+/**
+ * @description handles request to post new calendar event. save to /backend/api/calendar/CalendarEvents.json
+ * @name post/events
+ * @function
+ * @param {string} path - /events
+ * @param {callback} middleware - Express middleware.
+ * @returns {string} - 'successfully saved event'
+ */
 router.post('/', async function(req, res, next) {
-    console.log('req.body', req.body)
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
         const jsonFile = JSON.parse(file);
@@ -29,6 +69,14 @@ router.post('/', async function(req, res, next) {
     }
 })
 
+/**
+ * @description handles request to delete calendar event. save to /backend/api/calendar/CalendarEvents.json
+ * @name delete/events
+ * @function
+ * @param {string} path - /events
+ * @param {callback} middleware - Express middleware.
+ * @returns {object[event]} - { filteredEvents: [{event_id, group_id, title, start, end, location, host, description, period}, ...] }
+ */
 router.delete('/', async function(req, res, next) {
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
