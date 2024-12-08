@@ -3,3 +3,11 @@
 	background-color: rgb(250, 245, 245, .1);
 	width: 60vw;
 }
+
+#calendar {
+	width: 60vw;
+}
+
+#eventForm {
+	padding: 1rem;
+}

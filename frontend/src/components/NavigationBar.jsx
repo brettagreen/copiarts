@@ -9,11 +9,11 @@ import '../css/NavigationBar.css'
 function NavigationBar() {
 
     return (
-        <Box sx={{fontFamily: 'Roboto', marginBottom: '10em'}}>
+        <Box id="navbox">
             <ThemeProvider theme={toolbarMenuTheme}>
-                <MuiAppBar position="fixed" sx={{backgroundColor: 'rgba(0,0,0,.85)', width: '100%'}}>
+                <MuiAppBar id="navappbar" position="fixed">
                     <Toolbar>
-                        <div style={{width: '100%'}}>
+                        <div id="navtoolbar">
                             <Link href='/' underline='hover'>
                                 <img src={`/images/cornucopia.png`} width={250} height={100} alt="cornucopia logo" title="Home"/>
                             </Link>
@@ -27,7 +27,7 @@ function NavigationBar() {
                                 Newsletters/Media
                             </Link>
                             <Link href='/additional-information' underline='hover'>
-                                Membership/Peer Support/Contact Us
+                                Membership/Peer Support
                             </Link>
                         </div>
                         <div>

@@ -18,3 +18,46 @@
 	font-size: larger !important;
 	background-color: rgb(250, 245, 245, .1);
 }
+
+#headermission {
+	width: 80vw;
+	margin-left: 10vw;
+}
+
+#homeimages {
+	margin-top: 4.4em;
+}
+
+#homecalendar {
+	float: left;
+	clear: both;
+	margin-top: 1em;
+}
+
+#homesection {
+	margin-left: .5em;
+	margin-right: .5em;
+}
+
+#homearrow {
+	float: left;
+	min-width: 15vw;
+}
+
+#homearrow > img {
+	position: relative;
+	top: 50px;
+}
+
+.HomesectionOne {
+	float: left;
+	min-width: 40vw;
+}
+
+.HomesectionOne > iframe {
+	border: 0;
+}
+
+#sectiononeheight {
+	min-height: 315px;
+}

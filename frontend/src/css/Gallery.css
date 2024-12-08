@@ -1,3 +1,17 @@
 #daGrid {
     border-radius: 2.5px;
 }
+
+.GalleryModal {
+    overflow-y: auto;
+}
+
+.GalleryImageHolder {
+    height: calc(90%);
+    width: calc(100%);
+}
+
+.GalleryImage {
+    height: calc(100%);
+    width: calc(100%);
+}

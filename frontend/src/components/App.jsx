@@ -5,6 +5,7 @@ import NavigationBar from './NavigationBar';
 import { useState } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
+import '../css/App.css';
 
 function App() {
 
@@ -12,12 +13,12 @@ function App() {
 
 	return (
 		<UserContext.Provider value={{admin, setAdmin}}>
-			<div className="App" style={{minHeight: '100vh', position: 'relative', background: 'linear-gradient(90deg, rgba(98, 18, 130, .85), rgba(15, 107, 29, .85) 50%, rgba(227, 174, 100, .85))'}}>
+			<div className="App">
 				<BrowserRouter>
-					<Box className="SiteBox" component="main" sx={{overflow: 'hidden', minHeight: '100vh', paddingBottom: 'calc(10%)'}}>
-						<NavigationBar sx={{minHeight: 'calc(20%)'}}/>
+					<Box className="SiteBox" component="main">
+						<NavigationBar className="NavBar"/>
 						<CopiartsRoutes />
-						<Footer sx={{minHeight: 'calc(10%)'}}/>
+						<Footer className="Footer"/>
 					</Box>
 				</BrowserRouter>
 			</div>

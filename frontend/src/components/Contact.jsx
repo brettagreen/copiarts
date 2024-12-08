@@ -101,44 +101,43 @@ function Contact() {
             <div className="PageHeader">
                 <FeedbackIcon size="large" /> <h2>We'd love to hear from you!</h2> <FeedbackIcon />
             </div>
-            {alert ? alert : null}
+            {alert && alert}
             <ThemeProvider theme={formTheme}>
-                <div className="BackdropWrapper" style={{minWidth: '66vw', minHeight: '50vh'}}>
+                <div className="BackdropWrapper">
                     <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear} style={{margin: '1em'}}> 
                         <FormControl margin="normal" sx={{width: '66%'}}>
 
                             <TextField type="text" required={true} label="first name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
                             />
-                            {showNameFirstError ? 
+                            {showNameFirstError && 
                                 <FormHelperText error={true}>Please provide a first name</FormHelperText>
-                            : null}
+                            }
 
 							<TextField type="text" required={true} label="last name" name="nameLast" value={form.nameLast} onChange={handleChange}
                             />
-                            {showNameLastError ? 
+                            {showNameLastError && 
                                 <FormHelperText error={true}>Please provide a last name</FormHelperText>
-                            : null}
+                            }
 
                             <TextField type="email" required={true} label="email" name="email" value={form.email} onChange={handleChange}
                             />
-                            {showEmailError ? 
+                            {showEmailError && 
                                 <FormHelperText error={true}>A real email address is required.</FormHelperText>
-                            : null}
+                            }
 
                             <ThemeProvider theme={textareaTheme}>
                                 <TextField type="textarea" required={true} label="what's on your mind?" name="comment"
                                           value={form.comment} multiline minRows={5} onChange={handleChange}
                                 />
                             </ThemeProvider>
-                            <FormHelperText className={charCount >= 900?'':"HiddenField"}>
+                            <FormHelperText className={charCount >= 900 ? '' : "HiddenField"}>
                                 {1000 - charCount} characters left
                             </FormHelperText>
-                            {showCommentError ? 
+                            {showCommentError &&
                                 <FormHelperText error={true}>Please provide your feedback.</FormHelperText>
-                            :null}
+                            }
 
-                            <Button type="submit" variant="outlined" sx={{ maxWidth: '10em', backgroundColor: '#f3f2f2', color: '#171515', fontSize: '.6em',
-                                    borderColor: '#171515', marginTop: '2em', fontVariant: 'small-caps'}}>Submit</Button>
+                            <Button className="ContactSubmit" type="submit" variant="outlined">Submit</Button>
                         </FormControl>
                     </form>
                 </div>

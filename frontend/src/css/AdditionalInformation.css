@@ -1,0 +1,8 @@
+#additionalText {
+	width: 60%;
+	margin-left: .5em;
+}
+
+#additionalText > p {
+	text-align: left;
+}

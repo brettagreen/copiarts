@@ -1,0 +1,8 @@
+#aboutText {
+	width: 60%;
+	margin-left: .5em;
+}
+
+#aboutText > p {
+	text-align: left;
+}

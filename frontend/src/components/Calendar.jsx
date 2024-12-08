@@ -144,7 +144,7 @@ import '../css/Calendar.css'
 		return (
 			<form>
 				<ThemeProvider theme={eventFormTheme}>
-					<div style={{ padding: "1rem" }}>
+					<div id="eventForm">
 						<LocalizationProvider dateAdapter={AdapterDayjs}>
 							<DateTimePicker
 								label="Start"
@@ -193,7 +193,7 @@ import '../css/Calendar.css'
 							{checkbox}
 						</FormControl>
 
-						{state.repeat || state.period ?
+						{state.repeat || state.period &&
 							<FormControl sx={{m: 1, minWidth: 200}}>
 							<InputLabel id="select-input">Weekly or Monthly?</InputLabel>
 								<Select component="select" name="type" value={state.period}
@@ -205,7 +205,7 @@ import '../css/Calendar.css'
 									<MenuItem key="month" value="monthly">Monthly</MenuItem>
 								</Select>
 							</FormControl>
-						: null}
+						}
 
 					</div>
 				</ThemeProvider>
@@ -256,7 +256,6 @@ function Calendar() {
 		console.log("handleEventClick");
 
 		if (event.group_id) {
-			console.log("getting here", event.group_id);
 			groupId.current = event.group_id
 		} else {
 			groupId.current = null;
@@ -282,30 +281,25 @@ function Calendar() {
 
 	useEffect(() => {
 
-		async function processDelete() {
-			if (groupId.current && deleteOption === "all") {
-				setTimeout(async () => {
-					await CopiartsApi.deleteEvents({"group_id": groupId.current});
-					groupId.current = null;
-					deleteId.current = null;
-					loadEvents();
-				}, 1500);
-
-			} else {
-				setTimeout(async () => {
-					await CopiartsApi.deleteEvents({"event_id": deleteId.current});
-					groupId.current = null;
-					deleteId.current = null;
-					loadEvents();
-				}, 1500);
-			}
+		async function processDelete(arg) {
+			//if (groupId.current && deleteOption === "all") {
+			setTimeout(async () => {
+				await CopiartsApi.deleteEvents(arg);
+				groupId.current = null;
+				deleteId.current = null;
+				loadEvents();
+			}, 1500);
 
 			document.getElementsByClassName("css-s22wio")[0].remove();
 
 		}
 
 		if (postInitialLoad.current) {
-			processDelete();
+			if (groupId.current && deleteOption === "all") {
+				processDelete({"group_id": groupId.current});
+			} else {
+				processDelete({"event_id": deleteId.current});
+			}
 		} else {
 			postInitialLoad.current = true;
 		}
@@ -350,7 +344,7 @@ function Calendar() {
 		loadEvents();
 	} else {
 		return(
-			<div style={{width: '60vw'}}> 
+			<div id="calendar"> 
 				<h2 className="calendarHead">Check out our event calendar</h2>
 				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
 					agenda={false} onDelete={deleteEvent} week={{weekStartOn:0, startHour:11, endHour:19, navigation:true}}
@@ -360,13 +354,13 @@ function Calendar() {
 							<div>
 								<p>{event.start + ' - ' + event.end}</p>
 								<p>Location: {event.location || "2 South Ingersoll Madison, Wi 53703"}</p>
-								{event.host ? <p>Host: {event.host}</p> : null}
+								{event.host && <p>Host: {event.host}</p>}
 								<p>Description: {event.description || null}</p>
 							</div>
 						);
 					}}
 				/>
-				{modal ? <DeleteOptions /> : null}
+				{modal && <DeleteOptions />}
 			</div>
 		);
 	}

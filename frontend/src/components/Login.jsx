@@ -7,6 +7,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CopiartsApi from '../api';
 import { formTheme } from '../css/styles';
 import UserContext from '../userContext';
+import '../css/Login.css';
 
 function Login() {
 
@@ -50,11 +51,11 @@ function Login() {
     }
 
     useEffect(() => {
-        function x() {
+        function goToCalendar() {
             redirect('/admin/calendar');
         }
         if (success) {
-            x();
+            goToCalendar();
         }
     })
 
@@ -65,20 +66,17 @@ function Login() {
             </div>
 
             <ThemeProvider theme={formTheme}>
-                <div className="BackdropWrapper" style={{marginBottom:'3vh'}}>
+                <div id="loginformwrapper">
                     <form id="loginForm" autoComplete="off" encType="multipart/form-data" onSubmit={submitAndClear}> 
                         <FormControl margin="normal">
                             <TextField type={show1?"text":"password"} label="password" name="password" value={form.password} onChange={handleChange}
                                         InputProps={pwIcon1} />
-                            <Button type="submit" variant="outlined" sx={{ maxWidth: '10em', backgroundColor: '#f3f2f2',
-                                    color: '#171515', fontSize: '.6em', borderColor: '#171515', marginTop: '2em',
-                                    fontVariant: 'small-caps'}}
-                            >Submit</Button>
+                            <Button id="loginbutton" type="submit" variant="outlined">Submit</Button>
                         </FormControl>
                     </form>
                 </div>
             </ThemeProvider>
-            {error ? <h1>{error} please try again.</h1> : null}
+            {error && <h1>{error} please try again.</h1>}
         </>
     )
 
