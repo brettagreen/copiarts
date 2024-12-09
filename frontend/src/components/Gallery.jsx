@@ -1,3 +1,12 @@
+/**
+ * @typedef {Object} photo - gallery photo object 
+ * @property {string} media_url
+ * @property {string} caption
+ * @property {string} permalink
+ * @property {string} timestamp
+ * 
+*/
+
 import CopiartsApi from '../api';
 import { useEffect, useState } from 'react';
 import { galleryTheme } from '../css/styles';
@@ -9,11 +18,53 @@ import Box from '@mui/material/Box';
 import { ThemeProvider } from '@emotion/react';
 import '../css/Gallery.css';
 
+/**
+ * @component /frontend/src/components/Gallery
+ * @requires module:mui/frontend/src/api
+ * @requires module:react.useEffect
+ * @requires module:react.useState
+ * @requires module:/frontend/src/css/styles/galleryTheme
+ * @requires module:mui/material/Grid
+ * @requires module:mui/material/Modal
+ * @requires module:mui/material/Link
+ * @requires module:mui/material/Button
+ * @requires module:mui/material/Box
+ * @requires module:emotion/react/ThemeProvider
+ * @description Gallery component. shows images as pulled from copiarts instagram acct in an aesthetically pleasing manner.
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} images structurally displayed vis-a-vis the MUI Grid component.
+ *
+ */
 function Gallery() {
 
+	/**
+	 * @typedef {controlPhotos} - useState hook. first name field error? and set such state
+	 * @property {[photo]} photos - collection of gallery photo objects
+	 * @property {function} setPhotos - set gallery photos
+	 * 
+	 */
+    /**
+     * @type {controlPhotos}
+     */
 	const [photos, setPhotos] = useState(null);
+
+	/**
+	 * @typedef {controlModal} - useState hook. determine whether modal is shown or not
+	 * @property {<Modal?} modal - modal of gallery image
+	 * @property {function} setModal - set whether modal is shown or not
+	 * 
+	 */
+    /**
+     * @type {controlModal}
+     */
 	const [modal, setModal] = useState(null);
 
+	/**
+	 * @const
+	 * style/css object for use with modal window
+	 */
 	const modalStyle = {
 		position: 'absolute',
 		top: '50%',
@@ -26,9 +77,13 @@ function Gallery() {
 	};
 
     useEffect(() => {
+        /**
+         * fetches photos from backend api
+         * @async
+         * @returns {[photo]}
+         */
         async function fetchPhotos() {
 			const photoArray = await CopiartsApi.get('photos');
-			console.log('photo array', photoArray);
 			setPhotos(photoArray);
         }
 
@@ -71,8 +126,6 @@ function Gallery() {
 				</Grid>
 			</>
 		)
-	} else {
-		return null;
 	}
 
 }

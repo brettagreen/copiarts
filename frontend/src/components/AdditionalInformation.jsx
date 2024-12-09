@@ -1,5 +1,15 @@
 import '../css/AdditionalInformation.css'
 
+/**
+ * @component /frontend/src/components/AdditionalInformation
+
+ * @description AdditionalInformation component. info on membership, peer support, and Community Agreement text
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} - text document, some of it formatted
+ *
+ */
 function AdditionalInformation() {
 
 	return(

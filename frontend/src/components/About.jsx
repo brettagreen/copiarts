@@ -1,6 +1,17 @@
 import '../css/About.css'
 import Link from '@mui/material/Link';
 
+/**
+ * @component /frontend/src/components/About
+ * @requires module:mui/material/Link
+ * 
+ * @description About component. mostly text, some of it formatted. Talks about history of Cornucopia.
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} - formatted text going over Cornucopia and its history.
+ *
+ */
 function About() {
 
 	return (

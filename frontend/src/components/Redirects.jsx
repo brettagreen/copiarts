@@ -18,7 +18,7 @@ function Error() {
 
     /**
      * the useNavigate object allows for programmatic site navigation.
-     * @see https://reactrouter.com/en/6.22.3/hooks/use-navigate
+     * @see https://reactrouter.com/6.22.3/hooks/use-navigate
      * @type {Object}
      */
     const history = useNavigate();

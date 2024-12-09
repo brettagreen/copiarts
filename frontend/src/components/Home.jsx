@@ -1,10 +1,29 @@
 import '../css/Home.css'
 import Calendar from './Calendar';
 
+/**
+ * @component /frontend/src/components/Home
+ * @requires module:/frontend/src/components/Calendar
+ * @description Home page business! displays event calendar with some other images and information
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} returns home page
+ *
+ */
 function Home() {
 
+	/**
+	 * @const
+	 * google maps api key
+	 */
 	const API_KEY = import.meta.env.VITE_MAPS_API_KEY;
 
+	/**
+	 * makes event location string google maps friendly
+	 * @function
+	 * @returns {string} - (google maps api friendly) parsed location
+	 */
 	function parseLocation(location = "2 S Ingersoll St, Madison, Wi 53704") {
 		const segments = location.split(',');
 		let parsedLocation = '';

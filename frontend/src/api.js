@@ -1,3 +1,17 @@
+/**
+ * @typedef {Object} event - calendar event object 
+ * @property {number} event_id 
+ * @property {number=} group_id
+ * @property {string} title
+ * @property {Date} start
+ * @property {Date} end
+ * @property {string} location
+ * @property {string} host
+ * @property {string} description
+ * @property {string=} period
+ * 
+*/
+
 import axios from "axios";
 
 /**
@@ -19,6 +33,12 @@ const BASE_URL = import.meta.env.VITE_COPIARTS_BASE_URL;
  */
 class CopiartsApi {
 
+    /**
+     * turn form's json{} object into FormData() object.
+     * this is required for form's that pass file objects
+     * @param {Object} form 
+     * @returns {FormData}
+     */
     static formData(form) {
         const formData = new FormData();
         const formEntries = Object.entries(form);
@@ -30,6 +50,16 @@ class CopiartsApi {
         return formData;
     }
 
+    /**
+     * pass auth token in the header. initiate axios http request
+     * @function
+     * @name request
+     * @param {string} endpoint - full url
+     * @param {Object={}} data - key/value object
+     * @param {string=get} method - http method: get, post, delete, patch...
+     * @throws {Error} error object related to whatever the backend error was
+     * @returns {Object} data returned from backend
+     */
     static async request(endpoint, data = {}, method = "get") {
         /**
          * base_url value + endpoint
@@ -59,7 +89,7 @@ class CopiartsApi {
     //*** ALL ROUTES ***//
 
     /**
-     * get request
+     * generic get request
      * @function
      * @name get
      * @param {string} route - full url. base + endpoint
@@ -69,18 +99,46 @@ class CopiartsApi {
         return await this.request(`${route}`);
     }
 
+    /**
+     * post feedback form data to db
+     * @function
+     * @name postComment
+     * @param {Object} form feedback form data
+     * @returns {Array} success msg and regurgitation of feedback form data.
+     */
     static async postComment(form) {
         return await this.request('comments', form, 'post');
     }
 
+    /**
+     * authenticate admin password. return boolean
+     * @function
+     * @name loginAdmin
+     * @param {Object} form feedback form data
+     * @returns {boolean} successful login (or not)
+     */
     static async loginAdmin(form) {
         return await this.request('admin', form, 'post');
     }
 
+    /**
+     * post/save calendar events to /backend/api/calendar/calendarEvents.json
+     * @function
+     * @name saveEvents
+     * @param {Object[event]} array of json objects of calendar events
+     * @returns {Object} data returned from backend
+     */
     static async saveEvents(events) {
         return await this.request('events', events, 'post');
     }
 
+    /**
+     * remove calendar event from /backend/api/calendar/calendarEvents.json
+     * @function
+     * @name deleteEvents
+     * @param {number} eventId id of event in question
+     * @returns {Object[event]} data returned from backend. all events MINUS the deleted event.
+     */    
     static async deleteEvents(eventId) {
         return await this.request('events', eventId, 'delete');
     }

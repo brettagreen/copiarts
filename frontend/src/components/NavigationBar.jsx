@@ -6,6 +6,21 @@ import { ThemeProvider } from '@mui/material/styles';
 import { toolbarMenuTheme } from '../css/styles';
 import '../css/NavigationBar.css'
 
+/**
+ * @component /frontend/src/components/NavigationBar
+ * @requires module:mui/material/Box
+ * @requires module:mui/material/AppBar
+ * @requires module:mui/material/Toolbar
+ * @requires module:mui/material/Link
+ * @requires module:mui/material/styles/ThemeProvider
+ * @requires module:/frontend/src/css/styles/toolbarMenuTheme
+ * @description Navbar component. This goes on top. fixed
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} navbar
+ *
+ */
 function NavigationBar() {
 
     return (
