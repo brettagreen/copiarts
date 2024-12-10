@@ -350,8 +350,8 @@ function Calendar() {
 		edit = true;
 		del = true;
 	} else {
-		edit = true;
-		del = true;
+		edit = false;
+		del = false;
 	}
 
 	/**

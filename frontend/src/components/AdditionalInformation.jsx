@@ -1,7 +1,9 @@
+import Link from '@mui/material/Link';
 import '../css/AdditionalInformation.css'
 
 /**
  * @component /frontend/src/components/AdditionalInformation
+ * @requires module:mui/material/Link
 
  * @description AdditionalInformation component. info on membership, peer support, and Community Agreement text
  * @author Brett A. Green <brettalangreen@proton.me>
@@ -75,4 +77,4 @@ function AdditionalInformation() {
 
 }
 
-export default AdditionalInformation
+export default AdditionalInformation;
