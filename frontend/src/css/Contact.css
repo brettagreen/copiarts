@@ -2,9 +2,8 @@
 	display: inline-block;
 }
 
-.BackdropWrapper {
-	min-width: 66vw;
-	min-height: 50vh;
+ .BackdropWrapper > form{
+	margin: 1em;
 }
 
 .ContactSubmit {
@@ -15,4 +14,14 @@
 	border-color: #171515;
 	margin-top: 2em; 
 	font-variant: small-caps;
+}
+
+#contactform {
+	float: left;
+	width: 38%;
+	margin-right: 1em;
+}
+
+#contactformwidth {
+	width: 80%;
 }

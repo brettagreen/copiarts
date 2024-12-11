@@ -42,7 +42,7 @@ function NavigationBar() {
                                 Newsletters/Media
                             </Link>
                             <Link href='/additional-information' underline='hover'>
-                                Membership/Peer Support
+                                Membership/Peer Support/Contact Us
                             </Link>
                         </div>
                         <div>

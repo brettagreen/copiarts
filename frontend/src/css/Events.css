@@ -4,5 +4,24 @@
 	font-size: larger !important;
 	width: 35vw;
 	text-align: left;
-	margin-left: 2em;
+	/*margin-left: 2em;*/
+}
+
+#eventsmap {
+	border: 0;
+	height: 10vw;
+}
+
+#eventsdescription {
+	margin-right: 1em;
+}
+
+.EventItem > div {
+	float: left;
+}
+
+#aboutevents {
+	float: left;
+	width: 38%;
+	margin-right: 1em;
 }

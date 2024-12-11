@@ -22,6 +22,11 @@ const express = require("express");
 const router = express.Router();
 const Comment = require("../models/comment");
 const nodemailer = require("nodemailer");
+// /**
+//  * new article schema def
+//  * @const
+//  */
+// const newCommentSchema = require("../schemas/commentNew.json");
 
 /**
  * @description handles request to retrieve all feedback, sends req to
@@ -53,7 +58,6 @@ router.get("/", async function(req, res, next) {
 router.post("/", async function(req, res, next) {
 	try {
 		const feedback = await Comment.postComment(req.body);
-		console.log("FEEDBACK", feedback);
 		mailIt(feedback);
 		return res.json({"msg": "thank you for your feedback!", "feedback": feedback.comment});
 	} catch (err) {

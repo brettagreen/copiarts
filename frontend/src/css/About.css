@@ -1,8 +1,15 @@
 #aboutText {
-	width: 60%;
-	margin-left: .5em;
+	width: 58%;
+	margin-left: 1em;
+	font-weight: 700;
+	float: left;
 }
 
 #aboutText > p {
 	text-align: left;
+	text-indent: 50px;
+}
+
+#aboutText > h3 {
+	background-color: rgb(250, 245, 245, .1);
 }

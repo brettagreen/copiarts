@@ -1,8 +1,27 @@
 #additionalText {
-	width: 60%;
-	margin-left: .5em;
+	width: 58%;
+	margin-left: 1em;
+	font-weight: 700;
+	float: left;
 }
 
 #additionalText > p {
 	text-align: left;
+}
+
+#additionalText > p {
+	text-align: left;
+}
+
+li {
+	list-style-type: none;
+	font-style: italic;
+}
+
+#additionalText h2, h3 {
+	background-color: rgb(250, 245, 245, .1);
+}
+
+#principleslist > li {
+	font-size: large
 }

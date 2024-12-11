@@ -150,14 +150,15 @@ function Contact() {
             setShowNameFirstError(false);
         }
 
-		if (form.nameLast.length <= 2) { 
+        //not a required field
+		if (form.nameLast.length > 0 && form.nameLast.length <= 2) { 
             setShowNameLastError(true);
 			error = true;
         } else {
             setShowNameLastError(false);
         }
 
-        if (!(/[a-zA-Z\d]*@[a-zA-Z\d]*\.[A-Za-z]{2,3}/.test(form.email) || form.email.length >= 6)) {
+        if (!(/[a-zA-Z\d]*@[a-zA-Z\d]*\.[A-Za-z]{2,3}/).test(form.email) || form.email.length <= 5) {
             setShowEmailError(true);
             error = true;
         } else {
@@ -172,7 +173,7 @@ function Contact() {
         }
 
         if (!error) {
-            const commentForm = await CopiartsApi.postComment(form);
+            await CopiartsApi.postComment(form);
             setAlert(
                 <Alert severity="success">
                     <AlertTitle>Success</AlertTitle>
@@ -216,13 +217,15 @@ function Contact() {
     return(
         <>
             <div className="PageHeader">
-                <FeedbackIcon size="large" /> <h2>We'd love to hear from you!</h2> <FeedbackIcon />
+                <FeedbackIcon size="medium" /> <h3>We'd love to hear from you!</h3> <FeedbackIcon />
+                <br />
+                <caption>* indicates required field</caption>
             </div>
             {alert && alert}
             <ThemeProvider theme={formTheme}>
                 <div className="BackdropWrapper">
-                    <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear} style={{margin: '1em'}}> 
-                        <FormControl margin="normal" sx={{width: '66%'}}>
+                    <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear}> 
+                        <FormControl id="contactformwidth" margin="normal">
 
                             <TextField type="text" required={true} label="first name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
                             />
@@ -230,13 +233,13 @@ function Contact() {
                                 <FormHelperText error={true}>Please provide a first name</FormHelperText>
                             }
 
-							<TextField type="text" required={true} label="last name" name="nameLast" value={form.nameLast} onChange={handleChange}
+							<TextField type="text" required={false} label="last name" name="nameLast" value={form.nameLast} onChange={handleChange}
                             />
                             {showNameLastError && 
                                 <FormHelperText error={true}>Please provide a last name</FormHelperText>
                             }
 
-                            <TextField type="email" required={true} label="email" name="email" value={form.email} onChange={handleChange}
+                            <TextField inputProps={{type: "email"}} required={true} label="email" name="email" value={form.email} onChange={handleChange}
                             />
                             {showEmailError && 
                                 <FormHelperText error={true}>A real email address is required.</FormHelperText>

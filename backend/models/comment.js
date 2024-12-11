@@ -49,22 +49,35 @@ class Comment {
      * @description post new feedback item to database
 	 * 
      * @param {string} nameFirst - feedback leaver's first name
-     * @param {string} nameLast - feedback leaver's last name
+     * @param {string=} nameLast - feedback leaver's last name
      * @param {string} email - feedback leaver's email address
      * @param {string} comment - the feedback
      * @returns {comment} - { name, email, comment }
      */
 	static async postComment({nameFirst, nameLast, email, comment}) {
-		const result = await db.getClient().query(
-			`INSERT INTO comments
-			(namefirst,
-			namelast,
-			email,
-			comment)
-			VALUES ($1, $2, $3, $4)
-			RETURNING nameFirst + ' ' nameLast AS "name", email, comment`,
-			[nameFirst, nameLast, email, comment]
-		)
+		let result;
+		if (nameLast) {
+			result = await db.getClient().query(
+				`INSERT INTO comments
+				(namefirst,
+				namelast,
+				email,
+				comment)
+				VALUES ($1, $2, $3, $4)
+				RETURNING CONCAT(namefirst, ' ', namelast) AS "name", email, comment`,
+				[nameFirst, nameLast, email, comment]
+			)
+		} else {
+			result = await db.getClient().query(
+				`INSERT INTO comments
+				(namefirst,
+				email,
+				comment)
+				VALUES ($1, $2, $3)
+				RETURNING namefirst AS "name", email, comment`,
+				[nameFirst, email, comment]
+			)
+		}
 
 		return result.rows[0];
 	}

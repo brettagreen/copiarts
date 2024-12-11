@@ -24,7 +24,7 @@ function Footer() {
             </div>
 
             <div className="column" id="columnTwo">
-                <Link sx={{display: 'block'}} href="/contact" underline='always' color="#f3f2f2">Contact Us</Link>
+                <Link sx={{display: 'block'}} href="/additional-information" underline='always' color="#f3f2f2">Contact Us</Link>
             </div>
 
             <div className="column">

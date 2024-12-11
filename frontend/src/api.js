@@ -74,6 +74,7 @@ class CopiartsApi {
         const params = (method === "get") ? data : {};
 
         try {
+            console.log('ladies and gentlefolk, your API request!');
             console.log('url', url)
             console.log('method', method);
             console.log('data', data);

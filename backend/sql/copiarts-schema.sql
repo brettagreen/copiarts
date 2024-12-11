@@ -11,9 +11,10 @@ CREATE TABLE people (
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   nameFirst VARCHAR(30) NOT NULL,
-  nameLast VARCHAR(30) NOT NULL,
+  nameLast VARCHAR(30),
   email TEXT NOT NULL CHECK (position('@' IN email) > 1),
-  comment TEXT NOT NULL CONSTRAINT comment_length CHECK (char_length(comment) <= 1000)
+  comment TEXT NOT NULL CONSTRAINT comment_length CHECK (char_length(comment) <= 1000),
+  entry_time timestamp default CURRENT_TIMESTAMP NOT NULL
 );
 
 CREATE TABLE admin (
