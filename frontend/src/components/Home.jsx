@@ -1,9 +1,12 @@
-import '../css/Home.css'
+import '../css/Home.css';
+import '../css/Events.css';
 import Calendar from './Calendar';
+import Events from './Events';
 
 /**
  * @component /frontend/src/components/Home
  * @requires module:/frontend/src/components/Calendar
+ * @requires module:/frontend/src/components/Events
  * @description Home page business! displays event calendar with some other images and information
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
@@ -65,21 +68,12 @@ function Home() {
 				<div id="homecalendar">
 					<Calendar />
 				</div>
-
-				<div id="homeimages">
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
-					<img src="https://picsum.photos/200" alt="homepage image" />
+				<div id="homeevents">
+					<h2 className="CalendarEventsHead">Events this week</h2>
+					<Events />
 				</div>
-
 			</section>
-
 		</>
-
 	)
 }
 

@@ -46,6 +46,41 @@ router.get("/", async function(req, res, next) {
 });
 
 /**
+ * @description handles request to retrieve all within current week, pulls all
+ * events from /backend/api/calendar/CalendarEvents.json
+ * @name get/events/weekly
+ * @function
+ * @param {string} path - /events/weekly
+ * @param {callback} middleware - Express middleware.
+ * @returns {Object[event]} - { weeklyEvents: [{event_id, group_id, title, start, end, location, host, description, period}, ...] }
+ */
+router.get("/weekly", async function(req, res, next) {
+    try {
+        const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
+        const allEvents = JSON.parse(file);
+
+        let today = new Date();
+        let midnight = today.toISOString().split('T')[0] + 'T00:00:00.000Z';
+        today = new Date(midnight);
+
+        const beginningOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
+        const endOfWeek = new Date(today.setDate(today.getDate() + (7 - today.getDay())));
+
+        console.log('beginning', beginningOfWeek);
+        console.log('end', endOfWeek);
+
+        const weeklyEvents = allEvents.filter((event) => {
+            return new Date(event.start) >= beginningOfWeek && new Date(event.start) <= endOfWeek;
+        });
+
+        console.log('backend, weekly events', weeklyEvents);
+        return res.send(weeklyEvents);
+    } catch (err) {
+        return next(err);
+    }
+});
+
+/**
  * @description handles request to post new calendar event. save to /backend/api/calendar/CalendarEvents.json
  * @name post/events
  * @function

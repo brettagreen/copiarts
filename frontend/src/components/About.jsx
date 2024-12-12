@@ -1,12 +1,10 @@
 import '../css/About.css';
 import '../css/Events.css';
 import Link from '@mui/material/Link';
-import Events from './Events';
 
 /**
  * @component /frontend/src/components/About
  * @requires module:mui/material/Link
- * @requires module:/frontend/src/components/Events
  * 
  * @description About component. mostly text, some of it formatted. Talks about history of Cornucopia.
  * @author Brett A. Green <brettalangreen@proton.me>
@@ -35,48 +33,54 @@ function About() {
 					clients themselves.  
 				</p>
 
-				<h3>Our History</h3>
+				<h3>Our history and purpose</h3>
 				<p>
 					Cornucopia was incorporated in 1996 as a non-profit organization. Our slogan is:
 				</p>
 				<blockquote>
-					“a place to lead, a place to learn,a place to believe in ourselves.”
+					“a place to lead, a place to learn, a place to believe in ourselves.”
 				</blockquote> 
 				<p>
 					Our founders include: Donna Murdoch, Kathleen King,
-					Mary Moran and other peers. Cornucopia began one evening when the author of the book
+					Mary Moran and other peers. One evening, the author of
 					&nbsp;
 					<Link href="https://www.goodreads.com/book/show/68783.Girl_Interrupted" target="_blank" underline="always" color="#f3f2f2">Girl Interrupted</Link>
 					&nbsp;
-					was doing a reading at a local Borders Book Store. At the same time, Donna was at the bookstore with Kathleen.
-					While at the store, Donna said to Kathleen <q>I want to introduce you to someone who has the same dream as you
-					do—to establish a center
-					in Madison for people with psychiatric challenges run by consumers.</q> That’s when Donna met Mary Moran.
-					From there, Donna, Kathleen, Mary and other peers put their ideas into practice.
+					was doing a reading at a local Borders bookstore. Donna and Kathleen were in attendance.
+					Donna said to Kathleen <q>I want to introduce you to someone who has the same dream as you
+					do: to establish a center
+					in Madison for people with psychiatric challenges run by consumers.</q> That’s when Kathleen met Mary Moran.
+					From there, Donna, Kathleen, Mary and other peers began putting their ideas into practice.
 				</p>
 				<p>
 					The Peers started the center within MCVideo, with a focus on the arts.
-					As time went by, several of them began to talk about how they could expand Cornucopia.
+					Soon enough, there were discussions about how they could expand Cornucopia.
 					Their idea was to make it into a much bigger organization with a larger space for artwork.
-					The Peers began to feel they wanted to run their own organization. About ten of them met
+					The Peers felt they wanted to run their own organization. About ten of them met
 					and started to brainstorm about how the new organization could become an activities center.
 					They met three times before deciding they would incorporate on their own and apply for a grant.
 				</p>
 				<p>
-					During the summer of 1996, the peers met at the University of Wisconsin-Madison Union Terrace to write Cornucopia's mission.
-					It was very difficult to find a place for the organization to rent. Their money was very limited.
-					In addition, there was always stigma.
+					During the summer of 1996, the peers met at the University of Wisconsin-Madison Union Terrace to write Cornucopia's
+					mission statement. Despite challenges - difficulty finding a place for the organization to rent, limited finances, and 
+					the stigma around mental illness - they succeeded in getting Cornucopia up and running.
 				</p>
 				<p>	
-					The whole idea of the organization was that people outside of Community Support Programs lack support
+					Cornucopia is founded on the idea that people outside of Community Support Programs can lack support
 					and have a lot of time on their hands. It’s hard to recover when one is isolated and doesn't spend any time
-					in purposeful activity.
-					Cornucopia provides social engagement and purpose through the arts and wellness.
+					in purposeful activity. Cornucopia provides social engagement and purpose through the arts and wellness.
 				</p>
 			</section>
-			<section id="aboutevents">
-				<Events />
+			<section id="aboutimages">
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/200" alt="homepage image" />
 			</section>
+			 
 		</>
 	)
 }

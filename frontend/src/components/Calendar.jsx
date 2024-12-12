@@ -350,8 +350,8 @@ function Calendar() {
 		edit = true;
 		del = true;
 	} else {
-		edit = false;
-		del = false;
+		edit = true;
+		del = true;
 	}
 
 	/**
@@ -579,7 +579,7 @@ function Calendar() {
 	} else {
 		return(
 			<div id="calendar"> 
-				<h2 className="calendarHead">Check out our event calendar</h2>
+				<h2 className="CalendarEventsHead">Check out our event calendar</h2>
 				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
 					agenda={false} onDelete={deleteEvent} week={{weekStartOn:0, startHour:11, endHour:19, navigation:true}}
 					onEventEdit={editEvent} onEventClick={handleEventClick} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}

@@ -123,6 +123,16 @@ class CopiartsApi {
     }
 
     /**
+     * retrieve all events for the given week from /backend/api/calendar/calendarEvents.json
+     * @function
+     * @name getWeeklyEvents
+     * @returns {Object[event]} data returned from backend
+     */
+    static async getWeeklyEvents() {
+        return await this.request('events/weekly');
+    } 
+
+    /**
      * post/save calendar events to /backend/api/calendar/calendarEvents.json
      * @function
      * @name saveEvents

@@ -421,5 +421,23 @@
 		"host": "ranger ric",
 		"description": "crusty phenomenon",
 		"period": "weekly"
+	},
+	{
+		"event_id": 0.23046568856127547,
+		"title": "Test event",
+		"start": "2024-12-10T19:00:00.000Z",
+		"end": "2024-12-10T20:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "your mom",
+		"description": "your mom goes to college lol"
+	},
+	{
+		"event_id": 0.7080848881685076,
+		"title": "pre-christmas extravaganza",
+		"start": "2024-12-12T21:00:00.000Z",
+		"end": "2024-12-12T22:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "santa claus",
+		"description": "deck the halls with boughs of holly"
 	}
 ]

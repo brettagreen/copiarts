@@ -4,7 +4,7 @@ import '../css/Events.css'
 
 function Events() {
 
-	const [events, setEvents] = useState(null);
+	const [events, setEvents] = useState([]);
 
 	/**
 	 * @const
@@ -15,16 +15,20 @@ function Events() {
 	let dateStart;
 	let dateEnd;
 
+	const fullDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const DEFAULT_ADDRESS = "2 South Ingersoll Madison Wi 53704";
+
     useEffect(() => {
         async function fetchEvents() {
-			const calEvents = await CopiartsApi.get('events');
-			setEvents(calEvents);
+			const weeklyEvents = await CopiartsApi.getWeeklyEvents();
+			console.log('weekly events', weeklyEvents);
+			setEvents(weeklyEvents);
         }
 
         fetchEvents();
     }, []);
 
-	function parseLocation(location = "2 S Ingersoll St, Madison, Wi 53704") {
+	function parseLocation(location) {
 		const segments = location.split(',');
 		let parsedLocation = '';
 		segments.forEach((val) => {
@@ -34,7 +38,7 @@ function Events() {
 	}
 
 	return(
-		events && events.slice(0,3).map((event, idx) => {
+		events.length !== 0 ? events.map((event, idx) => {
 			dateStart = new Date(event.start);
 			dateEnd = new Date(event.end);
 			return (
@@ -42,20 +46,22 @@ function Events() {
 					<div className="EventItem">
 						<div key={idx}>
 							<h2 key={"summary"+idx}>{event.title}</h2>
-							<h3 key={"time"+idx}>Time: {dateStart.toLocaleDateString()} @ {dateStart.toLocaleTimeString()}
-								- {dateEnd.toLocaleDateString()} @ {dateEnd.toLocaleTimeString()}</h3>
+							<h3 key={"time"+idx}>{fullDay[dateStart.getDay()] + ' ' + dateStart.toLocaleDateString()}
+								{dateStart.toLocaleTimeString()} - {dateEnd.toLocaleTimeString()}</h3>
 							{event.host && <h3 key={"host"+idx}>Host: {event.host}</h3>}
 							{/* {event.host === 'unknown unknown' ? null : <img key={"icon"+idx} src={`/icons/${event.icon}`} width={250} height={250} alt="host icon"/>} */}
 							<h4 key={"description"+idx} id="eventsdescription">{event.description}</h4>
-							<h3 key={"location"+idx}>Location: 2 S Ingersoll St, Madison, Wi 53704</h3>
-							<iframe key={"map"+idx} id="eventsmap"
-							 	loading="lazy" src={`https://www.google.com/maps/embed/v1/place?q=${parseLocation()}&key=${API_KEY}`}>
-							</iframe>
+							<h3 key={"location"+idx}>{event.location}</h3>
+							{event.location !== DEFAULT_ADDRESS &&
+								<iframe key={"map"+idx} id="eventsmap"
+									loading="lazy" src={`https://www.google.com/maps/embed/v1/place?q=${parseLocation(event.location)}&key=${API_KEY}`}>
+								</iframe>
+							}
 						</div>
 					</div>
 				</>
 			)
-		})
+		}) : <><h2>no events this week</h2></>
 	)
 
 }
