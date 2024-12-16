@@ -43,15 +43,16 @@ function Events() {
 			dateEnd = new Date(event.end);
 			return (
 				<>
+				{idx === 0 && <h2 id="eventshead">Events this week</h2>}
 					<div className="EventItem">
 						<div key={idx}>
-							<h2 key={"summary"+idx}>{event.title}</h2>
-							<h3 key={"time"+idx}>{fullDay[dateStart.getDay()] + ' ' + dateStart.toLocaleDateString()}
-								{dateStart.toLocaleTimeString()} - {dateEnd.toLocaleTimeString()}</h3>
-							{event.host && <h3 key={"host"+idx}>Host: {event.host}</h3>}
+							<h1 className="EventTitle" key={"summary"+idx}>{event.title}</h1>
+							<h2 className="EventTime" key={"time"+idx}>{fullDay[dateStart.getDay()] + ' ' + dateStart.toLocaleDateString()+' '}
+								{dateStart.toLocaleTimeString()} - {dateEnd.toLocaleTimeString()}</h2>
+							{event.host && <h2 className="EventHost" key={"host"+idx}>Host: {event.host}</h2>}
 							{/* {event.host === 'unknown unknown' ? null : <img key={"icon"+idx} src={`/icons/${event.icon}`} width={250} height={250} alt="host icon"/>} */}
-							<h4 key={"description"+idx} id="eventsdescription">{event.description}</h4>
-							<h3 key={"location"+idx}>{event.location}</h3>
+							<h2 className="EventDescription" key={"description"+idx} id="eventsdescription">{event.description}</h2>
+							<h2 className="EventLocation" key={"location"+idx}>{event.location}</h2>
 							{event.location !== DEFAULT_ADDRESS &&
 								<iframe key={"map"+idx} id="eventsmap"
 									loading="lazy" src={`https://www.google.com/maps/embed/v1/place?q=${parseLocation(event.location)}&key=${API_KEY}`}>

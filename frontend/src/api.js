@@ -130,14 +130,26 @@ class CopiartsApi {
      */
     static async getWeeklyEvents() {
         return await this.request('events/weekly');
+    }
+
+    /**
+     * update existing calendar event(s) to /backend/api/calendar/calendarEvents.json
+     * @function
+     * @name updateEvents
+     * @param {Object[event]} array of json objects of calendar events
+     * @returns {Object[event]} updated event info returned from backend
+     */
+    static async updateEvents(events) {
+        console.log("api events", events);
+        return await this.request('events/update', events, 'post');
     } 
 
     /**
-     * post/save calendar events to /backend/api/calendar/calendarEvents.json
+     * post/save new calendar events to /backend/api/calendar/calendarEvents.json
      * @function
      * @name saveEvents
      * @param {Object[event]} array of json objects of calendar events
-     * @returns {Object} data returned from backend
+     * @returns {Object[event]} data returned from backend
      */
     static async saveEvents(events) {
         return await this.request('events', events, 'post');

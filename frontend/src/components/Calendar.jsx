@@ -86,7 +86,7 @@ let topEnd;
  * @returns {JSX.Element} updated Calendar reflecting underlying delete or commit actions (removed/added events)
  *
  */
-const CustomEditor = ({ scheduler }) => {
+const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
 	const event = scheduler.edited;
 
 	/**
@@ -108,7 +108,8 @@ const CustomEditor = ({ scheduler }) => {
 			host: event?.host || "",
 			description: event?.description || "",
 			repeat: event?.period || false,
-			period: event?.period || ""
+			period: event?.period || "",
+			edit: event?.edit || false
 		}
 	);
 
@@ -185,8 +186,8 @@ const CustomEditor = ({ scheduler }) => {
 				 */
 				uploadEvents.push(
 					{
-						event_id: Math.random(),
-						group_id: groupId,
+						event_id: edit ? event.event_id : Math.random(),
+						group_id: edit ? event.group_id : groupId,
 						title: state.title,
 						start: dateStart,
 						end: ruleEndTimes[index],
@@ -200,7 +201,7 @@ const CustomEditor = ({ scheduler }) => {
 		} else {
 			uploadEvents = [
 				{
-					event_id: Math.random(),
+					event_id: edit ? event.event_id : Math.random(),
 					title: state.title,
 					start: start,
 					end: end,
@@ -219,14 +220,24 @@ const CustomEditor = ({ scheduler }) => {
 		try {
 			scheduler.loading(true);
 	
-			const added_updated_event = (await new Promise((res) => {
+			const saveToBackend = (await new Promise((res) => {
 				setTimeout(async () => {
+					if (edit) {
+						await CopiartsApi.updateEvents(uploadEvents);
+					} else {
+						await CopiartsApi.saveEvents(uploadEvents);
+					}
+					for (let up of uploadEvents) {
+						up.start = new Date(up.start);
+						up.end = new Date(up.end);
+					}
 					res(uploadEvents);
-					await CopiartsApi.saveEvents(uploadEvents);
+					setEdit(false);
+					loadEvents();
 				}, 1500);
-			}))
-	
-		scheduler.onConfirm(added_updated_event, event ? "edit" : "create");
+			}));
+			
+		scheduler.onConfirm(saveToBackend, edit ? "edit" : "create");
 
 		scheduler.close();
 		} finally {
@@ -290,11 +301,14 @@ const CustomEditor = ({ scheduler }) => {
 						onChange={(e) => handleChange(e.target.value, "description")}
 						fullWidth
 					/>
-					<FormControl>
-						{checkbox}
-					</FormControl>
 
-					{state.repeat || state.period &&
+					{!edit &&
+						<FormControl>
+							{checkbox}
+						</FormControl>
+					}
+
+					{((state.repeat || state.period) && !edit) &&
 						<FormControl sx={{m: 1, minWidth: 200}}>
 						<InputLabel id="select-input">Weekly or Monthly?</InputLabel>
 							<Select component="select" name="type" value={state.period}
@@ -337,7 +351,7 @@ const CustomEditor = ({ scheduler }) => {
  *
  */
 function Calendar() {
-	let edit;
+	let editable;
 	let del;
 
     /**
@@ -347,10 +361,10 @@ function Calendar() {
      */
 	const location = useLocation();
 	if ((location.pathname).includes('admin')) {
-		edit = true;
+		editable = true;
 		del = true;
 	} else {
-		edit = true;
+		editable = true;
 		del = true;
 	}
 
@@ -375,6 +389,8 @@ function Calendar() {
      * @type {Object}
      */
 	const deleteId = useRef(null);
+	
+	const [edit, setEdit] = useState(false);
 
 	/**
      * @typedef {Object} controlEvents - useState hook.
@@ -455,9 +471,10 @@ function Calendar() {
      * @returns {undefined}
      */
 	const editEvent = async (event) => {
+		console.log('no problems')
 		event.start = dayjs(event.start);
 		event.end = dayjs(event.end);
-		event.edit = true;
+		setEdit(true);
 	}
 
     /**
@@ -580,9 +597,10 @@ function Calendar() {
 		return(
 			<div id="calendar"> 
 				<h2 className="CalendarEventsHead">Check out our event calendar</h2>
-				<Scheduler view="week" editable={edit} deletable={del} events={events} onCellClick={handleCellClick}
+				<Scheduler view="week" editable={editable} deletable={del} events={events} onCellClick={handleCellClick}
 					agenda={false} onDelete={deleteEvent} week={{weekStartOn:0, startHour:11, endHour:19, navigation:true}}
-					onEventEdit={editEvent} onEventClick={handleEventClick} customEditor={(scheduler) => <CustomEditor scheduler={scheduler} />}
+					onEventEdit={editEvent} onEventClick={handleEventClick} customEditor={(scheduler) => <CustomEditor edit={edit}
+					setEdit={setEdit} loadEvents={loadEvents} scheduler={scheduler} />}
 					viewerExtraComponent={(fields, event) => {
 						return(
 							<div>

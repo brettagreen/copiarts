@@ -69,7 +69,6 @@ function Home() {
 					<Calendar />
 				</div>
 				<div id="homeevents">
-					<h2 className="CalendarEventsHead">Events this week</h2>
 					<Events />
 				</div>
 			</section>

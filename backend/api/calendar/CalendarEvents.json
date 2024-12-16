@@ -439,5 +439,14 @@
 		"location": "2 South Ingersoll Madison Wi 53704",
 		"host": "santa claus",
 		"description": "deck the halls with boughs of holly"
+	},
+	{
+		"event_id": 0.4952829701948738,
+		"title": "extreme golfing???",
+		"start": "2024-12-18T20:00:00.000Z",
+		"end": "2024-12-18T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "Grover",
+		"description": "golf...with no clubs!"
 	}
 ]

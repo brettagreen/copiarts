@@ -102,7 +102,48 @@ router.post('/', async function(req, res, next) {
     } catch (err) {
         return next(err);
     }
-})
+});
+
+/**
+ * @description handles request to post new calendar event. save to /backend/api/calendar/CalendarEvents.json
+ * @name post/events/update
+ * @function
+ * @param {string} path - /events/update
+ * @param {callback} middleware - Express middleware.
+ * @returns {string} - 'successfully saved event'
+ */
+router.post('/update', async function(req, res, next) {
+    const updates = req.body;
+    const filterType = updates[0].group_id ? "groupId" : "eventId";
+    const filterId = updates[0].group_id || updates[0].event_id;
+    let filteredEvents;
+    
+    try {
+        const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
+        const jsonFile = JSON.parse(file);
+
+        if (filterType === "groupId") {
+            filteredEvents = jsonFile.filter((event) => {
+                return event.group_id !== filterId;
+            });
+        } else {
+            filteredEvents = jsonFile.filter((event) => {
+                return event.event_id !== filterId;
+            });
+        }
+
+        for (let update of updates) {
+            filteredEvents.push(update);
+        }
+        
+        const saveFile = JSON.stringify(filteredEvents, null, "\t");
+        fs.writeFileSync('./api/calendar/CalendarEvents.json', saveFile, 'utf-8')
+        return res.send('successfully updated event(s)');
+        
+    } catch (err) {
+        return next(err);
+    }
+});
 
 /**
  * @description handles request to delete calendar event. save to /backend/api/calendar/CalendarEvents.json

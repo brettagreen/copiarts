@@ -97,7 +97,7 @@ function Gallery() {
 					aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
 					<Box style={modalStyle}>
 						<div className="GalleryImageHolder">
-							<img className="GalleryImage" key={"img2"+photo.media_url} src={photo.media_url} alt="modal image" /><br />
+							<img className="GalleryModalImage" key={"img2"+photo.media_url} src={photo.media_url} alt="modal image" /><br />
 							<Link key={"instalink"+photo.permalink} href={photo.permalink} target="_blank">View on Instagram app</Link>
 						</div>
 					</Box>
@@ -115,7 +115,8 @@ function Gallery() {
 								<>
 									<Grid key={"grid"+idx} item xs={1} sm={1} md={1}>
 										<Button key={"button"+idx} onClick={() => {showModal(photo)}}>
-											<img key={"img"+idx} src={photo.media_url} loading="lazy" height={250} width={250} alt="insta image" />
+											<img key={"img"+idx} className="InstaImage" src={photo.media_url} loading="lazy" height={250}
+												width={250} alt="insta image" />
 										</Button>
 										<figcaption key={"caption"+idx}>{photo.caption}</figcaption>
 									</Grid>
