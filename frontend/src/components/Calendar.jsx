@@ -364,8 +364,8 @@ function Calendar() {
 		editable = true;
 		del = true;
 	} else {
-		editable = true;
-		del = true;
+		editable = false;
+		del = false;
 	}
 
 	/**
