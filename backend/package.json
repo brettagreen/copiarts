@@ -19,6 +19,7 @@
 	"author": "Brett A. Green",
 	"license": "ISC",
 	"dependencies": {
+		"@eslint/js": "^9.11.1",
 		"@mui/toolpad": "^0.1.51",
 		"axios": "^1.7.7",
 		"bcrypt": "^5.0.0",
@@ -26,6 +27,7 @@
 		"cors": "^2.8.5",
 		"dayjs": "^1.11.13",
 		"dotenv": "^8.6.0",
+		"eslint": "^9.11.1",
 		"express": "^4.17.1",
 		"helmet": "^7.0.0",
 		"jimp": "^0.22.10",
@@ -35,10 +37,8 @@
 		"multer": "^1.4.5-lts.1",
 		"nodemailer": "^6.9.16",
 		"package.json": "^2.0.1",
-		"pg": "^8.13.0",
-		"validator": "^13.11.0",
-		"eslint": "^9.11.1",
-		"@eslint/js": "^9.11.1"
+		"pg": "^8.13.1",
+		"validator": "^13.11.0"
 	},
 	"devDependencies": {
 		"supertest": "^5.0.0-0"
