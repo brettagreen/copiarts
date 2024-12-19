@@ -12,6 +12,6 @@
 	padding: 1rem;
 }
 
-.rs__header p {
+.rs__header p span {
 	color: #1976d2;
 }
