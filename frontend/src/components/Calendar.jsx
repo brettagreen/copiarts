@@ -471,7 +471,6 @@ function Calendar() {
      * @returns {undefined}
      */
 	const editEvent = async (event) => {
-		console.log('no problems')
 		event.start = dayjs(event.start);
 		event.end = dayjs(event.end);
 		setEdit(true);
