@@ -26,7 +26,7 @@ function NavigationBar() {
     return (
         <Box id="navbox">
             <ThemeProvider theme={toolbarMenuTheme}>
-                <MuiAppBar id="navappbar" position="fixed">
+                <MuiAppBar id="navappbar">
                     <Toolbar>
                         <div id="navtoolbar">
                             <Link href='/' underline='hover'>
@@ -38,9 +38,9 @@ function NavigationBar() {
                             <Link href='/gallery' underline='hover'>
                                 Gallery
                             </Link>
-                            <Link href='/media' underline='hover'>
+                            {/* <Link href='/media' underline='hover'>
                                 Newsletters/Media
-                            </Link>
+                            </Link> */}
                             <Link href='/additional-information' underline='hover'>
                                 Membership/Peer Support/Contact Us
                             </Link>

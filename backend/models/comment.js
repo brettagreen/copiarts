@@ -81,6 +81,50 @@ class Comment {
 
 		return result.rows[0];
 	}
+
+	/**
+     * @description post new survey results to database
+	 * 
+     * @param {string} nameFirst - survey first name
+     * @param {string=} nameLast - survey last name
+     * @param {string} email - survey email address
+     * @param {string[]} colorScheme - website color scheme selection(s) 
+	 * @param {string[]} fontScheme - website font scheme selection(s)
+	 * @param {string} singlePage - single-page website preference
+	 * @param {string} favorite - favorite part(s) about site
+	 * @param {string} leastFavorite - least favorite part(s) about site
+	 * @param {string} other - any additional comments
+     * @returns {undefined}
+     */
+	static async postSurvey({nameFirst, nameLast, email, colors, fonts, singlePage, favorite, leastFavorite, other}) {
+		console.log('nameFirst', nameFirst);
+		console.log('nameLast', nameLast);
+		console.log('email', email);
+		console.log('colors', colors);
+		console.log('fonts', fonts);
+		console.log('singlePage', singlePage);
+		console.log('favorite', favorite);
+		console.log('leastFavorite', leastFavorite);
+		console.log('other', other);
+
+		const result = await db.getClient().query(
+			`INSERT INTO survey
+			(name_first,
+			name_last,
+			email,
+			color_scheme,
+			font_scheme,
+			single_page,
+			favorite,
+			least_favorite,
+			other)
+			VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+			RETURNING CONCAT(name_first, ' ', name_last) AS "name", email`,
+			[nameFirst, nameLast, email, colors, fonts, singlePage, favorite, leastFavorite, other]
+		)
+
+		return result.rows[0];
+	}
 }
 
 module.exports = Comment;

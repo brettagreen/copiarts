@@ -5,6 +5,7 @@ import NavigationBar from './NavigationBar';
 import { useState } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
+import FeaturesTest from './FeaturesTest';
 import '../css/App.css';
 
 /**
@@ -36,11 +37,12 @@ function App() {
 
 	return (
 		<UserContext.Provider value={{admin, setAdmin}}>
-			<div className="App">
+			<div id="app">
 				<BrowserRouter>
 					<Box className="SiteBox" component="main">
 						<NavigationBar className="NavBar"/>
-						<CopiartsRoutes />
+						<CopiartsRoutes singlePage={false}/>
+						<FeaturesTest checked={false} />
 						<Footer className="Footer"/>
 					</Box>
 				</BrowserRouter>

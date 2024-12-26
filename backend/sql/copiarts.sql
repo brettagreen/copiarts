@@ -26,3 +26,10 @@ CREATE DATABASE copiarts_testing
 
 \i copiarts-schema.sql
 -- \i copiarts-seed.sql
+
+-- \connect copiarts
+-- \i survey.sql
+
+-- \connect copiarts_test
+-- \i survey.sql
+

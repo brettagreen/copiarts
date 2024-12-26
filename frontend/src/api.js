@@ -112,6 +112,17 @@ class CopiartsApi {
     }
 
     /**
+     * post survey form data to db
+     * @function
+     * @name postSurvey
+     * @param {Object} form survey form data
+     * @returns {Array} success msg and regurgitation of survey form data.
+     */
+    static async postSurvey(form) {
+        return await this.request('comments/survey', form, 'post');
+    }
+
+    /**
      * authenticate admin password. return boolean
      * @function
      * @name loginAdmin

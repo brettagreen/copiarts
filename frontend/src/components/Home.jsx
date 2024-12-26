@@ -14,7 +14,7 @@ import Events from './Events';
  * @returns {JSX.Element} returns home page
  *
  */
-function Home() {
+function Home({ singlePage }) {
 
 	/**
 	 * @const
@@ -37,10 +37,10 @@ function Home() {
 	}
 
 	return (
-		<>
+		<div id="homeid">
 			<div className="headerfooter">
 				<h3>Open Monday through Friday 12:00-5:00. Daily open studio, music and food</h3>
-
+				<h3></h3>
 				<h3 id="headermission">
 					Mission: Cornucopia is an arts and wellness center run
 					by and for people in mental health and substance use recovery.  
@@ -66,13 +66,13 @@ function Home() {
 					</div>
 				</div>
 				<div id="homecalendar">
-					<Calendar />
+					<Calendar singlePage={singlePage} />
 				</div>
 				<div id="homeevents">
 					<Events />
 				</div>
 			</section>
-		</>
+		</div>
 	)
 }
 
