@@ -350,7 +350,7 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
  * @returns {JSX.Element} customized Scheduler component
  *
  */
-function Calendar() {
+function Calendar({ singlePage }) {
 	let editable;
 	let del;
 
@@ -359,10 +359,16 @@ function Calendar() {
      * @see https://reactrouter.com/6.22.3/hooks/use-location
      * @type {Object}
      */
-	const location = useLocation();
-	if ((location.pathname).includes('admin')) {
-		editable = true;
-		del = true;
+
+	if (!singlePage) {
+		const location = useLocation();
+		if ((location.pathname).includes('admin')) {
+			editable = true;
+			del = true;
+		} else {
+			editable = false;
+			del = false;
+		}
 	} else {
 		editable = false;
 		del = false;

@@ -18,7 +18,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { ThemeProvider } from '@mui/material';
 import CopiartsApi from '../api';
 import { formTheme, textareaTheme } from '../css/styles';
-import '../css/Contact.css';
+import '../css/Form.css';
 
 /**
  * @component /frontend/src/components/Contact
@@ -195,20 +195,20 @@ function Contact() {
 	 */
     function handleChange(event) {
         if (event.target.name === 'nameFirst') {
-            if (form.nameFirst.length <= 30) {
+            if (event.target.value.length+1 <= 30) {
                 setForm({...form, [event.target.name]: event.target.value});
             }
 		} else if (event.target.name === 'nameLast') {
-			if (form.nameLast.length <= 30) {
+			if (event.target.value.length+1 <= 30) {
 				setForm({...form, [event.target.name]: event.target.value});
 			}
         } else if (event.target.name === 'comment') {
-            if (form.comment.length <= 1000) {
-                setCharCount(form.comment.length);
+            if (event.target.value.length+1 <= 1000) {
+                setCharCount(event.target.value.length+1);
                 setForm({...form, [event.target.name]: event.target.value});
             }
         } else {
-            if (form.email.length <= 50) {
+            if (event.target.value.length+1 <= 50) {
                 setForm({...form, [event.target.name]: event.target.value});
             }
         }
@@ -217,6 +217,7 @@ function Contact() {
     return(
         <>
             <div className="PageHeader">
+                
                 <FeedbackIcon size="medium" /> <h3>We'd love to hear from you!</h3> <FeedbackIcon />
                 <br />
                 <caption>* indicates required field</caption>
@@ -225,7 +226,7 @@ function Contact() {
             <ThemeProvider theme={formTheme}>
                 <div className="BackdropWrapper">
                     <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear}> 
-                        <FormControl id="contactformwidth" margin="normal">
+                        <FormControl id="formwidth" margin="normal">
 
                             <TextField type="text" required={true} label="first name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
                             />
@@ -256,8 +257,7 @@ function Contact() {
                             {showCommentError &&
                                 <FormHelperText error={true}>Please provide your feedback.</FormHelperText>
                             }
-
-                            <Button className="ContactSubmit" type="submit" variant="outlined">Submit</Button>
+                            <Button className="ContactSubmit" type="submit" variant="outlined" color="primary">Submit</Button>
                         </FormControl>
                     </form>
                 </div>

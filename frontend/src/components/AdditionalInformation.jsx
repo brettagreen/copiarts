@@ -1,7 +1,6 @@
 import Link from '@mui/material/Link';
 import Contact from './Contact'
 import '../css/AdditionalInformation.css'
-import '../css/Contact.css'
 
 /**
  * @component /frontend/src/components/AdditionalInformation
@@ -18,7 +17,7 @@ import '../css/Contact.css'
 function AdditionalInformation() {
 
 	return(
-		<>
+		<div id="informationid">
 			<section id="additionalText">
 						
 				<h2>INTERESTED IN JOINING US?</h2>
@@ -43,7 +42,7 @@ function AdditionalInformation() {
 				<p>
 					Our Mission: Cornucopia Inc. is an arts and wellness center run by and for people in mental health and substance
 					use recovery. We promote growth and dignity through self-directed recovery and peer support.
-					At Cornucopia we celebrate and value diversity, even while we explore the commonalities that we share. We know
+					At Cornucopia, we celebrate and value diversity, even while exploring the commonalities we share. We know
 					there is strength in our diversity, and together we all achieve more than we can alone. Cornucopia does not
 					discriminate against any protected class, and will provide reasonable accommodations to the known disabilities
 					of any member, if needed, to participate in a program.
@@ -52,9 +51,8 @@ function AdditionalInformation() {
 						<li><h3>Take care of yourself</h3></li>
 							<ul>
 								<li>
-									Know when you need assistance, and ask for it as clearly as you can Don’t be afraid to speak up for yourself
-									To be at Cornucopia, you must be independent in your basic needs: Cornucopia does not provide personal
-									attendants.
+									Know when you need assistance, and ask for it as clearly as you can. Don’t be afraid to speak up for yourself.
+									At Cornucopia, you must be independent in your basic needs. Cornucopia does not provide personal attendants.
 								</li>
 							</ul> 
 						<li><h3>Take care of each other</h3></li>
@@ -62,8 +60,8 @@ function AdditionalInformation() {
 								<li>
 									Give assistance, if asked, or direct requests to a host, volunteer, or other resources if you are
 									unable to help. Speak up for others if you see something wrong. Respect other people’s right to privacy and
-									confidentiality, including not doing anything to or with another person without their consent.
-									Any behavior that is disruptive or verbally, physically, or emotionally threatening or abusive to
+									confidentiality. Do not do anything to or with another person without their consent.
+									Any behavior that is disruptive or is verbally, physically, or emotionally threatening or abusive to
 									anyone will not be tolerated, and may result in being asked to leave.
 								</li>
 							</ul>
@@ -76,7 +74,7 @@ function AdditionalInformation() {
 							</ul>
 					</ul>
 
-					My signature shows I will do my part to maintain the Cornucopia community as a safe, clean, pleasant and supportive environment for all.
+					My signature shows I will do my part to maintain the Cornucopia community as a safe, clean, pleasant, and supportive environment.
 					I understand that a failure to abide by any of the principles in this agreement may be grounds for being asked to leave the
 					Cornucopia community.
 				</p>
@@ -84,7 +82,7 @@ function AdditionalInformation() {
 			<section id="contactform">
 				<Contact />
 			</section>
-		</>
+		</div>
 	)
 
 }

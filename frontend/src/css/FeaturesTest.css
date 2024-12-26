@@ -1,0 +1,137 @@
+.PanelGroups {
+	position: fixed;
+	background-color: rgba(0,0,0,.70);
+	width: 100vw;
+	bottom: .5em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	z-index: 10;
+	min-height: 15vh;
+}
+
+.PanelGroups > h4 {
+	color: white;
+}
+
+.HidePanelGroups {
+	position: fixed;
+	width: 100vw;
+	background-color: rgba(0,0,0,.50);
+	top: 95%;
+	z-index: 10;
+}
+
+.SelectionPanel {
+	display: inline-flex;
+	color: white;
+	position: absolute;
+	right: 4vw;
+}
+
+.PanelIcon {
+	color: white;
+	position: relative;
+	bottom: 10px;
+}
+
+.ButtonGroups {
+	padding-top: 1em;
+	margin-bottom: 2em;
+}
+
+#welcomemessage {
+	color: white;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	margin-top: 2em;
+}
+
+@font-face {
+    font-family: "Barlow";
+    src: url("../assets/fonts/Barlow-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Caudex";
+    src: url("../assets/fonts/Caudex-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Eudoxus";
+    src: url("../assets/fonts/EudoxusSans-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Forum";
+    src: url("../assets/fonts/Forum-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("../assets/fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "LilGrotesk";
+    src: url("../assets/fonts/LilGrotesk-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Eirene";
+    src: url("../assets/fonts/EireneSans-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Guminert";
+    src: url("../assets/fonts/Guminert.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "TypeUnion";
+    src: url("../assets/fonts/TypeUnion-PaloCompressedMedium.otf") format("opentype");
+}
+
+#barlow {
+	font-family: "Barlow";
+}
+
+#caudex {
+	font-family: "Caudex";
+}
+
+#eudoxus {
+	font-family: "Eudoxus";
+}
+
+#forum {
+	font-family: 'Forum';
+}
+
+#lato {
+	font-family: 'Lato';
+}
+
+#lilgrotesk {
+	font-family: 'LilGrotesk';
+}
+
+#poppins {
+	font-family: 'Poppins';
+}
+
+#eirene {
+	font-family: 'Eirene';
+}
+
+#guminert {
+	font-family: 'Guninert';
+}
+
+#typeunion {
+	font-family: 'TypeUnion';
+}

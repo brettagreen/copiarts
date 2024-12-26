@@ -66,6 +66,33 @@ router.post("/", async function(req, res, next) {
 });
 
 /**
+ * @description handles request to enter user survey response, sends req to
+ *  Comment class to handle the request, returns string confirmation or error
+ * @name post/comments/survey
+ * @function
+ * @param {string} path - /comments/survey
+ * @param {callback} middleware - Express middleware.
+ * @returns {object} - {msg: "thank you for your feedback"}
+ */
+router.post("/survey", async function(req, res, next) {
+
+	let colors = Object.keys((req.body).colorScheme).filter((key) => {return (req.body).colorScheme[key]});
+	colors = '{' + colors.toString() + '}';
+	req.body.colors = colors;
+
+	let fonts = Object.keys((req.body).fontScheme).filter((key) => {return (req.body).fontScheme[key]});
+	fonts = '{' + fonts.toString() + '}';
+	req.body.fonts = fonts;
+
+	try {
+		const result = await Comment.postSurvey(req.body);
+		return res.json({result});
+	} catch (err) {
+		return next(err);
+	}
+});
+
+/**
  * @function mailIt
  * @description emails/fwds feedback to specified email address
  * @param {object} feedback - feedback object (name, email, msg)

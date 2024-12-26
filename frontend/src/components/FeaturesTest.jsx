@@ -1,0 +1,212 @@
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import MinimizeIcon from '@mui/icons-material/Minimize';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import IconButton from '@mui/material/IconButton';
+import { useState, useRef, useEffect } from 'react';
+import { ThemeProvider } from '@mui/material';
+import { featuresTheme, toggleButtonsTheme } from '../css/styles';
+import App_SinglePage from './App_SinglePage';
+import App from './App';
+import Link from '@mui/material/Link';
+import { createRoot } from 'react-dom/client'
+
+import '../css/FeaturesTest.css';
+
+function FeaturesTest({ checked }) {
+	const [variant, setVariant] = useState('fonts');
+	const [showOptions, setShowOptions] = useState(true);
+	const [showFonts, setShowFonts] = useState(true);
+	const [showColors, setShowColors] = useState(false);
+
+	const fontButton = useRef();
+
+	function minimize() {
+		const element = document.getElementById('grabmyid');
+		element.classList.remove("PanelGroups");
+		element.classList.add('HidePanelGroups');
+		setShowOptions(false);
+	}
+
+	function expand() {
+		const element = document.getElementById('grabmyid');
+		element.classList.remove("HidePanelGroups");
+		element.classList.add('PanelGroups');
+		setShowOptions(true);
+	}
+
+	function toggle(e) {
+		if (e.target.value === "fonts") {
+			setShowFonts(true);
+			setShowColors(false);
+		} else {
+			setShowFonts(false);
+			setShowColors(true);
+		}
+		setVariant(e.target.value);
+	}
+
+	function setBackgroundColor(one, two, three, angle='90deg') {
+		const app = document.getElementById('app');
+
+		app.style.removeProperty('background');
+		if (three) {
+			app.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`);
+		} else {
+			app.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two})`);
+		}
+	}
+
+	function setFont(fontName) {
+		const app = document.getElementById('root');
+		
+		app.style.setProperty('font-family', fontName);
+	}
+
+	function adjustSinglePage() {
+
+		if (checked) {
+			createRoot(document.getElementById('root')).render(
+				<App />
+			)
+		} else {
+			createRoot(document.getElementById('root')).render(
+				<App_SinglePage />
+			)
+		}
+	}
+
+	useEffect(() => {
+		fontButton.current.focus();
+	}, []);
+
+	return (
+		<div id="grabmyid" className="PanelGroups">
+
+			{showOptions ? 
+				<div className="SelectionPanel">
+					<h5>hide</h5>
+					<IconButton onClick={minimize}>
+						<MinimizeIcon className="PanelIcon" fontSize='large' />
+					</IconButton>
+				</div>
+			  : <div className="SelectionPanel">
+					<h5>show</h5>
+					<IconButton onClick={expand}>
+						<KeyboardArrowUpIcon className="PanelIcon" fontSize='large' />
+					</IconButton>
+				</div>
+			}
+
+			<p id="welcomemessage">
+				Hey! Welcome to a beta-version of our new site! Try out the various color and font selections shown below. You can also switch between
+				a single-page website layout and a multi-page layout. When you're done looking around and expirmenting, please let us know what you think and
+				&nbsp;<Link href="/survey" target="_blank" underline='always'>take our survey!</Link>
+			</p>
+
+			<div className="ButtonGroups">
+				<ThemeProvider theme={toggleButtonsTheme}>
+					<ToggleButtonGroup value={variant} onChange={toggle}>
+						<ToggleButton ref={fontButton} value="fonts" variant="contained">show font options</ToggleButton>
+						&nbsp;&nbsp;
+						<ToggleButton value="colors" variant="contained">show color options</ToggleButton>
+					</ToggleButtonGroup>
+				</ThemeProvider>
+				&nbsp;&nbsp;
+				<FormControl>
+					<FormControlLabel 
+						control={<Checkbox checked={checked}
+										   value={checked}
+										   disableRipple={true}
+										   onChange={adjustSinglePage}/>}
+						label="single-page application"
+					/>
+				</FormControl>
+			</div>
+
+			{showColors &&
+				<div>
+					<h4>3-tone 90°</h4>
+					<ButtonGroup variant='contained'>
+						<Button sx={{background:'linear-gradient(90deg, #62128285, #0F6B1D85 50%, #E3AE6485)'}} 
+									onClick={() => setBackgroundColor('#62128285', '#0F6B1D85', '#E3AE6485')}
+						>purple/green/yellow</Button>
+
+						<Button sx={{background:'linear-gradient(90deg, #0000FF85, #FF000085 50%, #00800085)'}}
+									onClick={() => setBackgroundColor('#0000FF85', '#FF000085', '#00800085')}
+						>blue/red/green</Button>
+
+						<Button sx={{background:'linear-gradient(90deg, #D8125B85, #30046585 50%, #2C2E3985)'}}
+									onClick={() => setBackgroundColor('#D8125B85', '#30046585', '#2C2E3985')}>
+						fuscia/dark purple/gray</Button>
+
+						<Button sx={{background:'linear-gradient(90deg, #009B4D85, #FFCC0085 50%, #FAF5E985)'}}
+									onClick={() => setBackgroundColor('#009B4D85', '#FFCC0085', '#FAF5E985')}
+						>green/yellow/ivory</Button>
+
+						<Button sx={{background:'linear-gradient(90deg, #0A182885, #17858285 50%, #BFA18185)'}}
+									onClick={() => setBackgroundColor('#0A182885', '#17858285', '#BFA18185')}>
+						</Button>
+					</ButtonGroup>
+
+					<h4>2-tone 90°</h4>
+					<ButtonGroup variant='contained'>
+						<Button sx={{background:'linear-gradient(90deg, #F8F8F985, #11143985)'}}
+								onClick={() => setBackgroundColor('#F8F8F985', '#11143985')}>
+						lilac/dark blue</Button>
+
+						<Button sx={{background:'linear-gradient(90deg, #C5ADC585, #B2B5E085)'}}
+									onClick={() => setBackgroundColor('#C5ADC585', '#B2B5E085')}>
+						pastel purple/light blue</Button>
+						
+						<Button sx={{background:'linear-gradient(90deg, #F0F0F085, #E7473C85)'}}
+									onClick={() => setBackgroundColor('#F0F0F085', '#E7473C85')}>
+						white smoke/bright red</Button>
+					</ButtonGroup>
+
+					<h4>mixed-tone 45°</h4>
+					<ButtonGroup variant='contained'>
+						<Button sx={{background:'linear-gradient(45deg, #C5ADC585, #B2B5E085)'}}
+								onClick={() => setBackgroundColor('#C5ADC585', '#B2B5E085', '', '45deg')}>
+						pastel purple/light blue</Button>
+
+						<Button sx={{background:'linear-gradient(45deg, #0A182885, #17858285 50%, #BFA18185)'}}
+									onClick={() => setBackgroundColor('#0A182885', '#17858285', '#BFA18185', '45deg')}>
+						dark blue/turquoise/gold</Button>
+					</ButtonGroup>
+				</div>
+			}
+
+			{showFonts &&
+				<ThemeProvider theme={featuresTheme}>
+					<div onClick={(e) => setFont(e.target.name)}>
+						<ButtonGroup variant='contained'>
+							<Button id='barlow' name='barlow'>Barlow Font</Button>
+							<Button id='caudex' name='caudex'>Caudex Font</Button>
+							<Button id='eudoxus' name='eudoxus'>Eudoxus Font</Button>
+						</ButtonGroup>
+						<ButtonGroup variant='contained'>
+							<Button id='forum' name='forum'>Forum Font</Button>
+							<Button id='lato' name='lalo'>Lato Font</Button>
+							<Button id='lilgrotesk' name='lilgrotesk'>L'il Grotesk Font</Button>
+						</ButtonGroup>
+						<ButtonGroup variant='contained'>
+							<Button id='poppins' name='poppins'>Poppins Font</Button>
+							<Button id='eirene' name='eirene'>Eirene Font</Button>
+							<Button id='guminert' name='guminert'>Guminert Font</Button>
+							<Button id='typeunion' name='typeunion'>TypeUnion Font</Button>
+						</ButtonGroup>
+					</div>
+				</ThemeProvider>
+			}
+
+		</div>
+	)
+}
+
+export default FeaturesTest;

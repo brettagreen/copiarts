@@ -17,15 +17,26 @@ import createTheme from "@mui/material/styles/createTheme";
  * @returns {Theme} - various Theme objects
  */
 
+ const featuresTheme =
+ createTheme({
+	components: {
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					backgroundColor: '#131a15'
+				}
+			}
+		}
+	}
+ });
+ 
  const toolbarMenuTheme =
  createTheme({
 	 components: {
 		 MuiAppBar: {
 			 styleOverrides: {
 				 root: {
-					 color: '#621282', //violet
-					 width: '22vw',
-					 background: 'linear-gradient(90deg, rgba(98, 18, 130, .85), rgba(15, 107, 29, .85) 50%, rgba(227, 174, 100, .85))'
+					 background: 'inherit'
 				 }
 			 }
 		 },
@@ -75,6 +86,8 @@ const formTheme =
 					 marginTop: '.5em',
 					 marginBottom: '.8em',
 					 width: '100%',
+					 color: 'rgba(0, 0, 0, 0.87)',
+					 borderColor: 'rgba(0, 0, 0, 0.87)',
 					 '&.Mui-focused': {
 						 borderColor: "rgba(0,0,0,.9)"
 					 }
@@ -86,7 +99,9 @@ const formTheme =
 				 root: {
 					 '&.:after': {
 						 color: "rgba(0, 0, 0, 0.9)"
-					 }
+					 },
+					 fontWeight: 'bold',
+					 textAlign: 'left',
 				 }
 			 }
 		 },
@@ -110,6 +125,13 @@ const formTheme =
 					 marginBottom: '14px'
 				 }
 			 }
+		 },
+		 MuiTextField: {
+			styleOverrides: {
+				root: {
+					fontWeight: 'bold'
+				}
+			}
 		 }
 	 }
  });
@@ -130,7 +152,7 @@ const textareaTheme =
 	 }
  });
 
- const eventFormTheme =
+const eventFormTheme =
  createTheme({
 	 components: {
 		 MuiTextField: {
@@ -143,4 +165,23 @@ const textareaTheme =
 	 }
  });
 
-export {toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme};
+const toggleButtonsTheme =
+createTheme({
+	components: {
+		MuiToggleButton: {
+			styleOverrides: {
+				root: {
+					marginRight: '1em',
+					color: 'white',
+					backgroundColor: '#383b39',
+					'&.Mui-selected': {
+						color: 'inherit',
+						backgroundColor: 'inherit'
+					}
+				}
+			}
+		}
+	}
+});
+
+export {featuresTheme, toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme, toggleButtonsTheme};

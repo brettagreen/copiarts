@@ -5,6 +5,7 @@ import Gallery from "./Gallery";
 import Admin from "./Admin";
 import Login from "./Login";
 import AdditionalInformation from './AdditionalInformation';
+import Survey from './Survey';
 //import Contact from "./Contact";
 // import Redirects from "./Redirects";
 
@@ -33,21 +34,31 @@ import AdditionalInformation from './AdditionalInformation';
  * @example url path '/games' will render the Games component. '/heyiamapagethatdoesntexist/tacos!' will be sent to '/badrequest/noPage'
  * to be handled by the Redirects component.
  */
-function CopiartsRoutes() {
+function CopiartsRoutes({ singlePage }) {
 
-    return (
-        <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/about" element={<About />}/>
-            <Route path="/gallery" element={<Gallery />}/>
-            <Route path="/admin/login" element={<Login />}/>
-            <Route path="/admin/calendar" element={<Admin />}/>
-            <Route path="/additional-information" element={<AdditionalInformation />}/>
-            {/* <Route path="/contact" element={<Contact />}/> */}
-            {/* <Route path="/badrequest/:type" element={<Redirects />}/> */}
-            {/* <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/> */}
-        </Routes>
-    )
+    if (!singlePage) {
+        return (
+            <Routes>
+                <Route path="/" element={<Home singlePage={singlePage} />}/>
+                <Route path="/about" element={<About />}/>
+                <Route path="/gallery" element={<Gallery />}/>
+                <Route path="/admin/login" element={<Login />}/>
+                <Route path="/admin/calendar" element={<Admin />}/>
+                <Route path="/additional-information" element={<AdditionalInformation />}/>
+                <Route path="/survey" element={<Survey />}/>
+                {/* <Route path="/badrequest/:type" element={<Redirects />}/> */}
+                {/* <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/> */}
+            </Routes>
+        )
+    } else {
+        return (
+            <Routes>
+                <Route path="/admin/login" element={<Login />}/>
+                <Route path="/survey" element={<Survey singlePage={!singlePage} />}/>
+            </Routes>
+        )
+    }
+
 
 }
 

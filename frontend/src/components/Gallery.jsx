@@ -108,7 +108,7 @@ function Gallery() {
 
 	if (photos) {
 		return(
-			<>
+			<div id="galleryid">
 				<Grid id="daGrid" container rowSpacing={2} columnSpacing={{xs:2, sm:3, md:4}} columns={{xs:2, sm:3, md:4}}>
 					{photos.map((photo, idx) => {
 						return (
@@ -125,7 +125,7 @@ function Gallery() {
 							)
 					})}
 				</Grid>
-			</>
+			</div>
 		)
 	}
 

@@ -1,4 +1,4 @@
-.App {
+#app {
 	min-height: 100vh;
 	position: relative;
 	background: linear-gradient(90deg, rgba(98, 18, 130, .85), rgba(15, 107, 29, .85) 50%, rgba(227, 174, 100, .85));
