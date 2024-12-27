@@ -12,6 +12,10 @@
 	padding: 1rem;
 }
 
-.rs__header p, span {
+.rs__header p {
+	color: #1976d2;
+}
+
+.css-1sn4lm3-MuiTypography-root {
 	color: #1976d2;
 }

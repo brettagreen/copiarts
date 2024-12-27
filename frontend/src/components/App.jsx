@@ -6,6 +6,7 @@ import { useState } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
 import FeaturesTest from './FeaturesTest';
+import root from './main';
 import '../css/App.css';
 
 /**
@@ -36,7 +37,7 @@ function App() {
 	const [admin, setAdmin] = useState(false);
 
 	return (
-		<UserContext.Provider value={{admin, setAdmin}}>
+		<UserContext.Provider value={{admin, setAdmin, root}}>
 			<div id="app">
 				<BrowserRouter>
 					<Box className="SiteBox" component="main">

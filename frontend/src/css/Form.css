@@ -2,7 +2,11 @@
 	display: inline-block;
 }
 
- .BackdropWrapper > form {
+span {
+	color: white;
+}
+
+.BackdropWrapper > form {
 	margin: 1em;
 }
 
@@ -23,4 +27,8 @@
 
 #formwidth {
 	width: 80%;
+}
+
+#surveyformwidth {
+	width: 60%;
 }

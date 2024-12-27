@@ -218,11 +218,17 @@ function Contact() {
         <>
             <div className="PageHeader">
                 
-                <FeedbackIcon size="medium" /> <h3>We'd love to hear from you!</h3> <FeedbackIcon />
+                <FeedbackIcon size="medium" />
+                    <h3>We'd love to hear from you!</h3>
+                <FeedbackIcon />
                 <br />
-                <caption>* indicates required field</caption>
+                <span>
+                    * indicates required field
+                </span>
             </div>
+
             {alert && alert}
+
             <ThemeProvider theme={formTheme}>
                 <div className="BackdropWrapper">
                     <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear}> 

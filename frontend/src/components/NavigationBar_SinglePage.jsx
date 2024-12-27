@@ -41,7 +41,7 @@ function NavigationBar_SinglePage() {
                             {/* <Link href='/media' underline='hover'>
                                 Newsletters/Media
                             </Link> */}
-                            <Link href='#information' underline='hover'>
+                            <Link href='#informationid' underline='hover'>
                                 Membership/Peer Support/Contact Us
                             </Link>
                         </div>

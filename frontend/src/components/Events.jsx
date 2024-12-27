@@ -42,10 +42,10 @@ function Events() {
 			dateStart = new Date(event.start);
 			dateEnd = new Date(event.end);
 			return (
-				<>
+				<div key={event.title+idx}>
 				{idx === 0 && <h2 id="eventshead">Events this week</h2>}
 					<div className="EventItem">
-						<div key={idx}>
+						<div>
 							<h1 className="EventTitle" key={"summary"+idx}>{event.title}</h1>
 							<h2 className="EventTime" key={"time"+idx}>{fullDay[dateStart.getDay()] + ' ' + dateStart.toLocaleDateString()+' '}
 								{dateStart.toLocaleTimeString()} - {dateEnd.toLocaleTimeString()}</h2>
@@ -60,7 +60,7 @@ function Events() {
 							}
 						</div>
 					</div>
-				</>
+				</div>
 			)
 		}) : <><h2>no events this week</h2></>
 	)
