@@ -23,6 +23,7 @@
 #navappbar {
     width: 100%;
     position: fixed;
+    opacity: 1;
 }
 
 #navtoolbar {

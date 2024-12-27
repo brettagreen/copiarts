@@ -5,6 +5,7 @@ backend/api/calendar/CalendarEvents.json
 backend/.env
 frontend/.env
 screenshots/
+reserve_fonts/
 .vscode/
 backend/calendar/node_modules
 backend/calendar/package-lock.json

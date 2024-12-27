@@ -1,12 +1,15 @@
+@font-face {
+    font-family: "Annie";
+    src: url("../assets/fonts/AnnieUseYourTelescope-Regular.ttf") format("truetype");
+}
+
 .EventItem {
-	font-family: "InkFree";
+	/* font-family: "Annie"; */
 	font-variant: small-caps;
 	width: 36vw;
 	box-shadow: 0.3em 0.3em 1em 12px rgba(43, 43, 44, 0.4);
 	border-radius: 5px;
 	font-size: large;
-	/*text-align: left;
-	margin-left: 2em;*/
 }
 
 .EventTitle {

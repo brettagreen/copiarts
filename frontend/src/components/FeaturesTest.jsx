@@ -8,13 +8,13 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import IconButton from '@mui/material/IconButton';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { ThemeProvider } from '@mui/material';
 import { featuresTheme, toggleButtonsTheme } from '../css/styles';
 import App_SinglePage from './App_SinglePage';
 import App from './App';
 import Link from '@mui/material/Link';
-import { createRoot } from 'react-dom/client'
+import UserContext from '../userContext';
 
 import '../css/FeaturesTest.css';
 
@@ -25,6 +25,8 @@ function FeaturesTest({ checked }) {
 	const [showColors, setShowColors] = useState(false);
 
 	const fontButton = useRef();
+
+	const root = useContext(UserContext).root;
 
 	function minimize() {
 		const element = document.getElementById('grabmyid');
@@ -71,11 +73,11 @@ function FeaturesTest({ checked }) {
 	function adjustSinglePage() {
 
 		if (checked) {
-			createRoot(document.getElementById('root')).render(
+			root.render(
 				<App />
 			)
 		} else {
-			createRoot(document.getElementById('root')).render(
+			root.render(
 				<App_SinglePage />
 			)
 		}
@@ -90,14 +92,15 @@ function FeaturesTest({ checked }) {
 
 			{showOptions ? 
 				<div className="SelectionPanel">
-					<h5>hide</h5>
-					<IconButton onClick={minimize}>
+					<h5>hide</h5>&nbsp;
+					<IconButton disableRipple={true} disableTouchRipple={true} onClick={minimize}>
 						<MinimizeIcon className="PanelIcon" fontSize='large' />
 					</IconButton>
 				</div>
-			  : <div className="SelectionPanel">
-					<h5>show</h5>
-					<IconButton onClick={expand}>
+				:   
+				<div className="SelectionPanel">
+					<h5>show</h5>&nbsp;
+					<IconButton disableRipple={true} disableTouchRipple={true} onClick={expand}>
 						<KeyboardArrowUpIcon className="PanelIcon" fontSize='large' />
 					</IconButton>
 				</div>
@@ -187,19 +190,27 @@ function FeaturesTest({ checked }) {
 					<div onClick={(e) => setFont(e.target.name)}>
 						<ButtonGroup variant='contained'>
 							<Button id='barlow' name='barlow'>Barlow Font</Button>
-							<Button id='caudex' name='caudex'>Caudex Font</Button>
-							<Button id='eudoxus' name='eudoxus'>Eudoxus Font</Button>
-						</ButtonGroup>
-						<ButtonGroup variant='contained'>
 							<Button id='forum' name='forum'>Forum Font</Button>
-							<Button id='lato' name='lalo'>Lato Font</Button>
 							<Button id='lilgrotesk' name='lilgrotesk'>L'il Grotesk Font</Button>
 						</ButtonGroup>
 						<ButtonGroup variant='contained'>
-							<Button id='poppins' name='poppins'>Poppins Font</Button>
 							<Button id='eirene' name='eirene'>Eirene Font</Button>
 							<Button id='guminert' name='guminert'>Guminert Font</Button>
 							<Button id='typeunion' name='typeunion'>TypeUnion Font</Button>
+						</ButtonGroup>
+						<ButtonGroup variant='contained'>
+							<Button id='annie' name='annie'>Annie Font</Button>
+							<Button id='indieflower' name='indieflower'>Indie Flower Font</Button>
+							<Button id='komika' name='komika'>Komika Font</Button>
+						</ButtonGroup>
+						<ButtonGroup variant='contained'>
+							<Button id='compagnon' name='compagnon'>Compagnon Font</Button>
+							<Button id='quintessential' name='quintessential'>Quinessential Font</Button>
+							<Button id='cartoonist' name='cartoonist'>Cartoonist Font</Button>
+						</ButtonGroup>
+						<ButtonGroup variant='contained'>
+							<Button id='paulmaul' name='paulmaul'>Paul Maul Font</Button>
+							<Button id='pompiere' name='pompiere'>Pompiere Font</Button>
 						</ButtonGroup>
 					</div>
 				</ThemeProvider>

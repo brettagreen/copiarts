@@ -18,9 +18,11 @@ function Footer() {
         <footer className="footer">
 
             <div className="column" id="columnOne">
-                <img width={25} src="/images/instagram_icon.png" alt="instagram social" /> Instagram
+                <img width={25} src="/images/instagram_icon.png" alt="instagram social" />
+                <span>Instagram</span>
 
-                <img width={25} src="/images/tiktok_icon.png" alt="tik tok social" /> TikTok
+                <img width={25} src="/images/tiktok_icon.png" alt="tik tok social" />
+                <span style={{marginLeft: '-1.9em'}}>TikTok</span>
             </div>
 
             <div className="column" id="columnTwo">

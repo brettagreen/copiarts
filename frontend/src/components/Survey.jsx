@@ -28,7 +28,7 @@ import { formTheme, textareaTheme } from '../css/styles';
 import '../css/Form.css';
 
 /**
- * @component /frontend/src/components/Contact
+ * @component /frontend/src/components/Survey
  * @requires module:react.useState
  * @requires module:mui/icons-material/Feedback
  * @requires module:mui/material/Alert
@@ -62,8 +62,9 @@ function Survey({ singlePage }) {
 			"lilac/dark blue": false, "pastel purple/light blue": false, "white smoke/bright red": false
 		}, 
 		fontScheme: {
-			"Barlow": false, "Caudex": false, "Eudoxus": false, "Forum": false, "Lato": false, "L'ilgrotesk": false,
-			"Poppins": false, "Eirene": false, "Guminert": false, "Type Union": false
+			"Barlow": false, "Forum": false, "L'ilgrotesk": false, "Eirene": false, "Guminert": false, "Type Union": false,
+			"Annie": false, "Indie Flower": false, "Komika": false, "Compagnon": false, "Quintessential": false,
+			"Cartoonist": false, "Paul Maul": false, "Pompiere": false
 		},
 		singlePage: 'neither', favorite: '', leastFavorite: '', other: '' };
 
@@ -340,7 +341,7 @@ function Survey({ singlePage }) {
             <ThemeProvider theme={formTheme}>
                 <div className="BackdropWrapper">
                     <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear}> 
-                        <FormControl id="formwidth" margin="normal">
+                        <FormControl sx={{width: '60%'}} id="surveyformwidth" margin="normal">
 
                             <TextField type="text" required={true} label="First name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
                             />
@@ -432,20 +433,6 @@ function Survey({ singlePage }) {
 
 								<FormControlLabel
 									control={
-										<Checkbox className="FontCheck" checked={form.fontScheme["Caudex"]} name="Caudex" />
-									}
-									label="Caudex"
-								/>
-								
-								<FormControlLabel
-									control={
-										<Checkbox className="FontCheck" checked={form.fontScheme['Eudoxus']} name="Eudoxus" />
-									}
-									label="Eudoxus"
-								/>
-
-								<FormControlLabel
-									control={
 										<Checkbox className="FontCheck" checked={form.fontScheme['Forum']} name="Forum" />
 									}
 									label="Forum"
@@ -456,13 +443,6 @@ function Survey({ singlePage }) {
 										<Checkbox className="FontCheck" checked={form.fontScheme["L'ilgrotesk"]} name="L'ilgrotesk" />
 									}
 									label="L'il Grotesk"
-								/>
-
-								<FormControlLabel
-									control={
-										<Checkbox className="FontCheck" checked={form.fontScheme['Poppins']} name="Poppins" />
-									}
-									label="Poppins"
 								/>
 
 								<FormControlLabel
@@ -484,6 +464,62 @@ function Survey({ singlePage }) {
 										<Checkbox className="FontCheck" checked={form.fontScheme['Type Union']} name="Type Union" />
 									}
 									label="Type Union"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Annie']} name="Annie" />
+									}
+									label="Annie"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Indie Flower']} name="Indie Flower" />
+									}
+									label="Indie Flower"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Komika']} name="Komika" />
+									}
+									label="Komika"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Compagnon']} name="Compagnon" />
+									}
+									label="Compagnon"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Quintessential']} name="Quintessential" />
+									}
+									label="Quintessential"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Cartoonist']} name="Cartoonist" />
+									}
+									label="Cartoonist"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Paul Maul']} name="Paul Maul" />
+									}
+									label="Paul Maul"
+								/>
+
+								<FormControlLabel
+									control={
+										<Checkbox className="FontCheck" checked={form.fontScheme['Pompiere']} name="Pompiere" />
+									}
+									label="Pompiere"
 								/>
 							</FormGroup>
 							<br />

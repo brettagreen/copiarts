@@ -1,9 +1,9 @@
 .PanelGroups {
 	position: fixed;
 	background-color: rgba(0,0,0,.70);
-	width: 100vw;
-	bottom: .5em;
-	padding-left: 1em;
+	width: 91vw;
+	bottom: 0;
+	left: 3em;
 	padding-bottom: 1em;
 	z-index: 10;
 	min-height: 15vh;
@@ -15,7 +15,8 @@
 
 .HidePanelGroups {
 	position: fixed;
-	width: 100vw;
+	width: 91vw;
+	left: 3em;
 	background-color: rgba(0,0,0,.50);
 	top: 95%;
 	z-index: 10;
@@ -25,7 +26,7 @@
 	display: inline-flex;
 	color: white;
 	position: absolute;
-	right: 4vw;
+	right: 1vw;
 }
 
 .PanelIcon {
@@ -43,7 +44,7 @@
 	color: white;
 	padding-left: 10vw;
 	padding-right: 10vw;
-	margin-top: 2em;
+	margin-top: 3em;
 }
 
 @font-face {
@@ -52,33 +53,13 @@
 }
 
 @font-face {
-    font-family: "Caudex";
-    src: url("../assets/fonts/Caudex-Regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Eudoxus";
-    src: url("../assets/fonts/EudoxusSans-Regular.woff") format("woff");
-}
-
-@font-face {
     font-family: "Forum";
     src: url("../assets/fonts/Forum-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Lato";
-    src: url("../assets/fonts/Lato-Regular.ttf") format("truetype");
-}
-
-@font-face {
     font-family: "LilGrotesk";
     src: url("../assets/fonts/LilGrotesk-Regular.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Poppins";
-    src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -96,32 +77,61 @@
     src: url("../assets/fonts/TypeUnion-PaloCompressedMedium.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Annie";
+    src: url("../assets/fonts/AnnieUseYourTelescope-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "IndieFlower";
+    src: url("../assets/fonts/IndieFlower.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Komika";
+    src: url("../assets/fonts/KOMTXTT.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Compagnon";
+    src: url("../assets/fonts/Compagnon-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Liberation";
+    src: url("../assets/fonts/LiberationMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Quintessential";
+    src: url("../assets/fonts/Quintessential-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cartoonist";
+    src: url("../assets/fonts/SF_Cartoonist_Hand.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "PaulMaul";
+    src: url("../assets/fonts/PaulMaul.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Pompiere";
+    src: url("../assets/fonts/Pompiere-Regular.otf") format("opentype");
+}
+
 #barlow {
 	font-family: "Barlow";
-}
-
-#caudex {
-	font-family: "Caudex";
-}
-
-#eudoxus {
-	font-family: "Eudoxus";
 }
 
 #forum {
 	font-family: 'Forum';
 }
 
-#lato {
-	font-family: 'Lato';
-}
-
 #lilgrotesk {
 	font-family: 'LilGrotesk';
-}
-
-#poppins {
-	font-family: 'Poppins';
 }
 
 #eirene {
@@ -134,4 +144,40 @@
 
 #typeunion {
 	font-family: 'TypeUnion';
+}
+
+#annie {
+	font-family: 'Annie';
+}
+
+#indieflower {
+	font-family: 'IndieFlower';
+}
+
+#komika {
+	font-family: 'Komika';
+}
+
+#compagnon {
+	font-family: 'Compagnon';
+}
+
+#liberation {
+	font-family: 'Liberation';
+}
+
+#quintessential {
+	font-family: 'Quintessential';
+}
+
+#cartoonist {
+	font-family: 'Cartoonist';
+}
+
+#paulmaul {
+	font-family: 'PaulMaul';
+}
+
+#pompiere {
+	font-family: 'Pompiere';
 }
