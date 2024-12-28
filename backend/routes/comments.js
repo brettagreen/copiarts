@@ -58,7 +58,15 @@ router.get("/", async function(req, res, next) {
 router.post("/", async function(req, res, next) {
 	try {
 		const feedback = await Comment.postComment(req.body);
-		mailIt(feedback);
+
+		const message = {
+			from: process.env.SMTP_FROM,
+			to: process.env.SMTP_TO,
+			subject: 'Website feedback',
+			text: `name: ${feedback.nameFirst + ' ' + feedback.nameLast}\nemail: ${feedback.email}\nfeedback: ${feedback.comment}`	
+		};
+
+		mailIt(message);
 		return res.json({"msg": "thank you for your feedback!", "feedback": feedback.comment});
 	} catch (err) {
 		return next(err);
@@ -86,6 +94,15 @@ router.post("/survey", async function(req, res, next) {
 
 	try {
 		const result = await Comment.postSurvey(req.body);
+
+		const message = {
+			from: process.env.SMTP_FROM,
+			to: process.env.SMTP_TO,
+			subject: 'Survey has been submitted',
+			text: "Coming in hot! survey just dropped..."	
+		};
+
+		mailIt(message);
 		return res.json({result});
 	} catch (err) {
 		return next(err);
@@ -98,7 +115,7 @@ router.post("/survey", async function(req, res, next) {
  * @param {object} feedback - feedback object (name, email, msg)
  * @returns {undefined}
  */
-function mailIt(feedback) {
+function mailIt(message) {
 	const transporter = nodemailer.createTransport({
 		host: process.env.SMTP_HOST,
 		service: process.env.SMTP_SERVICE,
@@ -109,13 +126,6 @@ function mailIt(feedback) {
 			pass: process.env.SMTP_PASS
 		}
 	});
-
-	const message = {
-		from: process.env.SMTP_FROM,
-		to: process.env.SMTP_TO,
-		subject: 'Website feedback',
-		text: `name: ${feedback.nameFirst + ' ' + feedback.nameLast}\nemail: ${feedback.email}\nfeedback: ${feedback.comment}`	
-	};
 
 	transporter.sendMail(message, (error, info) => {
 		if (error) {
