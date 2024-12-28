@@ -44,6 +44,8 @@ function App_SinglePage() {
 	if (sessionStorage.getItem('featuresPanel')) {
 		show = sessionStorage.getItem('featuresPanel');
 		show = show === 'open' ? true : false;
+	} else {
+		show = true;
 	}
 
 	return (

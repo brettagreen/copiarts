@@ -28,17 +28,11 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 	const root = useContext(UserContext).root;
 
 	function minimize() {
-		const element = document.getElementById('grabmyid');
-		element.classList.remove("PanelGroups");
-		element.classList.add('HidePanelGroups');
 		sessionStorage.setItem('featuresPanel', 'minimized');
 		setShowOptions(false);
 	}
 
 	function expand() {
-		const element = document.getElementById('grabmyid');
-		element.classList.remove("HidePanelGroups");
-		element.classList.add('PanelGroups');
 		sessionStorage.setItem('featuresPanel', 'open');
 		setShowOptions(true);
 	}
@@ -91,8 +85,20 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 	}
 
 	useEffect(() => {
+		const element = document.getElementById('grabmyid');
+
+		if (showOptions) {
+			element.classList.remove("HidePanelGroups");
+			element.classList.add('PanelGroups');
+		} else {
+			element.classList.remove("PanelGroups");
+			element.classList.add('HidePanelGroups');
+		}
+	}, [showOptions]);
+
+	useEffect(() => {
 		fontButton.current.focus();
-	}, []);
+	}, [])
 
 	return (
 		<div id="grabmyid" className="PanelGroups">

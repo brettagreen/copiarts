@@ -40,7 +40,13 @@ const App = memo(function App() {
 
 	if (sessionStorage.getItem('featuresPanel')) {
 		show = sessionStorage.getItem('featuresPanel');
-		show = show === 'open' ? true : false;
+		if (show === 'open') {
+			show = true;
+		} else {
+			show = false;
+		}
+	} else {
+		show = true;
 	}
 
 	return (
