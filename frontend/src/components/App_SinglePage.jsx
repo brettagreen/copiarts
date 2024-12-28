@@ -39,6 +39,12 @@ function App_SinglePage() {
 	 * @type {boolean}
 	 */
 	const [admin, setAdmin] = useState(false);
+	let show;
+
+	if (sessionStorage.getItem('featuresPanel')) {
+		show = sessionStorage.getItem('featuresPanel');
+		show = show === 'open' ? true : false;
+	}
 
 	return (
 		<UserContext.Provider value={{admin, setAdmin, root}}>
@@ -51,7 +57,7 @@ function App_SinglePage() {
 						<About />
 						<Gallery />
 						<AdditionalInformation />
-						<FeaturesTest checked={true} />
+						<FeaturesTest show={show} checked={true} />
 						<Footer className="Footer"/>
 					</Box>
 				</BrowserRouter>

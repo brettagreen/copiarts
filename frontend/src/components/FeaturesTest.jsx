@@ -17,9 +17,9 @@ import Link from '@mui/material/Link';
 import UserContext from '../userContext';
 import '../css/FeaturesTest.css';
 
-const FeaturesTest = memo(function FeaturesTest({ checked }) {
+const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 	const [variant, setVariant] = useState('fonts');
-	const [showOptions, setShowOptions] = useState(true);
+	const [showOptions, setShowOptions] = useState(show);
 	const [showFonts, setShowFonts] = useState(true);
 	const [showColors, setShowColors] = useState(false);
 
@@ -31,6 +31,7 @@ const FeaturesTest = memo(function FeaturesTest({ checked }) {
 		const element = document.getElementById('grabmyid');
 		element.classList.remove("PanelGroups");
 		element.classList.add('HidePanelGroups');
+		sessionStorage.setItem('featuresPanel', 'minimized');
 		setShowOptions(false);
 	}
 
@@ -38,6 +39,7 @@ const FeaturesTest = memo(function FeaturesTest({ checked }) {
 		const element = document.getElementById('grabmyid');
 		element.classList.remove("HidePanelGroups");
 		element.classList.add('PanelGroups');
+		sessionStorage.setItem('featuresPanel', 'open');
 		setShowOptions(true);
 	}
 
@@ -53,20 +55,26 @@ const FeaturesTest = memo(function FeaturesTest({ checked }) {
 	}
 
 	function setBackgroundColor(one, two, three, angle='90deg') {
-		const app = document.getElementById('app');
-
-		app.style.removeProperty('background');
+		const root = document.getElementById('root');
+		let linear;
+		
 		if (three) {
-			app.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`);
+			linear = `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`;
+			root.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`);
 		} else {
-			app.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two})`);
+			linear = `linear-gradient(${angle}, ${one}, ${two})`;
+			root.style.setProperty('background', linear);
 		}
+
+		sessionStorage.setItem('color', linear);
 	}
 
 	function setFont(fontName) {
-		const app = document.getElementById('root');
+		const root = document.getElementById('root');
+
+		sessionStorage.setItem('font', fontName);
 		
-		app.style.setProperty('font-family', fontName);
+		root.style.setProperty('font-family', fontName);
 	}
 
 	function adjustSinglePage() {
@@ -152,8 +160,8 @@ const FeaturesTest = memo(function FeaturesTest({ checked }) {
 						>green/yellow/ivory</Button>
 
 						<Button sx={{background:'linear-gradient(90deg, #0A182885, #17858285 50%, #BFA18185)'}}
-									onClick={() => setBackgroundColor('#0A182885', '#17858285', '#BFA18185')}>
-						</Button>
+									onClick={() => setBackgroundColor('#0A182885', '#17858285', '#BFA18185')}
+						>deep blue/turquoise/light orange</Button>
 					</ButtonGroup>
 
 					<h4>2-tone 90°</h4>

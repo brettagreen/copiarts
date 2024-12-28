@@ -36,6 +36,12 @@ const App = memo(function App() {
 	 * @type {boolean}
 	 */
 	const [admin, setAdmin] = useState(false);
+	let show;
+
+	if (sessionStorage.getItem('featuresPanel')) {
+		show = sessionStorage.getItem('featuresPanel');
+		show = show === 'open' ? true : false;
+	}
 
 	return (
 		<UserContext.Provider value={{admin, setAdmin, root}}>
@@ -45,7 +51,7 @@ const App = memo(function App() {
 						<BrowserRouter>
 							<CopiartsRoutes singlePage={false}/>
 						</BrowserRouter>
-					<FeaturesTest checked={false} />
+					<FeaturesTest show={show} checked={false} />
 					<Footer className="Footer"/>
 				</Box>
 			</div>
