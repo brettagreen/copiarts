@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
+import { memo } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { toolbarMenuTheme } from '../css/styles';
 import '../css/NavigationBar.css'
@@ -21,8 +22,7 @@ import '../css/NavigationBar.css'
  * @returns {JSX.Element} navbar
  *
  */
-function NavigationBar() {
-
+const NavigationBar = memo(function NavigationBar() {
     return (
         <Box id="navbox">
             <ThemeProvider theme={toolbarMenuTheme}>
@@ -53,6 +53,6 @@ function NavigationBar() {
             </ThemeProvider>
         </Box>
     );
-}
+});
 
 export default NavigationBar;

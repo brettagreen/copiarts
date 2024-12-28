@@ -1,4 +1,5 @@
 import Link from '@mui/material/Link';
+import { memo } from 'react';
 import '../css/Footer.css';
 
 /**
@@ -12,7 +13,7 @@ import '../css/Footer.css';
  * @returns {JSX.Element} - footer containing some images and some links
  *
  */
-function Footer() {
+const Footer = memo(function Footer() {
 
     return (
         <footer className="footer">
@@ -41,7 +42,7 @@ function Footer() {
 
         </footer>
     );
-}
+});
 
 export default Footer;
 

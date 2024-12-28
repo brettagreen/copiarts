@@ -8,17 +8,16 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import IconButton from '@mui/material/IconButton';
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useState, useRef, useEffect, useContext, memo } from 'react';
 import { ThemeProvider } from '@mui/material';
 import { featuresTheme, toggleButtonsTheme } from '../css/styles';
 import App_SinglePage from './App_SinglePage';
 import App from './App';
 import Link from '@mui/material/Link';
 import UserContext from '../userContext';
-
 import '../css/FeaturesTest.css';
 
-function FeaturesTest({ checked }) {
+const FeaturesTest = memo(function FeaturesTest({ checked }) {
 	const [variant, setVariant] = useState('fonts');
 	const [showOptions, setShowOptions] = useState(true);
 	const [showFonts, setShowFonts] = useState(true);
@@ -115,9 +114,9 @@ function FeaturesTest({ checked }) {
 			<div className="ButtonGroups">
 				<ThemeProvider theme={toggleButtonsTheme}>
 					<ToggleButtonGroup value={variant} onChange={toggle}>
-						<ToggleButton ref={fontButton} value="fonts" variant="contained">show font options</ToggleButton>
+						<ToggleButton disableRipple={true} ref={fontButton} value="fonts" variant="contained">show font options</ToggleButton>
 						&nbsp;&nbsp;
-						<ToggleButton value="colors" variant="contained">show color options</ToggleButton>
+						<ToggleButton disableRipple={true} value="colors" variant="contained">show color options</ToggleButton>
 					</ToggleButtonGroup>
 				</ThemeProvider>
 				&nbsp;&nbsp;
@@ -218,6 +217,6 @@ function FeaturesTest({ checked }) {
 
 		</div>
 	)
-}
+});
 
 export default FeaturesTest;

@@ -109,11 +109,11 @@ function Gallery() {
 	if (photos) {
 		return(
 			<div id="galleryid">
-				<Grid id="daGrid" container rowSpacing={2} columnSpacing={{xs:2, sm:3, md:4}} columns={{xs:2, sm:3, md:4}}>
+				<Grid id="daGrid" container rowSpacing={2} columnSpacing={{xs:2, sm:3, md:4}} columns={{xs:12, sm:12, md:12}}>
 					{photos.map((photo, idx) => {
 						return (
 							<div key={"photo"+idx}>
-								<Grid item xs={1} sm={1} md={1}>
+								<Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
 									<Button key={"button"+idx} onClick={() => {showModal(photo)}}>
 										<img key={"img"+idx} className="InstaImage" src={photo.media_url} loading="lazy" height={250}
 											width={250} alt="insta image" />

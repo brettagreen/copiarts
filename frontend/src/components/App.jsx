@@ -2,11 +2,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Box } from '@mui/material';
 import CopiartsRoutes from './CopiartsRoutes';
 import NavigationBar from './NavigationBar';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
 import FeaturesTest from './FeaturesTest';
 import root from './main';
+
 import '../css/App.css';
 
 /**
@@ -28,7 +29,7 @@ import '../css/App.css';
  *
  */
 
-function App() {
+const App = memo(function App() {
 
 	/**
 	 * is user admin?
@@ -39,18 +40,17 @@ function App() {
 	return (
 		<UserContext.Provider value={{admin, setAdmin, root}}>
 			<div id="app">
-				<BrowserRouter>
-					<Box className="SiteBox" component="main">
-						<NavigationBar className="NavBar"/>
-						<CopiartsRoutes singlePage={false}/>
-						<FeaturesTest checked={false} />
-						<Footer className="Footer"/>
-					</Box>
-				</BrowserRouter>
+				<Box className="SiteBox" component="main">
+					<NavigationBar className="NavBar"/>
+						<BrowserRouter>
+							<CopiartsRoutes singlePage={false}/>
+						</BrowserRouter>
+					<FeaturesTest checked={false} />
+					<Footer className="Footer"/>
+				</Box>
 			</div>
 		</UserContext.Provider>
 	);
-	
-}
+});
 
 export default App
