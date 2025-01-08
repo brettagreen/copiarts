@@ -54,7 +54,7 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 		
 		if (three) {
 			linear = `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`;
-			root.style.setProperty('background', `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`);
+			root.style.setProperty('background', linear);
 		} else {
 			linear = `linear-gradient(${angle}, ${one}, ${two})`;
 			root.style.setProperty('background', linear);
