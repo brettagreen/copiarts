@@ -33,7 +33,7 @@ class db {
             database: this.dbURI
         };
 
-        if (process.env.ENVIRONMENT != "local") { //if DB_HOST has a value, then so do all the other process.env.DB... values
+        if (process.env.ENVIRONMENT != "local") {
             connectionObject.host = process.env.DB_HOST;
             connectionObject.port = process.env.DB_PORT;
             connectionObject.user = process.env.DB_USER;

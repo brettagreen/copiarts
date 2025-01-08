@@ -128,11 +128,18 @@ const formTheme =
 				}
 			},
 			MuiTextField: {
-			styleOverrides: {
-				root: {
-					fontWeight: 'bold'
+				styleOverrides: {
+					root: {
+						fontWeight: 'bold'
+					}
 				}
-			}
+			},
+			MuiTypography: {
+				styleOverrides: {
+					root: {
+						font: 'inherit'
+					}
+				}
 			}
 		}
 	});
