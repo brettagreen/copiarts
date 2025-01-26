@@ -74,11 +74,11 @@ class CopiartsApi {
         const params = (method === "get") ? data : {};
 
         try {
-            console.log('ladies and gentlefolk, your API request!');
-            console.log('url', url)
-            console.log('method', method);
-            console.log('data', data);
-            console.log('params', params);
+            // console.log('ladies and gentlefolk, your API request!');
+            // console.log('url', url)
+            // console.log('method', method);
+            // console.log('data', data);
+            // console.log('params', params);
             return (await axios({ url, method, data, params })).data;
         } catch (err) {
             console.error("API Error:", err.response);

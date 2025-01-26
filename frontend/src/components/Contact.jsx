@@ -246,7 +246,7 @@ function Contact() {
                                 <FormHelperText error={true}>Please provide a last name</FormHelperText>
                             }
 
-                            <TextField inputProps={{type: "email"}} required={true} label="email" name="email" value={form.email} onChange={handleChange}
+                            <TextField inputProps={{type: "email"}} required={true} label="email" name="email" autoComplete='off' value={form.email} onChange={handleChange}
                             />
                             {showEmailError && 
                                 <FormHelperText error={true}>A real email address is required.</FormHelperText>

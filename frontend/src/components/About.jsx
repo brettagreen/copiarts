@@ -71,13 +71,13 @@ function About() {
 				</p>
 			</section>
 			<section id="aboutimages">
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
-				<img src="https://picsum.photos/200" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
+				<img src="https://picsum.photos/300" alt="homepage image" />
 			</section>
 			 
 		</div>

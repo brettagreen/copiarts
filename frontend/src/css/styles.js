@@ -1,3 +1,4 @@
+import { styled } from "@mui/material";
 import { red } from "@mui/material/colors";
 import createTheme from "@mui/material/styles/createTheme";
 
@@ -58,7 +59,20 @@ const galleryTheme =
 			MuiModal: {
 				styleOverrides: {
 					backdrop: {
-						backgroundColor: 'rgba(0,0,0,.1)'
+						backgroundColor: 'rgba(205,202,206,.1)',
+						borderRadius: '5px',
+						width: '58%',
+						height: 'clamp(33vw, 50vw, 60vw)',
+						top: '50%',
+						left: '50%',
+						transform: 'translate(-50%, -50%)'
+					}
+				}
+			},
+			MuiLink: {
+				styleOverrides: {
+					root: {
+						textAlign: 'center'
 					}
 				}
 			}
@@ -192,5 +206,77 @@ const toggleButtonsTheme =
 		}
 	});
 
+const mobilePaperTheme =
+	createTheme({
+		components: {
+			MuiPaper: {
+				styleOverrides: {
+					root: {
+						marginTop: '0.6em',
+						marginLeft: '-0.5em',
+						background: 'rgba(250, 245, 245, .8)',
+						width: '90vw',
+						height: '90vh'
+					}
+				}
+			}, 
+			MuiLink: {
+				styleOverrides: {
+					root: {
+						color: 'black'
+					}
+				}
+			}
+		}
+	});
 
-export {featuresTheme, toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme, toggleButtonsTheme};
+// const instaButtonTheme =
+// 	createTheme({
+// 		components: {
+// 			MuiTButton: {
+// 				styleOverrides: {
+// 					root: {
+// 						float: 'left',
+// 						color: 'black',
+// 						marginLeft: '1em',
+// 						padding: '1em'
+// 					}
+// 				}
+// 			},
+// 			MuiPagination: {
+// 				styleOverrides: {
+// 					root: {
+// 						float: 'left'
+// 					}
+// 				}
+// 			}
+// 		}
+// 	});
+
+// const instaButtonMobileTheme =
+// 	createTheme({
+// 		components: {
+// 			MuiToggleButton: {
+// 				styleOverrides: {
+// 					root: {
+// 						float: 'right',
+// 						color: 'black',
+// 						marginRight: '7vw',
+// 						display: 'inline-flex',
+// 						padding: '1em'
+// 					}
+// 				}
+// 			},
+// 			MuiPagination: {
+// 				styleOverrides: {
+// 					root: {
+// 						width: '50%'
+// 					}
+// 				}
+// 			}
+// 		}
+// 	});
+
+
+export {featuresTheme, toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme,
+			 toggleButtonsTheme, mobilePaperTheme};

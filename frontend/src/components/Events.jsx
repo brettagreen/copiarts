@@ -21,7 +21,6 @@ function Events() {
     useEffect(() => {
         async function fetchEvents() {
 			const weeklyEvents = await CopiartsApi.getWeeklyEvents();
-			console.log('weekly events', weeklyEvents);
 			setEvents(weeklyEvents);
         }
 

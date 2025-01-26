@@ -2,7 +2,7 @@
  * @module /backend/api/instagram/loadInstagramPhotos
  * @requires module:axios
  * @requires module:/backend/routes/photos/setPhotos
- * @author Brett A. Green <brettalangreen@proton.me>
+ * @permalink Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * @description Fetches Instagram photos using graph api. Allows for single source retrieval from frontend component(s)
  * 
@@ -110,7 +110,131 @@ async function authAndGetPhotos() {
  */
 async function getPhotos() {
 	await authAndGetPhotos();
+
 	setPhotos(photoArray);
 }
+
+// const photoArray = [
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+// 	  caption: 'Breakfast',
+// 	  permalink: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+// 	  caption: 'Burger',
+// 	  permalink: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+// 	  caption: 'Camera',
+// 	  permalink: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+// 	  caption: 'Coffee',
+// 	  permalink: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+// 	  caption: 'Hats',
+// 	  permalink: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+// 	  caption: 'Honey',
+// 	  permalink: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+// 	  caption: 'Basketball',
+// 	  permalink: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+// 	  caption: 'Fern',
+// 	  permalink: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+// 	  caption: 'Mushrooms',
+// 	  permalink: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+// 	  caption: 'Tomato basil',
+// 	  permalink: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+// 	  caption: 'Sea star',
+// 	  permalink: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+// 	},
+// 	{
+// 	  media_url: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+// 	  caption: 'Bike',
+// 	  permalink: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+// 		caption: 'Breakfast',
+// 		permalink: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+// 		caption: 'Burger',
+// 		permalink: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+// 		caption: 'Camera',
+// 		permalink: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+// 		caption: 'Coffee',
+// 		permalink: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+// 		caption: 'Hats',
+// 		permalink: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+// 		caption: 'Honey',
+// 		permalink: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+// 		caption: 'Basketball',
+// 		permalink: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+// 		caption: 'Fern',
+// 		permalink: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+// 		caption: 'Mushrooms',
+// 		permalink: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+// 		caption: 'Tomato basil',
+// 		permalink: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+// 		caption: 'Sea star',
+// 		permalink: 'https://images.unsplash.com/photo-1471357674240-e1a485acb3e1',
+// 	},
+// 	{
+// 		media_url: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+// 		caption: 'Bike',
+// 		permalink: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
+// 	}
+//   ];
 
 module.exports = getPhotos;

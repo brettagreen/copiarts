@@ -2,10 +2,6 @@
 	display: inline-block;
 }
 
-span {
-	color: white;
-}
-
 .BackdropWrapper > form {
 	margin: 1em;
 }
@@ -31,4 +27,10 @@ span {
 
 #surveyformwidth {
 	width: 60%;
+}
+
+@media (width <= 855px) {
+	#contactform {
+		width: 90vw;
+	}
 }

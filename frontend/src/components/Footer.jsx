@@ -16,13 +16,13 @@ import '../css/Footer.css';
 const Footer = memo(function Footer() {
 
     return (
-        <footer className="footer">
+        <footer id="footer">
 
             <div className="column" id="columnOne">
-                <img width={25} src="/images/instagram_icon.png" alt="instagram social" />
+                <img className="InstaIcon" src="/images/instagram_icon.png" alt="instagram social" />
                 <span>Instagram</span>
 
-                <img width={25} src="/images/tiktok_icon.png" alt="tik tok social" />
+                <img className="TikTokIcon" src="/images/tiktok_icon.png" alt="tik tok social" />
                 <span style={{marginLeft: '-1.9em'}}>TikTok</span>
             </div>
 
@@ -31,7 +31,7 @@ const Footer = memo(function Footer() {
             </div>
 
             <div className="column">
-                <address id="footerAddress">
+                <address className="FooterAddress">
                     Cornucopia Inc.<br />
                     &#9;South Ingersoll St.<br />
                     &#9;Madison WI 53703<br />

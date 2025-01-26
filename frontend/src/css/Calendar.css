@@ -1,11 +1,11 @@
 .CalendarEventsHead {
 	font-variant: small-caps;
 	background-color: rgb(250, 245, 245, .1);
-	width: 60vw;
+	min-width: 60vw;
 }
 
 #calendar {
-	width: 60vw;
+	min-width: 60vw;
 }
 
 #eventForm {
@@ -18,4 +18,10 @@
 
 .css-1sn4lm3-MuiTypography-root, .css-1v2gfp5 {
 	color: #1976d2;
+}
+
+@media (width <= 855px) {
+	#calendar, .CalendarEventsHead {
+		width: 90vw;
+	}
 }
