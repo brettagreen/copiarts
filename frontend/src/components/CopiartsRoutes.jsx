@@ -6,8 +6,8 @@ import Admin from "./Admin";
 import Login from "./Login";
 import AdditionalInformation from './AdditionalInformation';
 import Survey from './Survey';
-//import Contact from "./Contact";
-// import Redirects from "./Redirects";
+import SinglePageStack from "./SinglePageStack";
+import Redirects from "./Redirects";
 
 /**
  * @component /frontend/src/comonents/CopiartsRoutes
@@ -46,15 +46,18 @@ function CopiartsRoutes({ singlePage }) {
                 <Route path="/admin/calendar" element={<Admin />}/>
                 <Route path="/additional-information" element={<AdditionalInformation />}/>
                 <Route path="/survey" element={<Survey />}/>
-                {/* <Route path="/badrequest/:type" element={<Redirects />}/> */}
-                {/* <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/> */}
+                <Route path="/badrequest/:type" element={<Redirects />}/>
+                <Route path="*" element={<Navigate to="/badrequest/noPage" replace />}/>
             </Routes>
         )
     } else {
         return (
             <Routes>
+                <Route path="/" element={<SinglePageStack />} />
                 <Route path="/admin/login" element={<Login />}/>
+                <Route path="/admin/calendar" element={<Admin />} />
                 <Route path="/survey" element={<Survey singlePage={!singlePage} />}/>
+                <Route path="*" element={<Navigate to="/" replace />}/>
             </Routes>
         )
     }

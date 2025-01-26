@@ -18,14 +18,32 @@
 #navbox {
     font-family: Roboto;
     margin-bottom: 10em;
+    background: var(--default-background);
+
 }
 
 #navappbar {
     width: 100%;
-    position: fixed;
-    opacity: 1;
+    
 }
 
 #navtoolbar {
     width: 100%;
+}
+
+.CornucopiaLogo {
+    width: 250px;
+    height: 117px;
+}
+
+@media (width <= 1169px) {
+
+    #donateblock {
+        position: fixed;
+        right: 10px;
+    }
+
+    #navbox {
+        margin-bottom: 6em;
+    }
 }

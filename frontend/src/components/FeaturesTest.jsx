@@ -50,14 +50,18 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 
 	function setBackgroundColor(one, two, three, angle='90deg') {
 		const root = document.getElementById('root');
+		const navbar = document.getElementById('navtoolbar');
+
 		let linear;
 		
 		if (three) {
 			linear = `linear-gradient(${angle}, ${one}, ${two} 50%, ${three})`;
 			root.style.setProperty('background', linear);
+			navbar.style.setProperty('background', linear);
 		} else {
 			linear = `linear-gradient(${angle}, ${one}, ${two})`;
 			root.style.setProperty('background', linear);
+			navbar.style.setProperty('background', linear);
 		}
 
 		sessionStorage.setItem('color', linear);
@@ -105,15 +109,15 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 
 			{showOptions ? 
 				<div className="SelectionPanel">
-					<h5>hide</h5>&nbsp;
-					<IconButton disableRipple={true} disableTouchRipple={true} onClick={minimize}>
+					<span>hide</span>&nbsp;
+					<IconButton aria-label="hide features panel" disableRipple={true} disableTouchRipple={true} onClick={minimize}>
 						<MinimizeIcon className="PanelIcon" fontSize='large' />
 					</IconButton>
 				</div>
 				:   
 				<div className="SelectionPanel">
-					<h5>show</h5>&nbsp;
-					<IconButton disableRipple={true} disableTouchRipple={true} onClick={expand}>
+					<span>show</span>&nbsp;
+					<IconButton aria-label="show features panel" disableRipple={true} disableTouchRipple={true} onClick={expand}>
 						<KeyboardArrowUpIcon className="PanelIcon" fontSize='large' />
 					</IconButton>
 				</div>
@@ -137,6 +141,7 @@ const FeaturesTest = memo(function FeaturesTest({ show, checked }) {
 				<FormControl>
 					<FormControlLabel 
 						control={<Checkbox checked={checked}
+										   name="baloneysandwich"
 										   value={checked}
 										   disableRipple={true}
 										   onChange={adjustSinglePage}/>}

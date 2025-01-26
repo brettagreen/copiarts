@@ -16,4 +16,23 @@
 
 #aboutimages {
 	margin-top: 4.4em;
+	max-width: 200px;
+	max-height: 200px;
+	object-fit: contain;
+}
+
+@media (width <= 855px) {
+	#aboutText {
+		width: 90vw;
+	}
+
+	#aboutimages {
+		display: none;
+	}
+}
+
+@media (width <= 1169px) {
+	#aboutid {
+		margin-top: 3em;
+	}
 }

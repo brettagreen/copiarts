@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { toolbarMenuTheme } from '../css/styles';
 import '../css/NavigationBar.css'
@@ -22,7 +22,15 @@ import '../css/NavigationBar.css'
  * @returns {JSX.Element} navbar
  *
  */
+
 const NavigationBar = memo(function NavigationBar() {
+
+    useEffect(() => {
+        if (sessionStorage.getItem('color')) {
+            document.getElementById('navbox').style.setProperty('background', sessionStorage.getItem('color'));
+        }
+    }, []);
+
     return (
         <Box id="navbox">
             <ThemeProvider theme={toolbarMenuTheme}>
@@ -30,7 +38,9 @@ const NavigationBar = memo(function NavigationBar() {
                     <Toolbar>
                         <div id="navtoolbar">
                             <Link href='/' underline='hover'>
-                                <img src={`/images/cornucopia.png`} width={250} height={100} alt="cornucopia logo" title="Home"/>
+                                <img className="CornucopiaLogo" src="/images/cornucopia.png"
+                                        srcSet="/images/cornucopia.png 1x, /images/cornucopia-2x.png 2x, /images/cornucopia-3x.png 3x" 
+                                        alt="cornucopia logo" title="Home"/>
                             </Link>
                             <Link href='/about' underline='hover'>
                                 About Us
@@ -38,15 +48,12 @@ const NavigationBar = memo(function NavigationBar() {
                             <Link href='/gallery' underline='hover'>
                                 Gallery
                             </Link>
-                            {/* <Link href='/media' underline='hover'>
-                                Newsletters/Media
-                            </Link> */}
                             <Link href='/additional-information' underline='hover'>
                                 Membership/Peer Support/Contact Us
                             </Link>
                         </div>
-                        <div>
-                            <Link id="donate" target="_blank" href="https://donorbox.org/cornucopia-inc">Donate</Link>
+                        <div id="donateblock">
+                            <Link rel="nofollow" id="donate" target="_blank" href="https://donorbox.org/cornucopia-inc">Donate</Link>
                         </div>
                     </Toolbar>
                 </MuiAppBar>

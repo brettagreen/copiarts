@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import { toolbarMenuTheme } from '../css/styles';
+import MobileMenu from './MobileMenu';
 import '../css/NavigationBar.css'
 
 /**
@@ -28,25 +29,9 @@ function NavigationBar_SinglePage() {
             <ThemeProvider theme={toolbarMenuTheme}>
                 <MuiAppBar id="navappbar">
                     <Toolbar>
-                        <div id="navtoolbar">
-                            <Link href='#homeid' underline='hover'>
-                                <img src={`/images/cornucopia.png`} width={250} height={100} alt="cornucopia logo" title="Home"/>
-                            </Link>
-                            <Link href='#aboutid' underline='hover'>
-                                About Us
-                            </Link>
-                            <Link href='#galleryid' underline='hover'>
-                                Gallery
-                            </Link>
-                            {/* <Link href='/media' underline='hover'>
-                                Newsletters/Media
-                            </Link> */}
-                            <Link href='#informationid' underline='hover'>
-                                Membership/Peer Support/Contact Us
-                            </Link>
-                        </div>
+                        <MobileMenu />
                         <div>
-                            <Link id="donate" target="_blank" href="https://donorbox.org/cornucopia-inc">Donate</Link>
+                            <Link rel="nofollow" id="donate" target="_blank" href="https://donorbox.org/cornucopia-inc">Donate</Link>
                         </div>
                     </Toolbar>
                 </MuiAppBar>

@@ -1,10 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Box } from '@mui/material';
 import CopiartsRoutes from './CopiartsRoutes';
-import Home from './Home';
-import About from './About';
-import Gallery from './Gallery';
-import AdditionalInformation from './AdditionalInformation';
 import NavigationBar_SinglePage from './NavigationBar_SinglePage';
 import { useState } from 'react';
 import UserContext from "../userContext";
@@ -51,22 +47,17 @@ function App_SinglePage() {
 	return (
 		<UserContext.Provider value={{admin, setAdmin, root}}>
 			<div id="app">
-				<BrowserRouter>
-					<Box className="SiteBox" component="main">
+				<Box className="SiteBox" component="main">
+					<NavigationBar_SinglePage className="NavBar"/>
+					<BrowserRouter>
 						<CopiartsRoutes singlePage={true}/>
-						<NavigationBar_SinglePage className="NavBar"/>
-						<Home singlePage={true} />
-						<About />
-						<Gallery />
-						<AdditionalInformation />
-						<FeaturesTest show={show} checked={true} />
-						<Footer className="Footer"/>
-					</Box>
-				</BrowserRouter>
+					</BrowserRouter>
+					<FeaturesTest show={show} checked={true} />
+					<Footer className="Footer"/>
+				</Box>
 			</div>
 		</UserContext.Provider>
 	);
-	
 }
 
 export default App_SinglePage;

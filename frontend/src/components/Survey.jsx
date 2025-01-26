@@ -333,7 +333,7 @@ function Survey({ singlePage }) {
 					<h3>Your feedback will help shape what this website looks like!</h3>
 				<FeedbackIcon />
                 <br />
-                <caption>* indicates required field</caption>
+                <span>* indicates required field</span>
             </div>
 
             {alert && alert}

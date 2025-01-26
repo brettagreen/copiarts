@@ -3,13 +3,16 @@
     src: url("../assets/fonts/AnnieUseYourTelescope-Regular.ttf") format("truetype");
 }
 
+img {
+	border-radius: 2.5px;
+}
+
 #root {
 	margin: 0 auto;
 	text-align: center;
 }
 
 .headerfooter {
-	/* font-family: "Annie"; */
 	font-variant: small-caps;
 	font-size: larger !important;
 	background-color: rgb(250, 245, 245, .1);
@@ -20,15 +23,19 @@
 	margin-left: 10vw;
 }
 
-#homecalendar {
-	float: left;
-	clear: both;
-	margin-top: 1em;
-}
-
 #homesection {
 	margin-left: .5em;
 	margin-right: .5em;
+}
+
+.HomeCalendar {
+	float: left;
+}
+
+.HomeEvents {
+	float: left;
+	width: 25vw;
+	margin-left: .8em;
 }
 
 #homearrow {
@@ -39,17 +46,138 @@
 #homearrow > img {
 	position: relative;
 	top: 50px;
+	width: 100px;
+	height: 100px;
 }
 
 .HomesectionOne {
+	position: relative;
 	float: left;
 	min-width: 40vw;
 }
 
-.HomesectionOne > iframe {
+#mapaddresstext {
+	position: absolute;
+	bottom: 10%;
+	left: 20%;
+	font-family: sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#mapaddresstext > span {
+	color: black;
+}
+
+.HomesectionOne > img {
 	border: 0;
+	width: clamp(300px, 48vw, 560px);
+	height: clamp(168.5px, 25vw, 315px);
+}
+
+.HomesectionOne > #welcomevideo {
+	width: clamp(300px, 48vw, 560px);
+	height: clamp(168.5px, 25vw, 315px);
+	margin-right: 1rem;
 }
 
 #sectiononeheight {
 	min-height: 315px;
+}
+
+#mobilelogo {
+	display: none;
+}
+
+.MobileCornucopiaLogo {
+	width: max(350px, 35vw);
+	height: max(163.5px, 16.3vw);
+}
+
+#calevents {
+	float: left;
+	clear: both;
+	margin-top: 1em;
+}
+
+#mobilecalevents {
+	display: none;
+}
+
+#homesection > .HomeCalendar, #homsection > .HomeEvents {
+	display: none;
+}
+
+.Carousel {
+	display: none;
+}
+
+@media (width <= 1169px) {
+	#homearrow {
+		display: block;
+	}
+
+	#mobilelogo {
+		display: inline-flex;
+	}
+
+	#sectiononeheight {
+		width: 50%;
+		margin-left: 1em;
+	}
+
+	.HomesectionOne > #welcomevideo {
+		margin: auto;
+	}
+
+	.HomesectionOne > img {
+		border: 0;
+		margin: auto;
+	}
+}
+
+@media (width <= 1376px) {
+	#homearrow {
+		display: none;
+	}
+}
+
+@media (width <= 1169px) {
+	.Carousel-Photos {
+		margin: 4px;
+	}
+}
+
+@media (width <= 855px) {
+	.Carousel {
+		display: flex;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	.Carousel img {
+		max-width: 250px;
+		max-height: 250px;
+		object-fit: contain;
+	}
+
+	#calevents {
+		display: none;
+	}
+
+	#mobilecalevents {
+		display: block;
+	}
+
+	#homesection > .HomeEvents {
+		display: block;
+		margin-left: 0;
+		clear: both;
+		margin-top: 1em;
+		min-width: 90vw;
+	}
+
+	#homesection > .HomeCalendar {
+		display: block;
+	}
 }

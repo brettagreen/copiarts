@@ -23,5 +23,36 @@ li {
 }
 
 #principleslist > li {
-	font-size: large
+	font-size: large;
+	text-align: left;
+}
+
+#mobileprincipleslist {
+	display: none;
+}
+
+@media (width <= 855px) {
+	#additionalText {
+		width: 90vw;
+	}
+
+	#mobileprincipleslist {
+		display: block;
+	}
+
+	#mobileprincipleslist > li {
+		font-size: large;
+		text-align: left;
+	}
+
+	#principleslist {
+		display: none;
+	}
+
+}
+
+@media (width <= 1169px) {
+	#informationid {
+		margin-top: 4em;
+	}
 }
