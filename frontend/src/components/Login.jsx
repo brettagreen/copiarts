@@ -52,16 +52,6 @@ function Login() {
 	 */
     const admin = useContext(UserContext).admin;
 
-	/**
-     * @typedef {Object} controlSuccess - useState hook.
-     * @property {boolean} success - was form submission successful?
-     * @property {function} setSuccess - set whether form submission was successfull
-     */
-    /**
-     * @type {controlSuccess}
-     */
-    const [success, setSuccess] = useState(false)
-
     /**
      * @const
      * password form object
@@ -126,7 +116,6 @@ function Login() {
             await CopiartsApi.loginAdmin(form);
             setAdmin(true);
             setForm(INITIAL_STATE);
-            setSuccess(true);
         } catch (error) {
             setError(error);
             setForm(INITIAL_STATE);
@@ -135,13 +124,13 @@ function Login() {
 
     useEffect(() => {
         /**
-         * if form submission is deemed a success, then user is redirected appropriately. if not, user stays of page.
+         * if form submission is deemed a success, then user is redirected appropriately. if not, user stays on page.
          * @returns {undefined} - redirects user to Calendar page/component
          */
         function goToCalendar() {
             redirect('/admin/calendar');
         }
-        if (success) {
+        if (admin) {
             goToCalendar();
         }
     })

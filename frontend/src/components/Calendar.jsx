@@ -45,7 +45,7 @@ import { useLocation } from 'react-router-dom';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { TextField, DialogActions, Button, ThemeProvider, Checkbox, Dialog, DialogTitle,
 			 Select, MenuItem, InputLabel, FormControl, FormControlLabel } from '@mui/material';
 import { eventFormTheme } from '../css/styles';
@@ -377,13 +377,6 @@ function Calendar({ singlePage }) {
 	/**
      * the useRef is a hook "that lets you reference a value that’s not needed for rendering"
      * @see https://react.dev/reference/react/useRef
-     * used to make sure useEffect hook logic doesn't run on first rendering of page
-     * @type {Object}
-     */
-	const postInitialLoad = useRef(false);
-	/**
-     * the useRef is a hook "that lets you reference a value that’s not needed for rendering"
-     * @see https://react.dev/reference/react/useRef
      * keeps track of object's group_id value between renders
      * @type {Object}
      */
@@ -417,16 +410,6 @@ function Calendar({ singlePage }) {
      * @type {controlModal}
      */
 	const [modal, setModal] = useState(false);
-
-	/**
-     * @typedef {Object} controlDeleteOption - useState hook. delete single event, or all grouped events
-     * @property {boolean} deleteOption - "one" or "all" (or "" if irrelevant to flow)
-     * @property {function} setDeleteOption - sets one of above mentioned options.
-     */
-    /**
-     * @type {controlDeleteOption}
-     */
-	const [deleteOption, setDeleteOption] = useState(null);
 
 	/**
 	 * load events as saved in /backend/api/calendar/calendarEvents.json
@@ -464,6 +447,7 @@ function Calendar({ singlePage }) {
 	const handleEventClick = (event) => {
 
 		if (event.group_id) {
+			console.log("is group id, = ", event.group_id)
 			groupId.current = event.group_id
 		} else {
 			groupId.current = null;
@@ -489,17 +473,17 @@ function Calendar({ singlePage }) {
      * @returns {undefined}
      */
 	const deleteEvent = async (id) => {
+		console.log("delete event id", id);
+		console.log("groupId.current", groupId.current);
 		deleteId.current = id;
-		if (postInitialLoad.current) {
-			if (groupId.current) {
-				setModal(true);
-			} else {
-				setDeleteOption("");
-			}
+		if (groupId.current) {
+			setModal(true);
+		} else {
+			finishDeleteProcess("");
 		}
 	}
 
-	useEffect(() => {
+	function finishDeleteProcess(deleteOption) {
         /**
          * remove event(s) from /backend/api/calendar/calendarEvents.json and reload events thereupon
 		 * @param {Object} arg - json {event_id: id} || {group_id: id}
@@ -507,6 +491,8 @@ function Calendar({ singlePage }) {
          * @returns {undefined}
          */
 		async function processDelete(arg) {
+			console.log("getting to processDelete");
+			console.log("weird classes...?>...?", document.getElementsByClassName("css-s22wio"))
 			setTimeout(async () => {
 				await CopiartsApi.deleteEvents(arg);
 				groupId.current = null;
@@ -518,17 +504,15 @@ function Calendar({ singlePage }) {
 
 		}
 
-		if (postInitialLoad.current) {
-			if (groupId.current && deleteOption === "all") {
-				processDelete({"group_id": groupId.current});
-			} else {
-				processDelete({"event_id": deleteId.current});
-			}
-		} else {
-			postInitialLoad.current = true;
-		}
+		console.log("groupId.current", groupId.current);
+		console.log("deleteOption value", deleteOption);
 
-	}, [deleteOption]);
+		if (groupId.current && deleteOption === "all") {
+			processDelete({"group_id": groupId.current});
+		} else {
+			processDelete({"event_id": deleteId.current});
+		}
+	}
 
 /**
  * @component /frontend/src/components/DeleteOptions
@@ -563,8 +547,8 @@ function Calendar({ singlePage }) {
 		 */
 		const handleOne = () => {
 		  setOpen(false);
-		  setDeleteOption("one");
 		  setModal(false);
+		  finishDeleteProcess("one");
 		};
 
 		/**
@@ -572,9 +556,10 @@ function Calendar({ singlePage }) {
 		 * @returns {undefined}
 		 */
 		const handleAll = () => {
+			console.log('getting to handleAll');
 			setOpen(false);
-			setDeleteOption("all");
 			setModal(false);
+			finishDeleteProcess("all");
 		}
 	  
 		return (

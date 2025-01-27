@@ -24,6 +24,7 @@ function Admin() {
 	 * @type {boolean} - is user an admin or not
 	 */
 	const admin = useContext(UserContext).admin;
+	console.log("admin", admin);
 
     /**
      * the useNavigate object allows for programmatic site navigation.
@@ -43,7 +44,7 @@ function Admin() {
 				redirect('/admin/login');
 			} 
 		}
-		
+		console.log("useEffect admin", admin);
 		proveIt();
 	});
 

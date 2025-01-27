@@ -12,3 +12,4 @@ backend/calendar/package-lock.json
 backend/calendar/token.json
 backend/package-lock.json
 frontend/dist
+backend/api/calendar/CalendarEvents.json
