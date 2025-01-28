@@ -31,11 +31,6 @@ import '../css/App.css';
 
 const App = memo(function App() {
 
-	/**
-	 * is user admin?
-	 * @type {boolean}
-	 */
-	const [admin, setAdmin] = useState(false);
 	let show;
 
 	if (sessionStorage.getItem('featuresPanel')) {
@@ -50,7 +45,7 @@ const App = memo(function App() {
 	}
 
 	return (
-		<UserContext.Provider value={{admin, setAdmin, root}}>
+		<UserContext.Provider value={{root}}>
 			<div id="app">
 				<Box className="SiteBox" component="main">
 					<NavigationBar className="NavBar"/>

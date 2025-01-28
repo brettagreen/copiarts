@@ -6,7 +6,6 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import CopiartsApi from '../api';
 import { formTheme } from '../css/styles';
-import UserContext from '../userContext';
 import '../css/Login.css';
 
 /**
@@ -42,16 +41,6 @@ function Login() {
      */
     const redirect = useNavigate();
 
-	/**
-	 * @type {boolean} - set admin state
-	 */
-    const setAdmin = useContext(UserContext).setAdmin;
-    
-	/**
-	 * @type {boolean} - is user an admin or not
-	 */
-    const admin = useContext(UserContext).admin;
-
     /**
      * @const
      * password form object
@@ -59,6 +48,8 @@ function Login() {
     const INITIAL_STATE = {
         password: ''
     }
+
+    const [success, setSuccess] = useState(false);
 
 	/**
      * @typedef {Object} controlShow1 - useState hook.
@@ -114,7 +105,8 @@ function Login() {
 
         try {
             await CopiartsApi.loginAdmin(form);
-            setAdmin(true);
+            sessionStorage.setItem('admin', true);
+            setSuccess(true);
             setForm(INITIAL_STATE);
         } catch (error) {
             setError(error);
@@ -130,10 +122,12 @@ function Login() {
         function goToCalendar() {
             redirect('/admin/calendar');
         }
-        if (admin) {
+
+        console.log('ssadmin', sessionStorage.getItem('admin'));
+        if (sessionStorage.getItem('admin') || success) {
             goToCalendar();
         }
-    })
+    });
 
     return (
         <>

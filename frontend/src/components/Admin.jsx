@@ -1,7 +1,6 @@
 import Calendar from './Calendar';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../userContext';
 
 /**
  * @component /frontend/src/components/Admin
@@ -20,12 +19,6 @@ import UserContext from '../userContext';
  */
 function Admin() {
 
-	/**
-	 * @type {boolean} - is user an admin or not
-	 */
-	const admin = useContext(UserContext).admin;
-	console.log("admin", admin);
-
     /**
      * the useNavigate object allows for programmatic site navigation.
      * @see https://reactrouter.com/en/6.22.3/hooks/use-navigate
@@ -33,26 +26,13 @@ function Admin() {
      */
 	let redirect = useNavigate();
 
-	useEffect(() => {
-        /**
-         * show use the proverbial door - lmao - back to the Login componet if their password is bogus
-         * @async
-         * @returns {undefined} 
-         */
-		function proveIt() {
-			if (!admin) {
-				redirect('/admin/login');
-			} 
-		}
-		console.log("useEffect admin", admin);
-		proveIt();
-	});
-
-	if (admin) {
+	if (sessionStorage.getItem('admin')) {
 		return(
 			<Calendar />
 		)
-	} 
+	} else {
+		redirect('/admin/login');
+	}
 
 }
 

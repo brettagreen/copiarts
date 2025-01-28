@@ -52,11 +52,11 @@ function Events() {
 							{/* {event.host === 'unknown unknown' ? null : <img key={"icon"+idx} src={`/icons/${event.icon}`} width={250} height={250} alt="host icon"/>} */}
 							<h2 className="EventDescription" key={"description"+idx} id="eventsdescription">{event.description}</h2>
 							<h2 className="EventLocation" key={"location"+idx}>{event.location}</h2>
-							{event.location !== DEFAULT_ADDRESS &&
+							{/* {event.location !== DEFAULT_ADDRESS &&
 								<iframe key={"map"+idx} id="eventsmap"
 									loading="lazy" src={`https://www.google.com/maps/embed/v1/place?q=${parseLocation(event.location)}&key=${API_KEY}`}>
 								</iframe>
-							}
+							} */}
 						</div>
 					</div>
 				</div>

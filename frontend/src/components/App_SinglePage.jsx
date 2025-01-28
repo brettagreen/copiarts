@@ -30,11 +30,6 @@ import '../css/App.css';
 
 function App_SinglePage() {
 
-	/**
-	 * is user admin?
-	 * @type {boolean}
-	 */
-	const [admin, setAdmin] = useState(false);
 	let show;
 
 	if (sessionStorage.getItem('featuresPanel')) {
@@ -45,7 +40,7 @@ function App_SinglePage() {
 	}
 
 	return (
-		<UserContext.Provider value={{admin, setAdmin, root}}>
+		<UserContext.Provider value={{root}}>
 			<div id="app">
 				<Box className="SiteBox" component="main">
 					<NavigationBar_SinglePage className="NavBar"/>
