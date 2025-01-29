@@ -70,10 +70,10 @@ function About() {
 					in purposeful activity. Cornucopia provides social engagement and purpose through the arts and wellness.
 				</p>
 			</section>
-			<section id="aboutimages">
+			{/* <section id="aboutimages">
 				<img src="https://picsum.photos/300" alt="homepage image" />
 				<img src="https://picsum.photos/300" alt="homepage image" />
-			</section>
+			</section> */}
 			 
 		</div>
 	)
