@@ -11,38 +11,32 @@ const mediaQuery = window.matchMedia('(min-width: 1169px)');
 
 mediaQuery.addEventListener("change", function() {
 	if (mediaQuery.matches) {
-		console.log('event listener: rendering App')
 		root.render(
 			<App />
 		)
 	} else {
-		console.log('event listener: rendering App_SinglePage')
 		root.render(
 			<App_SinglePage />
 		)
 	}
 });
 
-console.log('outside if statments root', styleRoot);
 if (sessionStorage.getItem('font')) {
-	console.log('font root', styleRoot)
 	styleRoot.style.setProperty('font-family', sessionStorage.getItem('font'));
 }
 
 if (sessionStorage.getItem('color')) {
-	console.log('color root', styleRoot);
 	styleRoot.style.setProperty('background', sessionStorage.getItem('color'));
 }
 
 if (mediaQuery.matches) {
-	console.log('on load: rendering App')
 	root.render(
 		<App />
 	)
 } else {
-	console.log('on load: rendering App_SinglePage')
 	root.render(
 		<App_SinglePage />
 	)
 }
+
 export default root;
