@@ -22,11 +22,14 @@ mediaQuery.addEventListener("change", function() {
 	}
 });
 
+console.log('outside if statments root', root);
 if (sessionStorage.getItem('font')) {
+	console.log('font root', root)
 	root.style.setProperty('font-family', sessionStorage.getItem('font'));
 }
 
 if (sessionStorage.getItem('color')) {
+	console.log('color root', root);
 	root.style.setProperty('background', sessionStorage.getItem('color'));
 }
 
