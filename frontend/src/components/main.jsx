@@ -5,6 +5,7 @@ import App_SinglePage from './App_SinglePage';
 import '../css/index.css'
 
 const root = createRoot(document.getElementById('root'));
+const styleRoot = document.getElementById('root');
 
 const mediaQuery = window.matchMedia('(min-width: 1169px)');
 
@@ -22,15 +23,15 @@ mediaQuery.addEventListener("change", function() {
 	}
 });
 
-console.log('outside if statments root', root);
+console.log('outside if statments root', styleRoot);
 if (sessionStorage.getItem('font')) {
-	console.log('font root', root)
-	root.style.setProperty('font-family', sessionStorage.getItem('font'));
+	console.log('font root', styleRoot)
+	styleRoot.style.setProperty('font-family', sessionStorage.getItem('font'));
 }
 
 if (sessionStorage.getItem('color')) {
-	console.log('color root', root);
-	root.style.setProperty('background', sessionStorage.getItem('color'));
+	console.log('color root', styleRoot);
+	styleRoot.style.setProperty('background', sessionStorage.getItem('color'));
 }
 
 if (mediaQuery.matches) {
