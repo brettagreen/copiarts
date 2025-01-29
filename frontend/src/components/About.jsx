@@ -73,11 +73,6 @@ function About() {
 			<section id="aboutimages">
 				<img src="https://picsum.photos/300" alt="homepage image" />
 				<img src="https://picsum.photos/300" alt="homepage image" />
-				<img src="https://picsum.photos/300" alt="homepage image" />
-				<img src="https://picsum.photos/300" alt="homepage image" />
-				<img src="https://picsum.photos/300" alt="homepage image" />
-				<img src="https://picsum.photos/300" alt="homepage image" />
-				<img src="https://picsum.photos/300" alt="homepage image" />
 			</section>
 			 
 		</div>
