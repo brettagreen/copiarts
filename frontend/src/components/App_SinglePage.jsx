@@ -2,10 +2,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { Box } from '@mui/material';
 import CopiartsRoutes from './CopiartsRoutes';
 import NavigationBar_SinglePage from './NavigationBar_SinglePage';
-import { useState } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
-import FeaturesTest from './FeaturesTest';
+// import FeaturesTest from './FeaturesTest';
 import root from './main';
 import '../css/App.css';
 
@@ -47,7 +46,7 @@ function App_SinglePage() {
 					<BrowserRouter>
 						<CopiartsRoutes singlePage={true}/>
 					</BrowserRouter>
-					<FeaturesTest show={show} checked={true} />
+					{/* <FeaturesTest show={show} checked={true} /> */}
 					<Footer className="Footer"/>
 				</Box>
 			</div>
