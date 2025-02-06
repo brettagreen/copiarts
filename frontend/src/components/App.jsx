@@ -2,10 +2,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Box } from '@mui/material';
 import CopiartsRoutes from './CopiartsRoutes';
 import NavigationBar from './NavigationBar';
-import { useState, memo } from 'react';
+import { memo } from 'react';
 import UserContext from "../userContext";
 import Footer from './Footer';
-import FeaturesTest from './FeaturesTest';
+// import FeaturesTest from './FeaturesTest';
 import root from './main';
 
 import '../css/App.css';
@@ -52,7 +52,7 @@ const App = memo(function App() {
 						<BrowserRouter>
 							<CopiartsRoutes singlePage={false}/>
 						</BrowserRouter>
-					<FeaturesTest show={show} checked={false} />
+					{/* <FeaturesTest show={show} checked={false} /> */}
 					<Footer className="Footer"/>
 				</Box>
 			</div>
