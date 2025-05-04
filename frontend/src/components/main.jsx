@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client'
-//import { useEffect } from 'react';
 import App from './App'
 import App_SinglePage from './App_SinglePage';
 import '../css/index.css'

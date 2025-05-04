@@ -5,9 +5,8 @@
 	float: left;
 }
 
-#aboutText > p {
+#aboutText p {
 	text-align: left;
-	text-indent: 50px;
 }
 
 #aboutText > h3 {
@@ -21,6 +20,10 @@
 	object-fit: contain;
 	float: left;
 	margin-left: 2em;
+}
+
+.linkypoo:hover {
+	color: #8e92d3;
 }
 
 @media (width <= 855px) {

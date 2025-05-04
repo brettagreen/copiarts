@@ -187,7 +187,7 @@ function Gallery() {
 					</div>
 				</div>
 				<div id="mobilegalleryid">
-					{/* <h3 className="GalleryHeaderBackground">Some of our artwork</h3> */}
+					<h3 className="GalleryHeaderBackground">Some of our artwork</h3>
 					<ImageList className="MobileImageGallery" cols={2} rowHeight='auto'>
 						{mobilePaginatedPhotos.map((photo, idx) => (
 							<ImageListItem key={"mobileimage"+idx}>

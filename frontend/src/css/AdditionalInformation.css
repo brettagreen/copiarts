@@ -31,6 +31,10 @@ li {
 	display: none;
 }
 
+.linkypoo:hover {
+	color: #8e92d3;
+}
+
 @media (width <= 855px) {
 	#additionalText {
 		width: 90vw;

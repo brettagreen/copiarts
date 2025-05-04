@@ -118,16 +118,19 @@ const formTheme =
 					}
 				}
 			},
-			MuiButtonBase: {
+			MuiButton: {
 				styleOverrides: {
 					root: {
-						'&.:hover': {
-							bgcolor: 'transparent',
-							borderColor: "rgba(0,0,0,.9)"
-						},
-						'&.Mui-focused': {
-							borderColor: "rgba(0,0,0,.9)"
-						}
+						color: '#f3f2f2',
+						fontSize: '.6em',
+						borderColor: '#f3f2f2'
+					},
+					'&.:hover': {
+						bgcolor: 'transparent',
+						borderColor: '#171515'
+					},
+					'&.Mui-focused': {
+						borderColor: '#171515'
 					}
 				}
 			},

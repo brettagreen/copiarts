@@ -263,7 +263,7 @@ function Contact() {
                             {showCommentError &&
                                 <FormHelperText error={true}>Please provide your feedback.</FormHelperText>
                             }
-                            <Button className="ContactSubmit" type="submit" variant="outlined" color="primary">Submit</Button>
+                            <Button className="ContactSubmit" type="submit" variant="outlined">Submit</Button>
                         </FormControl>
                     </form>
                 </div>
