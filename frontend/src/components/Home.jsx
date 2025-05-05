@@ -60,15 +60,16 @@ function Home({ singlePage }) {
 			
 			
 			<Carousel 
-				responsive={responsive} 
 				className="Carousel"
+				responsive={responsive} 
 				swipeable={true}
 				draggable={false}
 				showDots={false}
 				infinite={true}
-				autoPlaySpeed={1000}
+				autoPlay={true}
+				autoPlaySpeed={3000}
 				keyBoardControl={true}
-				customTransition="all .5"
+				//customTransition="all .5"
 				transitionDuration={500}
 				containerClass="carousel-container"
 				removeArrowOnDeviceType={[]}
