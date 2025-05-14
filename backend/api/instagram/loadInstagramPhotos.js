@@ -13,7 +13,6 @@
  * @const
  */
 const axios = require('axios');
-const { setPhotos } = require("../../routes/photos");
 
 /**
  * array of returned photo/media objects as returned by API query
@@ -51,12 +50,13 @@ async function authAndGetPhotos() {
 	const responseObject = await axios.get(
 		`https://graph.instagram.com/v21.0/${ACCT}/media?access_token=${TOKEN}`
 	);
-
+	//console.log("response object", responseObject.data);
 	/**
 	 * response object items. in this case, photo/media items.
 	 * @type {object}
 	 */
 	let ids = responseObject.data
+	console.log('ids.length', ids.data.length);
 	let resp1;
 	// let resp2;
 	// let resp3;
@@ -103,15 +103,8 @@ async function authAndGetPhotos() {
 		photoArray.push({"media_url": resp1.data.media_url, "caption": resp1.data.caption,
 			"permalink": resp1.data.permalink, "timestamp": resp1.data.timestamp});
 	});
+
+	return photoArray;
 }
 
-/**
- * @description hosts photoArray array at /backend/routes/photos endpoint
- */
-async function getPhotos() {
-	await authAndGetPhotos();
-
-	setPhotos(photoArray);
-}
-
-module.exports = getPhotos;
+module.exports = authAndGetPhotos;

@@ -18,15 +18,7 @@
  */
 const express = require("express");
 const router = express.Router();
-let photos;
-
-/**
- * @function
- * @param {object[photo]} photoURLs - Photo/media objects 
- */
-async function setPhotos(photoURLs) {
-	photos = photoURLs;
-} 
+const authAndGetPhotos = require("../api/instagram/loadInstagramPhotos");
 
 /**
  * @description handles request to retrieve all photos
@@ -38,11 +30,12 @@ async function setPhotos(photoURLs) {
  */
 router.get("/", async function(req, res, next) {
     try {
-        return res.json(photos)
+        const photos = await authAndGetPhotos();
+        //console.log("PHOTOS?", photos);
+        return res.json(photos);
     } catch (err) {
         return next(err);
     }
 });
 
 exports.photosRoutes = router;
-exports.setPhotos = setPhotos;

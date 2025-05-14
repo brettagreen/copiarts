@@ -17,17 +17,6 @@ const app = require("./app");
 let server;
 require("dotenv").config();
 
-/**
- * fetch photos so users don't have to do it on the frontend
- */
-const getPhotos = require("./api/instagram/loadInstagramPhotos");
-
-async function loadPhotos() {
-    await getPhotos();
-}
-
-loadPhotos();
-
 server = app.listen(process.env.PORT, function () {
     console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);
 });

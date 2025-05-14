@@ -111,9 +111,13 @@ function Gallery() {
     }
 
 	function handlePagination(event, value) {
+		console.log('value', value);
 		const one = 10 * (value - 1);
-		const two = one + 10; 
+		console.log('one', one);
+		const two = one + 10;
+		console.log('two', two);
 		setPage(value);
+		console.log('photos/array', photos);
 		setPaginatedPhotos(photos.slice(one, two));
 	}
 
@@ -137,6 +141,9 @@ function Gallery() {
          */
         async function fetchPhotos() {
 			const photoArray = await CopiartsApi.get('photos');
+			console.log('photoArray', photoArray);
+			console.log('length', photoArray.length);
+			console.log('ceiling', Math.ceil(photoArray.length/10));
 			setPhotos(photoArray);
 			setPaginatedPhotos(photoArray.slice(0,10));
 			setMobilePaginatedPhotos(photoArray.slice(0,10));
@@ -169,12 +176,12 @@ function Gallery() {
 					<Grid id="daGrid" container >
 						{paginatedPhotos.map((photo, idx) => {
 							return (
-								<div key={"photo"+idx}>
+								<div className="ImageContainer" key={"photo"+idx}>
 									<Button key={"button"+idx} onClick={() => {showModal(photo)}}>
 										<img key={"img"+idx} className="InstaImage" src={photo.media_url} loading="lazy"
 											alt={'insta image ' + photo.caption} />
 									</Button>
-									<figcaption key={"caption"+idx}>{photo.caption}</figcaption>
+									<figcaption className="Caption" key={"caption"+idx}>{photo.caption}</figcaption>
 								</div>
 							)
 						})}

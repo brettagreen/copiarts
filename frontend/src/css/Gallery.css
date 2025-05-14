@@ -59,9 +59,16 @@
     color: black;
 }
 
-
 .GalleryHeaderBackground {
     display: none;
+}
+
+figcaption {
+    max-width: 250px; 
+}
+
+.ImageContainer {
+    margin: 8px;
 }
 
 @media (width <= 1169px) {
