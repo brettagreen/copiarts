@@ -182,7 +182,7 @@ function Gallery() {
 					<div style={{display: 'inline-block', float: 'left', marginTop: '1.3em'}}>
 						<Pagination sx={{float: 'left'}} count={Math.ceil(photos.length/10)} page={page} onChange={handlePagination} />
 						<Button className="InstaButton" sx={{float: 'left', color: 'black', marginLeft: '1em', padding: '2em'}}>
-							<Link href="https://www.instagram.com/copiarts_test/" target="_blank">View on Instagram</Link>
+							<Link href="https://www.instagram.com/copiacircle/" target="_blank">View on Instagram</Link>
 						</Button>
 					</div>
 				</div>
@@ -204,7 +204,7 @@ function Gallery() {
 					</ImageList>
 					<div style={{marginTop: '2em'}}>
 						<Button className="InstaButton" sx={{ float: 'right', color: 'black', marginRight: '7vw', display: 'inline-flex', padding: '2em' }}>
-							<Link href="https://www.instagram.com/copiarts_test/" target="_blank">View on Instagram</Link>
+							<Link href="https://www.instagram.com/copiacircle/" target="_blank">View on Instagram</Link>
 						</Button>
 						<Pagination sx={{width: '50%'}} count={Math.ceil(photos.length/10)} page={mobilePage} onChange={handleMobilePagination} />
 					</div>
