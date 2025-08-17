@@ -89,10 +89,11 @@ function Gallery() {
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
-		width: '50%',
 		backgroundColor: 'rgba(0,0,0,.1)',
 		border: '2px solid #000',
 		borderRadius: '5px',
+		maxHeight: '75vh',
+		objectFit: 'contain',
 		boxShadow: 24
 	};
 
