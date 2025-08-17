@@ -141,9 +141,6 @@ function Gallery() {
          */
         async function fetchPhotos() {
 			const photoArray = await CopiartsApi.get('photos');
-			console.log('photoArray', photoArray);
-			console.log('length', photoArray.length);
-			console.log('ceiling', Math.ceil(photoArray.length/10));
 			setPhotos(photoArray);
 			setPaginatedPhotos(photoArray.slice(0,10));
 			setMobilePaginatedPhotos(photoArray.slice(0,10));

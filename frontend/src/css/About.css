@@ -13,7 +13,7 @@
 	background-color: rgb(250, 245, 245, .1);
 }
 
-#aboutimages {
+.aboutimages {
 	margin-top: 4.4em;
 	max-width: 200px;
 	max-height: 200px;
@@ -24,6 +24,19 @@
 
 .linkypoo:hover {
 	color: #8e92d3;
+}
+
+.fade-element, .fade-element1 {
+    opacity: 0; /* Start with hidden opacity */
+    transition: opacity 1s ease-in-out; /* Define the transition properties */
+}
+
+.fade-element.show, .fade-element1.show {
+    opacity: 1; /* Target opacity for showing the element */
+}
+
+.aboutimages1 {
+	display: none;
 }
 
 @media (width <= 855px) {

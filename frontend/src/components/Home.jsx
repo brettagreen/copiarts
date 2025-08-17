@@ -58,7 +58,6 @@ function Home({ singlePage }) {
 				</h3>
 			</div>
 			
-			
 			<Carousel 
 				className="Carousel"
 				responsive={responsive} 

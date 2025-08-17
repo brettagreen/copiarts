@@ -27,6 +27,15 @@ const photoArray = [];
  * pushes results to /backend/routes/photos endpoint for easy retrieval by
  * relevant frontend component(s)
  */
+
+function getPhotos() {
+	return photoArray;
+}
+
+function clearPhotos() {
+	photoArray.length = 0;
+}
+
 async function authAndGetPhotos() {
 	/**
 	 * copiarts_test acct id
@@ -66,6 +75,7 @@ async function authAndGetPhotos() {
 		resp1 = await axios.get(
 			`https://graph.instagram.com/v21.0/${id.id}?fields=caption,media_url,permalink,timestamp&access_token=${TOKEN}`
 		);
+		//console.log('media response object', resp1.data);
 
 		/**
 		 * apparently, Instagram/Facebook requires a lot of hoops to be jumped through before allowing access to comments
@@ -101,10 +111,8 @@ async function authAndGetPhotos() {
 		 */
 
 		photoArray.push({"media_url": resp1.data.media_url, "caption": resp1.data.caption,
-			"permalink": resp1.data.permalink, "timestamp": resp1.data.timestamp});
+		"permalink": resp1.data.permalink, "timestamp": resp1.data.timestamp});
 	});
-
-	return photoArray;
 }
 
-module.exports = authAndGetPhotos;
+module.exports = {authAndGetPhotos, getPhotos, clearPhotos}

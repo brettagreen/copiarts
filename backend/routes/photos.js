@@ -18,7 +18,7 @@
  */
 const express = require("express");
 const router = express.Router();
-const authAndGetPhotos = require("../api/instagram/loadInstagramPhotos");
+const { getPhotos } = require("../api/instagram/loadInstagramPhotos");
 
 /**
  * @description handles request to retrieve all photos
@@ -28,10 +28,11 @@ const authAndGetPhotos = require("../api/instagram/loadInstagramPhotos");
  * @param {callback} middleware - Express middleware.
  * @returns {object[photo]} - { photos: [{media_url, caption, permalink, timestamp}, ...]}
  */
+
+const photos = getPhotos();
 router.get("/", async function(req, res, next) {
     try {
-        const photos = await authAndGetPhotos();
-        //console.log("PHOTOS?", photos);
+        const photos = getPhotos();
         return res.json(photos);
     } catch (err) {
         return next(err);

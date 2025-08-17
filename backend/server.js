@@ -12,10 +12,19 @@
  * express app object
  * @const
  */
-const fs = require('fs');
-const app = require("./app");
+//const app = require("./app");
+import app from './app.js';
 let server;
-require("dotenv").config();
+import 'dotenv/config';
+import { authAndGetPhotos } from "./api/instagram/loadInstagramPhotos.js";
+import { clearPhotos } from "./api/instagram/loadInstagramPhotos.js";
+
+await authAndGetPhotos();
+
+setTimeout(async () => {
+    clearPhotos();
+    await authAndGetPhotos();
+}, 50000)
 
 server = app.listen(process.env.PORT, function () {
     console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);
