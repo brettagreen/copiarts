@@ -112,13 +112,9 @@ function Gallery() {
     }
 
 	function handlePagination(event, value) {
-		console.log('value', value);
 		const one = 10 * (value - 1);
-		console.log('one', one);
 		const two = one + 10;
-		console.log('two', two);
 		setPage(value);
-		console.log('photos/array', photos);
 		setPaginatedPhotos(photos.slice(one, two));
 	}
 

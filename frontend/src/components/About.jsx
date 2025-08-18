@@ -2,6 +2,9 @@ import '../css/About.css';
 import '../css/Events.css';
 import { useEffect, useState } from 'react';
 import { readItems, createDirectus, rest, staticToken } from '@directus/sdk';
+import ImageGallery from "react-image-gallery";
+// import stylesheet if you're not already using CSS @import
+import "react-image-gallery/styles/css/image-gallery.css";
 
 /**
  * @component /frontend/src/components/About
@@ -16,13 +19,40 @@ import { readItems, createDirectus, rest, staticToken } from '@directus/sdk';
  */
 function About() {
 
+	const images = [
+		{
+			original: "https://picsum.photos/id/1018/1000/600/",
+			thumbnail: "https://picsum.photos/id/1018/250/150/",
+		},
+		{
+			original: "https://picsum.photos/id/1015/1000/600/",
+			thumbnail: "https://picsum.photos/id/1015/250/150/",
+		},
+		{
+			original: "https://picsum.photos/id/1019/1000/600/",
+			thumbnail: "https://picsum.photos/id/1019/250/150/",
+		},
+
+			{
+			original: "https://picsum.photos/id/1017/1000/600/",
+			thumbnail: "https://picsum.photos/id/1017/250/150/",
+		},
+		{
+			original: "https://picsum.photos/id/1016/1000/600/",
+			thumbnail: "https://picsum.photos/id/1016/250/150/",
+		},
+		{
+			original: "https://picsum.photos/id/1014/1000/600/",
+			thumbnail: "https://picsum.photos/id/1014/250/150/",
+		}
+	]
+
 	const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN;
 	const [text, setText] = useState(null);
 
     useEffect(() => {
 
         async function fetchAboutText() {
-			console.log("getting to fetch about text")
 			const directus = createDirectus('https://copiarts.directus.app').with(rest()).with(staticToken(DIRECTUS_TOKEN));
 
 			let text = await directus.request(readItems('AboutUs'));
@@ -32,51 +62,50 @@ function About() {
         }
 
 		function setTimer() {
-			console.log("Getting to setTimer")
 			const fadeElements = document.querySelectorAll('.fade-element');
-			const fadeElements1 = document.querySelectorAll('.fade-element1');
+			//const fadeElements1 = document.querySelectorAll('.fade-element1');
 	
 			for (let el of fadeElements) {
 				el.classList.toggle("show");
 			}
 
-			for (let el of fadeElements1) {
-				el.classList.remove('show');
-			}
+			// for (let el of fadeElements1) {
+			// 	el.classList.remove('show');
+			// }
 
 			setInterval(() => {
 				
 				const aboutImages = document.querySelectorAll('.aboutimages');
 				const aboutImages1 = document.querySelectorAll('.aboutimages1');
 				
-				if (aboutImages[0].style.display === 'block') {
-					console.log("getting to aboutImages showing")
-					for (let el of aboutImages) {
-						el.style.display = 'none';
-					}
+				// if (aboutImages[0].style.display === 'block') {
+				// 	console.log("getting to aboutImages showing")
+				// 	for (let el of aboutImages) {
+				// 		el.style.display = 'none';
+				// 	}
 
-					for (let el of aboutImages1) {
-						el.style.display = 'block';
-					}
-				} else {
-					console.log("getting to aboutImages1 showing")
-					for (let el of aboutImages) {
-						el.style.display = 'block';
-					}
+				// 	for (let el of aboutImages1) {
+				// 		el.style.display = 'block';
+				// 	}
+				// } else {
+				// 	console.log("getting to aboutImages1 showing")
+				// 	for (let el of aboutImages) {
+				// 		el.style.display = 'block';
+				// 	}
 
-					for (let el of aboutImages1) {
-						el.style.display = 'none';
-					}
-				}
+				// 	for (let el of aboutImages1) {
+				// 		el.style.display = 'none';
+				// 	}
+				// }
 
 				for (let el of fadeElements) {
 					el.classList.toggle('show');
 				}
 
-				for (let el of fadeElements1) {
-					console.log("GETTING HEREEE")
-					el.classList.toggle('show');
-				}
+				// for (let el of fadeElements1) {
+				// 	console.log("GETTING HEREEE")
+				// 	el.classList.toggle('show');
+				// }
 			}, 5000);
 		}
 
@@ -90,27 +119,8 @@ function About() {
 				<h3>About Cornucopia</h3>
 				{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
 			</section>
-			<div>
-				<section className="aboutimages">
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-				</section>
-				<section className="aboutimages">
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-				</section>
-				<section className="aboutimages1">
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-				</section>
-				<section className="aboutimages1">
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-					<img className="fade-element1" src="https://picsum.photos/200" alt="homepage image" style={{borderRadius: '.5em'}}/>
-				</section>
+			<div className="aboutimages">
+				<ImageGallery items={images} />
 			</div>
 		</div>
 	)
