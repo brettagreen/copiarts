@@ -61,56 +61,7 @@ function About() {
 			setText(text);
         }
 
-		function setTimer() {
-			const fadeElements = document.querySelectorAll('.fade-element');
-			//const fadeElements1 = document.querySelectorAll('.fade-element1');
-	
-			for (let el of fadeElements) {
-				el.classList.toggle("show");
-			}
-
-			// for (let el of fadeElements1) {
-			// 	el.classList.remove('show');
-			// }
-
-			setInterval(() => {
-				
-				const aboutImages = document.querySelectorAll('.aboutimages');
-				const aboutImages1 = document.querySelectorAll('.aboutimages1');
-				
-				// if (aboutImages[0].style.display === 'block') {
-				// 	console.log("getting to aboutImages showing")
-				// 	for (let el of aboutImages) {
-				// 		el.style.display = 'none';
-				// 	}
-
-				// 	for (let el of aboutImages1) {
-				// 		el.style.display = 'block';
-				// 	}
-				// } else {
-				// 	console.log("getting to aboutImages1 showing")
-				// 	for (let el of aboutImages) {
-				// 		el.style.display = 'block';
-				// 	}
-
-				// 	for (let el of aboutImages1) {
-				// 		el.style.display = 'none';
-				// 	}
-				// }
-
-				for (let el of fadeElements) {
-					el.classList.toggle('show');
-				}
-
-				// for (let el of fadeElements1) {
-				// 	console.log("GETTING HEREEE")
-				// 	el.classList.toggle('show');
-				// }
-			}, 5000);
-		}
-
         fetchAboutText();
-		setTimer();
     }, []);
 
 	return (

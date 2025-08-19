@@ -1,9 +1,7 @@
 import Link from '@mui/material/Link';
 import Calendar from './Calendar';
 import Events from './Events';
-import Carousel from 'react-multi-carousel';
 import '../css/Gallery.css';
-import 'react-multi-carousel/lib/styles.css';
 import '../css/Home.css';
 import '../css/Events.css';
 
@@ -57,31 +55,6 @@ function Home({ singlePage }) {
 					through self-directed recovery and peer support.
 				</h3>
 			</div>
-			
-			<Carousel 
-				className="Carousel"
-				responsive={responsive} 
-				swipeable={true}
-				draggable={false}
-				showDots={false}
-				infinite={true}
-				autoPlay={true}
-				autoPlaySpeed={3000}
-				keyBoardControl={true}
-				//customTransition="all .5"
-				transitionDuration={500}
-				containerClass="carousel-container"
-				removeArrowOnDeviceType={[]}
-				itemClass="Carousel-Photos">
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-				<img src="https://picsum.photos/300" alt="carousel image" />
-
-			</Carousel>
 
 			<section id="homesection">
 				<div id="sectiononeheight">

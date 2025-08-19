@@ -14,6 +14,7 @@
 	-moz-osx-font-smoothing: grayscale;
 
 	background: var(--default-background);
+	overflow-x: hidden;
 }
 
 a {

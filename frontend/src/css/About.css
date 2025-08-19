@@ -29,14 +29,16 @@
 	#aboutText {
 		width: 90vw;
 	}
-
-	#aboutimages {
-		display: none;
-	}
 }
 
 @media (width <= 1169px) {
 	#aboutid {
 		margin-top: 3em;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.aboutimages {
+		max-width: 90vw
 	}
 }
