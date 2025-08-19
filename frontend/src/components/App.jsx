@@ -49,10 +49,7 @@ const App = memo(function App() {
 			<div id="app">
 				<Box className="SiteBox" component="main">
 					<NavigationBar className="NavBar"/>
-						<BrowserRouter future={{
-    v7_startTransition: true,
-    v7_relativeSplatPath: true,
-  }}>
+						<BrowserRouter>
 							<CopiartsRoutes singlePage={false}/>
 						</BrowserRouter>
 					{/* <FeaturesTest show={show} checked={false} /> */}
