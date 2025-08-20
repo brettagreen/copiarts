@@ -69,13 +69,13 @@ img {
 	color: black;
 }
 
-.HomesectionOne > img {
+.HomesectionOne > #mapimage {
 	border: 0;
 	width: clamp(300px, 48vw, 560px);
 	height: clamp(168.5px, 25vw, 315px);
 }
 
-.HomesectionOne > #welcomevideo {
+.HomesectionOne > #buildingimage {
 	width: clamp(300px, 48vw, 560px);
 	height: clamp(168.5px, 25vw, 315px);
 	margin-right: 1rem;
@@ -108,6 +108,10 @@ img {
 	display: none;
 }
 
+.Carousel {
+	display: none;
+}
+
 @media (width <= 1169px) {
 	#homearrow {
 		display: block;
@@ -122,10 +126,6 @@ img {
 		margin-left: 1em;
 	}
 
-	.HomesectionOne > #welcomevideo {
-		margin: auto;
-	}
-
 	.HomesectionOne > img {
 		border: 0;
 		margin: auto;
@@ -138,11 +138,23 @@ img {
 	}
 }
 
-@media (width <= 855px) {
+@media (width <= 1169px) {
+	.Carousel-Photos {
+		margin: 4px;
+	}
+}
 
-	#homeid {
+@media (width <= 855px) {
+	.Carousel {
 		display: flex;
-		flex-direction: column;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	.Carousel img {
+		max-width: 250px;
+		max-height: 250px;
+		object-fit: contain;
 	}
 
 	#calevents {

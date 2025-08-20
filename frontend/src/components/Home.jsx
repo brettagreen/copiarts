@@ -59,13 +59,10 @@ function Home({ singlePage }) {
 			<section id="homesection">
 				<div id="sectiononeheight">
 					<div className="HomesectionOne">
-						{/* <embed id="welcomevideo" type="video/mp4" src="https://www.youtube-nocookie.com/embed/Cb82cy9b7Hk?si=CSp9j8srFAcb_eO0" /> */}
-						<video id="welcomevideo" controls>
-							<source src="/placeholder.mp4" type="video/mp4" />
-						</video>
+						<img id="buildingimage" src="/images/copiarts_building_front.jpg" alt="building front" />
 					</div>
 					<div className="HomesectionOne">
-						<img src={`https://maps.googleapis.com/maps/api/staticmap?center=2+South+Ingersoll+St,Madison,Wi&zoom=17&size=560x315&markers=color:red%7C2+South+Ingersoll+St,Madison,Wi&key=${API_KEY}`}
+						<img id="mapimage" src={`https://maps.googleapis.com/maps/api/staticmap?center=2+South+Ingersoll+St,Madison,Wi&zoom=17&size=560x315&markers=color:red%7C2+South+Ingersoll+St,Madison,Wi&key=${API_KEY}`}
 							srcSet={`https://maps.googleapis.com/maps/api/staticmap?center=2+South+Ingersoll+St,Madison,Wi&zoom=17&size=560x315&markers=color:red%7C2+South+Ingersoll+St,Madison,Wi&key=${API_KEY} 1x,
 						 				https://maps.googleapis.com/maps/api/staticmap?center=2+South+Ingersoll+St,Madison,Wi&zoom=17&size=560x315&markers=color:red%7C2+South+Ingersoll+St,Madison,Wi&key=${API_KEY} 2x,
 										https://maps.googleapis.com/maps/api/staticmap?center=2+South+Ingersoll+St,Madison,Wi&zoom=17&size=560x315&markers=color:red%7C2+South+Ingersoll+St,Madison,Wi&key=${API_KEY} 3x`}
