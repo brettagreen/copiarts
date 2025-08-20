@@ -53,6 +53,14 @@ function About() {
 			originalAlt: "music room 2",
 			thumbnailAlt: "music room 2 thumbnail"
 		},
+				{
+			original: "/images/copiarts_computer_room.jpg",
+			thumbnail: "/images/copiarts_computer_room_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "computer room",
+			thumbnailAlt: "computer room thumbnail"
+		},
 		{
 			original: "/images/copiarts_kitchen.jpg",
 			thumbnail: "/images/copiarts_kitchen_thumbnail.jpg",
@@ -69,6 +77,22 @@ function About() {
 			thumbnailLoading: "eager",
 			originalAlt: "art room 7",
 			thumbnailAlt: "art room 7 thumbnail"
+		},
+				{
+			original: "/images/copiarts_art_room5.jpg",
+			thumbnail: "/images/copiarts_art_room5_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art room 5",
+			thumbnailAlt: "art room 5 thumbnail"
+		},
+				{
+			original: "/images/copiarts_art_room6.jpg",
+			thumbnail: "/images/copiarts_art_room6_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art room 6",
+			thumbnailAlt: "art room 6 thumbnail"
 		}
 	]
 
