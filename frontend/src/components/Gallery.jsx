@@ -172,7 +172,7 @@ function Gallery() {
 							return (
 								<div className="ImageContainer" key={"photo"+idx}>
 									<Button key={"button"+idx} onClick={() => {showModal(photo)}}>
-										<img key={"img"+idx} className="InstaImage" src={photo.media_url} loading="lazy"
+										<img key={"img"+idx} className="InstaImage" src={photo.media_url} loading="eager"
 											alt={'insta image ' + photo.caption} />
 									</Button>
 									<figcaption className="Caption" key={"caption"+idx}>{photo.caption}</figcaption>
@@ -197,7 +197,7 @@ function Gallery() {
 									className="MobileImage"
 									src={photo.media_url}
 									alt={'insta image ' + photo.caption}
-									loading="lazy"
+									loading="eager"
 									onClick={() => showModal(photo)}
 								/>
 							</ImageListItem>

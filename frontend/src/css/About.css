@@ -29,6 +29,10 @@
 	#aboutText {
 		width: 90vw;
 	}
+
+	.aboutimages {
+		margin-left: 1em;
+	}
 }
 
 @media (width <= 1169px) {

@@ -21,29 +21,54 @@ function About() {
 
 	const images = [
 		{
-			original: "https://picsum.photos/id/1018/1000/600/",
-			thumbnail: "https://picsum.photos/id/1018/250/150/",
+			original: "/images/copiarts_art_room.jpg",
+			thumbnail: "/images/copiarts_art_room_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art room",
+			thumbnailAlt: "art room thumbnail"
 		},
 		{
-			original: "https://picsum.photos/id/1015/1000/600/",
-			thumbnail: "https://picsum.photos/id/1015/250/150/",
+			original: "/images/copiarts_art_room2.jpg",
+			thumbnail: "/images/copiarts_art_room2_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art room 2",
+			thumbnailAlt: "art room 2 thumbnail"
 		},
 		{
-			original: "https://picsum.photos/id/1019/1000/600/",
-			thumbnail: "https://picsum.photos/id/1019/250/150/",
+			original: "/images/copiarts_music.jpg",
+			thumbnail: "/images/copiarts_music_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "music room",
+			thumbnailAlt: "music room thumbnail"
 		},
 
 			{
-			original: "https://picsum.photos/id/1017/1000/600/",
-			thumbnail: "https://picsum.photos/id/1017/250/150/",
+			original: "/images/copiarts_music2.jpg",
+			thumbnail: "/images/copiarts_music2_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "music room 2",
+			thumbnailAlt: "music room 2 thumbnail"
 		},
 		{
-			original: "https://picsum.photos/id/1016/1000/600/",
-			thumbnail: "https://picsum.photos/id/1016/250/150/",
+			original: "/images/copiarts_kitchen.jpg",
+			thumbnail: "/images/copiarts_kitchen_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "kitchen",
+			thumbnailAlt: "kitchen thumbnail",
+			description: "this is the kitchen"
 		},
 		{
-			original: "https://picsum.photos/id/1014/1000/600/",
-			thumbnail: "https://picsum.photos/id/1014/250/150/",
+			original: "/images/copiarts_art_room7.jpg",
+			thumbnail: "/images/copiarts_art_room7_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art room 7",
+			thumbnailAlt: "art room 7 thumbnail"
 		}
 	]
 

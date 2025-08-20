@@ -19,7 +19,6 @@
     font-family: Roboto;
     margin-bottom: 10em;
     background: var(--default-background);
-
 }
 
 #navappbar {
@@ -34,6 +33,7 @@
 .CornucopiaLogo {
     width: 250px;
     height: 117px;
+    margin-top: 1em;
 }
 
 @media (width <= 1169px) {
