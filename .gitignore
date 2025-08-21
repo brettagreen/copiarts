@@ -14,3 +14,4 @@ frontend/dist
 backend/renew_token.sh
 backend/test.sh
 backend/Cornucopia.code-workspace
+backend/api/calendar/CalendarEvents.json
