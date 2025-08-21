@@ -130,6 +130,8 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
      * @returns {undefined}
      */
 	const handleChange = (value, name) => {
+		console.log('value', value);
+		console.log('name', name);
 
 		setState((prev) => {
 			return {
@@ -145,13 +147,13 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
      * @returns {undefined}
      */
 	const handleSubmit = async (e) => {
+		console.log('getting to handleSubmit')
 		let groupId;
 		let ruleStartTimes;
 		let ruleEndTimes;
 		let uploadEvents = [];
-		const start = scheduler.state.start.value;
-		const end = scheduler.state.end.value;
-
+		const start = state.start.$d
+		const end = state.end.$d
 		if (state.repeat) {
 			groupId = Math.random();
 
@@ -199,6 +201,10 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
 				)
 			})
 		} else {
+			console.log("start", start);
+			console.log("end", end);
+			console.log("state.start", state.start)
+			console.log("state.end", state.end)
 			uploadEvents = [
 				{
 					event_id: edit ? event.event_id : Math.random(),
@@ -262,7 +268,7 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
 							label="Start"
 							value={state.start}
 							inputFormat="MM/dd/yyyy hh:mm a"
-							onChange={(newValue) => handleChange(newValue, 'start')}
+							onChange={(e) => {handleChange(e, 'start'); console.log(e)}}
 							fullWidth 
 						/>
 					</LocalizationProvider>
@@ -271,7 +277,7 @@ const CustomEditor = ({ edit, setEdit, loadEvents, scheduler }) => {
 							label="End"
 							value={state.end}
 							inputFormat="MM/dd/yyyy hh:mm a"
-							onChange={(newValue) => handleChange(newValue, "end")}
+							onChange={(e) => {handleChange(e, "end"); console.log(e)}}
 							fullWidth 
 						/>
 					</LocalizationProvider>
@@ -447,7 +453,6 @@ function Calendar({ singlePage }) {
 	const handleEventClick = (event) => {
 
 		if (event.group_id) {
-			console.log("is group id, = ", event.group_id)
 			groupId.current = event.group_id
 		} else {
 			groupId.current = null;
@@ -461,6 +466,7 @@ function Calendar({ singlePage }) {
      * @returns {undefined}
      */
 	const editEvent = async (event) => {
+		console.log("getting to editEvent?")
 		event.start = dayjs(event.start);
 		event.end = dayjs(event.end);
 		setEdit(true);
@@ -473,8 +479,6 @@ function Calendar({ singlePage }) {
      * @returns {undefined}
      */
 	const deleteEvent = async (id) => {
-		console.log("delete event id", id);
-		console.log("groupId.current", groupId.current);
 		deleteId.current = id;
 		if (groupId.current) {
 			setModal(true);
@@ -503,9 +507,6 @@ function Calendar({ singlePage }) {
 			document.getElementsByClassName("css-s22wio")[0].remove();
 
 		}
-
-		console.log("groupId.current", groupId.current);
-		console.log("deleteOption value", deleteOption);
 
 		if (groupId.current && deleteOption === "all") {
 			processDelete({"group_id": groupId.current});

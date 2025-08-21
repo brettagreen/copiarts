@@ -68,7 +68,6 @@ function About() {
 			thumbnailLoading: "eager",
 			originalAlt: "kitchen",
 			thumbnailAlt: "kitchen thumbnail",
-			description: "this is the kitchen"
 		},
 		{
 			original: "/images/copiarts_art_room7.jpg",

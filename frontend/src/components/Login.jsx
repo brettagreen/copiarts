@@ -127,7 +127,7 @@ function Login() {
         if (sessionStorage.getItem('admin') || success) {
             goToCalendar();
         }
-    });
+    }, [success]);
 
     return (
         <>
