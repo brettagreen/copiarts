@@ -1,5 +1,6 @@
 :root {
-	--default-background: linear-gradient(90deg, rgba(98, 18, 130, 1), rgba(15, 107, 29, 1) 50%, rgba(227, 174, 100, 1));/*205,202,206*/
+	--default-background: linear-gradient(90deg, rgba(62, 14, 81, 1), rgba(15, 107, 29, 1) 50%, rgba(196, 131, 41, 1));/*205,202,206*/
+	/*--default-background: linear-gradient(90deg, rgba(98, 18, 130, 1), rgba(15, 107, 29, 1) 50%, rgba(227, 174, 100, 1));*//*205,202,206*/
 	--default-text-color: #e5dede;
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;

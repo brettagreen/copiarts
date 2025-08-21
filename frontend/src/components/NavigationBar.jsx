@@ -42,6 +42,9 @@ const NavigationBar = memo(function NavigationBar() {
                                         srcSet="/images/cornucopia.png 1x, /images/cornucopia-2x.png 2x, /images/cornucopia-3x.png 3x" 
                                         alt="cornucopia logo" title="Home"/>
                             </Link>
+                            <Link href='/' underline='hover'>
+                                Home
+                            </Link>
                             <Link href='/about' underline='hover'>
                                 About Us
                             </Link>

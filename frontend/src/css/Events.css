@@ -12,18 +12,15 @@
 	font-size: large;
 }
 
+.EventItem h2 {
+	font-weight: 700;
+}
+
 .EventTitle {
 	color: rgb(174, 64, 165);
 	margin-bottom: 0;
 	margin-top: 0;
-}
 
-.EventTime {
-	color: rgb(218, 128, 68);
-}
-
-.EventDescription {
-	color: rgb(168, 95, 46);
 }
 
 #eventsmap {
@@ -39,6 +36,7 @@
 	font-variant: small-caps;
 	background-color: rgb(250, 245, 245, .1);
 	width: 36vw;
+	font-weight: 700;
 }
 
 @media (width <= 855px) {

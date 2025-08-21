@@ -16,6 +16,7 @@ img {
 	font-variant: small-caps;
 	font-size: larger !important;
 	background-color: rgb(250, 245, 245, .1);
+	font-weight: 700;
 }
 
 #headermission {

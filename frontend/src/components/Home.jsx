@@ -1,6 +1,8 @@
 import Link from '@mui/material/Link';
 import Calendar from './Calendar';
 import Events from './Events';
+import { useEffect, useState } from 'react';
+import { readItems, createDirectus, rest, staticToken } from '@directus/sdk';
 import '../css/Gallery.css';
 import '../css/Home.css';
 import '../css/Events.css';
@@ -17,6 +19,25 @@ import '../css/Events.css';
  *
  */
 function Home({ singlePage }) {
+
+	const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN;
+	const [text, setText] = useState(null);
+
+    useEffect(() => {
+
+        async function fetchAboutText() {
+			const directus = createDirectus('https://copiarts.directus.app').with(rest()).with(staticToken(DIRECTUS_TOKEN));
+			console.log("directus", directus);
+
+			let text = await directus.request(readItems('Home'));
+			console.log('text', text);
+			text = text[0].Text;
+			console.log("result", text);			
+			setText(text);
+        }
+
+        fetchAboutText();
+    }, []);
 
 	/**
 	 * @const
@@ -47,13 +68,14 @@ function Home({ singlePage }) {
 			</div>
 
 			<div className="headerfooter">
-				<h3>Open Monday through Friday 12:00-5:00. Daily open studio, music and food</h3>
+				{/* <h3>Open Monday through Friday 12:00-5:00. Daily open studio, music and food</h3>
 				<h3 id="headermission">
 					Mission: Cornucopia is an arts and wellness center run
 					by and for people in mental health and substance use recovery.  
 					We promote independence, growth and dignity
 					through self-directed recovery and peer support.
-				</h3>
+				</h3> */}
+				{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
 			</div>
 
 			<section id="homesection">

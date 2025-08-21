@@ -2,6 +2,7 @@
 	font-variant: small-caps;
 	background-color: rgb(250, 245, 245, .1);
 	min-width: 60vw;
+	font-weight: 700;
 }
 
 #calendar {

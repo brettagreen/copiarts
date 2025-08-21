@@ -1016,14 +1016,5 @@
 		"host": "Jonathan",
 		"description": "whatever you want",
 		"period": "weekly"
-	},
-	{
-		"event_id": 0.18520531424834163,
-		"title": "here's",
-		"start": "2025-08-20T19:00:00.000Z",
-		"end": "2025-08-20T23:00:00.000Z",
-		"location": "2 South Ingersoll Madison Wi 53704",
-		"host": "oot",
-		"description": "nothing"
 	}
 ]
