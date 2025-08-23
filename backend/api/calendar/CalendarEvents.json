@@ -875,17 +875,6 @@
 		"period": "weekly"
 	},
 	{
-		"event_id": 0.2057021655035356,
-		"group_id": 0.23177348286124688,
-		"title": "free-for-all",
-		"start": "2025-08-21T19:00:00.000Z",
-		"end": "2025-08-21T20:00:00.000Z",
-		"location": "2 South Ingersoll Madison Wi 53704",
-		"host": "Jonathan",
-		"description": "whatever you want",
-		"period": "weekly"
-	},
-	{
 		"event_id": 0.2617214529659634,
 		"group_id": 0.23177348286124688,
 		"title": "free-for-all",
@@ -1016,5 +1005,177 @@
 		"host": "Jonathan",
 		"description": "whatever you want",
 		"period": "weekly"
+	},
+	{
+		"event_id": 0.43268233439323467,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-08-23T19:00:00.000Z",
+		"end": "2025-08-23T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.5332475341305057,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-08-30T19:00:00.000Z",
+		"end": "2025-08-30T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.07076656276171256,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-09-06T19:00:00.000Z",
+		"end": "2025-09-06T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.8882107110669278,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-09-13T19:00:00.000Z",
+		"end": "2025-09-13T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.7663247833582144,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-09-20T19:00:00.000Z",
+		"end": "2025-09-20T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.9713431447270913,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-09-27T19:00:00.000Z",
+		"end": "2025-09-27T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.48431757440277423,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-10-04T19:00:00.000Z",
+		"end": "2025-10-04T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.38463006966515867,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-10-11T19:00:00.000Z",
+		"end": "2025-10-11T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.04199911062341999,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-10-18T19:00:00.000Z",
+		"end": "2025-10-18T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.2095559076736394,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-10-25T19:00:00.000Z",
+		"end": "2025-10-25T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.8419195306143403,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-11-01T19:00:00.000Z",
+		"end": "2025-11-01T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.6973438638527576,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-11-08T19:00:00.000Z",
+		"end": "2025-11-08T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.8562538317608573,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-11-15T19:00:00.000Z",
+		"end": "2025-11-15T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.9840355601038914,
+		"group_id": 0.38145477730847577,
+		"title": "random title",
+		"start": "2025-11-22T19:00:00.000Z",
+		"end": "2025-11-22T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "",
+		"description": "we're going to be popping balloons",
+		"period": "weekly"
+	},
+	{
+		"event_id": 0.013234512753032113,
+		"title": "past event",
+		"start": "2025-08-20T18:00:00.000Z",
+		"end": "2025-08-20T19:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "mr smith",
+		"description": "this already happened!"
+	},
+	{
+		"event_id": 0.9576603312292878,
+		"title": "half hour event",
+		"start": "2025-08-21T18:00:00.000Z",
+		"end": "2025-08-21T19:30:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "asdf",
+		"description": "adsf"
 	}
 ]
