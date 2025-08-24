@@ -27,6 +27,7 @@
 		"dayjs": "^1.11.13",
 		"dotenv": "^16.4.5",
 		"dotenv-webpack": "^8.1.0",
+		"esbuild": "^0.25.9",
 		"file-saver": "^2.0.5",
 		"html-to-text": "^9.0.5",
 		"jquery": "^3.7.1",
