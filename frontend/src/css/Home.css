@@ -114,17 +114,9 @@ img {
 }
 
 @media (width <= 1169px) {
-	#homearrow {
-		display: block;
-	}
 
 	#mobilelogo {
 		display: inline-flex;
-	}
-
-	#sectiononeheight {
-		width: 50%;
-		margin-left: 1em;
 	}
 
 	.HomesectionOne > img {
@@ -134,7 +126,7 @@ img {
 }
 
 @media (width <= 1376px) {
-	#homearrow {
+	#homearrow > img {
 		display: none;
 	}
 }
@@ -176,5 +168,9 @@ img {
 
 	#homesection > .HomeCalendar {
 		display: block;
+	}
+
+	#homearrow {
+		display:none;
 	}
 }

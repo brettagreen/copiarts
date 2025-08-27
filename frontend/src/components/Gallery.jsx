@@ -204,7 +204,7 @@ function Gallery() {
 						))}
 					</ImageList>
 					<div style={{marginTop: '2em'}}>
-						<Button className="InstaButton" sx={{ float: 'right', color: 'black', marginRight: '7vw', display: 'inline-flex', padding: '2em' }}>
+						<Button className="InstaButton" sx={{ float: 'right', color: 'black', marginRight: '13vw', display: 'inline-flex', padding: '2em' }}>
 							<Link href="https://www.instagram.com/copiacircle/" target="_blank">View on Instagram</Link>
 						</Button>
 						<Pagination sx={{width: '50%'}} count={Math.ceil(photos.length/10)} page={mobilePage} onChange={handleMobilePagination} />
