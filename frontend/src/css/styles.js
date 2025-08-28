@@ -77,6 +77,19 @@ const galleryTheme =
 		}
 	});
 
+const paginationTheme =
+	createTheme({
+		components: {
+			MuiPaginationItem: {
+				styleOverrides: {
+					root: {
+						color: '#fffbfb'
+					}
+				}
+			}
+		}
+	});
+
 const formTheme = 
 	createTheme({
 		components: {
@@ -280,4 +293,4 @@ const mobilePaperTheme =
 
 
 export {featuresTheme, toolbarMenuTheme, galleryTheme, formTheme, textareaTheme, eventFormTheme,
-			 toggleButtonsTheme, mobilePaperTheme};
+			 toggleButtonsTheme, mobilePaperTheme, paginationTheme};

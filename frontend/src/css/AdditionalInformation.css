@@ -5,11 +5,7 @@
 	float: left;
 }
 
-#additionalText > p {
-	text-align: left;
-}
-
-#additionalText > p {
+#additionalText p {
 	text-align: left;
 }
 

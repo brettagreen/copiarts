@@ -51,7 +51,7 @@ function MobileMenu() {
 					}}>
 					<MenuItem className="Item" onClick={handleClose}><Link href='#homeid' underline='hover'>Home</Link></MenuItem>
 					<MenuItem className="Item" onClick={handleClose}><Link href='#aboutid' underline='hover'>About Us</Link></MenuItem>
-					<MenuItem className="Item" onClick={handleClose}><Link href='#galleryid' underline='hover'>Gallery</Link></MenuItem>
+					<MenuItem className="Item" onClick={handleClose}><Link href='#mobilegalleryid' underline='hover'>Gallery</Link></MenuItem>
 					<MenuItem className="Item" onClick={handleClose}><Link href='#informationid' underline='hover'>Membership/Peer Support/Contact Us</Link></MenuItem>
 					<Divider className="MobileDivider" />
 					<MenuItem className="Item" onClick={handleClose}><img className="InstaIcon" src="/images/instagram_icon.png" alt="instagram social" /></MenuItem>

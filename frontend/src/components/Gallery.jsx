@@ -9,7 +9,7 @@
 
 import CopiartsApi from '../api';
 import { useEffect, useState, useRef } from 'react';
-import { galleryTheme } from '../css/styles';
+import { galleryTheme, paginationTheme } from '../css/styles';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Link from '@mui/material/Link';
@@ -181,7 +181,9 @@ function Gallery() {
 						})}
 					</Grid>
 					<div style={{display: 'inline-block', float: 'left', marginTop: '1.3em'}}>
-						<Pagination sx={{float: 'left'}} count={Math.ceil(photos.length/10)} page={page} onChange={handlePagination} />
+						<ThemeProvider theme={paginationTheme}>
+							<Pagination sx={{float: 'left'}} count={Math.ceil(photos.length/10)} page={page} onChange={handlePagination} />
+						</ThemeProvider>
 						<Button className="InstaButton" sx={{float: 'left', color: 'black', marginLeft: '1em', padding: '2em'}}>
 							<Link href="https://www.instagram.com/copiacircle/" target="_blank">View on Instagram</Link>
 						</Button>
@@ -207,7 +209,9 @@ function Gallery() {
 						<Button className="InstaButton" sx={{ float: 'right', color: 'black', marginRight: '13vw', display: 'inline-flex', padding: '2em' }}>
 							<Link href="https://www.instagram.com/copiacircle/" target="_blank">View on Instagram</Link>
 						</Button>
-						<Pagination sx={{width: '50%'}} count={Math.ceil(photos.length/10)} page={mobilePage} onChange={handleMobilePagination} />
+						<ThemeProvider theme={paginationTheme}>
+							<Pagination sx={{width: '50%'}} count={Math.ceil(photos.length/10)} page={mobilePage} onChange={handleMobilePagination} />
+						</ThemeProvider>
 					</div>
 				</div>
 				{modal && modal}
