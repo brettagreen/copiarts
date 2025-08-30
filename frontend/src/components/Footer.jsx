@@ -35,7 +35,7 @@ const Footer = memo(function Footer() {
             <div className="column">
                 <address className="FooterAddress">
                     Cornucopia Inc.<br />
-                    &#9;South Ingersoll St.<br />
+                    &#9;2 South Ingersoll St.<br />
                     &#9;Madison WI 53703<br />
                     email: cornucopia@copiarts.org<br />
                     tel: 608-467-6646

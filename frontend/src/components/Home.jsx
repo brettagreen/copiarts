@@ -91,7 +91,7 @@ function Home({ singlePage }) {
 								alt="googly maps" 
 						/>
 						<div id="mapaddresstext">
-							<span>2 South Ingersoll St. Madison, Wi 53704</span>
+							<span>2 South Ingersoll St. Madison, Wi 53703</span>
 						</div>
 					</div>
 					<div id="homearrow">

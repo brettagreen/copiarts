@@ -14,9 +14,12 @@ function Events() {
 
 	let dateStart;
 	let dateEnd;
+	let options = {
+  			hour: '2-digit',
+  			minute: '2-digit'
+		}
 
 	const fullDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	const DEFAULT_ADDRESS = "2 South Ingersoll Madison Wi 53704";
 
     useEffect(() => {
         async function fetchEvents() {
@@ -47,7 +50,7 @@ function Events() {
 						<div>
 							<h1 className="EventTitle" key={"summary"+idx}>{event.title}</h1>
 							<h2 className="EventTime" key={"time"+idx}>{fullDay[dateStart.getDay()] + ' ' + dateStart.toLocaleDateString()+' '}
-								{dateStart.toLocaleTimeString()} - {dateEnd.toLocaleTimeString()}</h2>
+								{dateStart.toLocaleTimeString([], options)} - {dateEnd.toLocaleTimeString([], options)}</h2>
 							{event.host && <h2 className="EventHost" key={"host"+idx}>Host: {event.host}</h2>}
 							{/* {event.host === 'unknown unknown' ? null : <img key={"icon"+idx} src={`/icons/${event.icon}`} width={250} height={250} alt="host icon"/>} */}
 							<h2 className="EventDescription" key={"description"+idx} id="eventsdescription">{event.description}</h2>
