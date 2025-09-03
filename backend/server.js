@@ -22,9 +22,10 @@ import { clearPhotos } from "./api/instagram/loadInstagramPhotos.js";
 await authAndGetPhotos();
 
 setTimeout(async () => {
+    console.log('getting to setTimeout')
     clearPhotos();
     await authAndGetPhotos();
-}, 50000)
+}, 50000000)
 
 server = app.listen(process.env.PORT, function () {
     console.log(`Started on ${process.env.COPIARTS_BASE_URL}`);

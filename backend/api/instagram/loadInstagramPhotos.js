@@ -33,10 +33,12 @@ function getPhotos() {
 }
 
 function clearPhotos() {
+	console.log('getting to clearPhotos()')
 	photoArray.length = 0;
 }
 
 async function authAndGetPhotos() {
+	console.log('getting to authAndGetPhotos()')
 	/**
 	 * copiarts_test acct id
 	 * @const
