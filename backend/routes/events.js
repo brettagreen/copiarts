@@ -54,17 +54,19 @@ router.get("/", async function(req, res, next) {
  * @param {callback} middleware - Express middleware.
  * @returns {Object[event]} - { weeklyEvents: [{event_id, group_id, title, start, end, location, host, description, period}, ...] }
  */
-router.get("/weekly", async function(req, res, next) {
+router.get("/daily", async function(req, res, next) {
     try {
         const file = fs.readFileSync('./api/calendar/CalendarEvents.json', 'utf-8');
         const allEvents = JSON.parse(file);
 
         let today = new Date();
+        let tomorrow = new Date();
         let midnight = today.toISOString().split('T')[0] + 'T00:00:00.000Z';
         today = new Date(midnight);
+        tomorrow = new Date(midnight);
 
-        const beginningOfWeek = new Date(today.setDate(today.getDate() - today.getDay()));
-        const endOfWeek = new Date(today.setDate(today.getDate() + (7 - today.getDay())));
+        const beginningOfWeek = today
+        const endOfWeek = new Date(tomorrow.setDate(tomorrow.getDate() + 1));
 
         console.log('beginning', beginningOfWeek);
         console.log('end', endOfWeek);

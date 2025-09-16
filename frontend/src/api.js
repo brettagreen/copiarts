@@ -129,13 +129,13 @@ class CopiartsApi {
     }
 
     /**
-     * retrieve all events for the given week from /backend/api/calendar/calendarEvents.json
+     * retrieve all events for the given day from /backend/api/calendar/calendarEvents.json
      * @function
-     * @name getWeeklyEvents
+     * @name getDailyEvents
      * @returns {Object[event]} data returned from backend
      */
-    static async getWeeklyEvents() {
-        return await this.request('events/weekly');
+    static async getDailyEvents() {
+        return await this.request('events/daily');
     }
 
     /**

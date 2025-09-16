@@ -23,8 +23,8 @@ function Events() {
 
     useEffect(() => {
         async function fetchEvents() {
-			const weeklyEvents = await CopiartsApi.getWeeklyEvents();
-			setEvents(weeklyEvents);
+			const dailyEvents = await CopiartsApi.getDailyEvents();
+			setEvents(dailyEvents);
         }
 
         fetchEvents();
@@ -45,7 +45,7 @@ function Events() {
 			dateEnd = new Date(event.end);
 			return (
 				<div key={event.title+idx}>
-				{idx === 0 && <h2 id="eventshead">Events this week</h2>}
+				{idx === 0 && <h2 id="eventshead">Today's Events</h2>}
 					<div className="EventItem">
 						<div>
 							<h1 className="EventTitle" key={"summary"+idx}>{event.title}</h1>
@@ -64,7 +64,7 @@ function Events() {
 					</div>
 				</div>
 			)
-		}) : <><h2>no events this week</h2></>
+		}) : <><h2>no events today</h2></>
 	)
 
 }

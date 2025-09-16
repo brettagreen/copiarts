@@ -1177,5 +1177,23 @@
 		"location": "2 South Ingersoll Madison Wi 53704",
 		"host": "asdf",
 		"description": "adsf"
+	},
+	{
+		"event_id": 0.8388459162724928,
+		"title": "random ass event",
+		"start": "2025-09-17T18:00:00.000Z",
+		"end": "2025-09-17T19:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "me",
+		"description": ""
+	},
+	{
+		"event_id": 0.7543870785284467,
+		"title": "test",
+		"start": "2025-09-16T20:00:00.000Z",
+		"end": "2025-09-16T21:00:00.000Z",
+		"location": "2 South Ingersoll Madison Wi 53704",
+		"host": "test",
+		"description": "testing"
 	}
 ]
