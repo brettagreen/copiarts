@@ -21,53 +21,76 @@ function About() {
 
 	const images = [
 		{
-			original: "/images/copiarts_art_room.jpg",
-			thumbnail: "/images/copiarts_art_room_thumbnail.jpg",
+			original: "/images/copiarts_art.jpg",
+			thumbnail: "/images/copiarts_art_thumbnail.jpg",
 			loading: "eager",
 			thumbnailLoading: "eager",
 			originalAlt: "art room",
 			thumbnailAlt: "art room thumbnail"
 		},
 		{
-			original: "/images/copiarts_art_room2.jpg",
-			thumbnail: "/images/copiarts_art_room2_thumbnail.jpg",
+			original: "/images/copiarts_art_room.jpg",
+			thumbnail: "/images/copiarts_art_room_thumbnail.jpg",
 			loading: "eager",
 			thumbnailLoading: "eager",
 			originalAlt: "art room 2",
 			thumbnailAlt: "art room 2 thumbnail"
 		},
 		{
-			original: "/images/copiarts_music.jpg",
-			thumbnail: "/images/copiarts_music_thumbnail.jpg",
+			original: "/images/copiarts_art_room5.jpg",
+			thumbnail: "/images/copiarts_art_room5_thumbnail.jpg",
 			loading: "eager",
 			thumbnailLoading: "eager",
-			originalAlt: "music room",
-			thumbnailAlt: "music room thumbnail"
-		},
-
-			{
-			original: "/images/copiarts_music2.jpg",
-			thumbnail: "/images/copiarts_music2_thumbnail.jpg",
-			loading: "eager",
-			thumbnailLoading: "eager",
-			originalAlt: "music room 2",
-			thumbnailAlt: "music room 2 thumbnail"
+			originalAlt: "art room 5",
+			thumbnailAlt: "art room 5 thumbnail"
 		},
 		{
-			original: "/images/copiarts_kitchen.jpg",
-			thumbnail: "/images/copiarts_kitchen_thumbnail.jpg",
+			original: "/images/copiarts_music1.jpg",
+			thumbnail: "/images/copiarts_music1_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "music room 1",
+			thumbnailAlt: "music room 1 thumbnail"
+		},
+		{
+			original: "/images/copiarts_kitchen_greg.jpg",
+			thumbnail: "/images/copiarts_kitchen_greg_thumbnail.jpg",
 			loading: "eager",
 			thumbnailLoading: "eager",
 			originalAlt: "kitchen",
 			thumbnailAlt: "kitchen thumbnail",
 		},
 		{
-			original: "/images/copiarts_art_room7.jpg",
-			thumbnail: "/images/copiarts_art_room7_thumbnail.jpg",
+			original: "/images/copiarts_computer.jpg",
+			thumbnail: "/images/copiarts_computer_thumbnail.jpg",
 			loading: "eager",
 			thumbnailLoading: "eager",
-			originalAlt: "art room 7",
-			thumbnailAlt: "art room 7 thumbnail"
+			originalAlt: "computer room",
+			thumbnailAlt: "computer room thumbnail"
+		},
+		{
+			original: "/images/copiarts_group.jpg",
+			thumbnail: "/images/copiarts_group_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art activity",
+			thumbnailAlt: "art activity thumbnail"
+		},
+		{
+			original: "/images/copiarts_group1.jpg",
+			thumbnail: "/images/copiarts_group1_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "art activity 1",
+			thumbnailAlt: "art activity 1 thumbnail"
+		},
+		{
+			original: "/images/copiarts_main_room.jpg",
+			thumbnail: "/images/copiarts_main_room_thumbnail.jpg",
+			loading: "eager",
+			thumbnailLoading: "eager",
+			originalAlt: "main room",
+			thumbnailAlt: "main room thumbnail"
 		}
 	]
 
