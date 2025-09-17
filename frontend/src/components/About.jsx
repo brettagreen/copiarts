@@ -37,14 +37,6 @@ function About() {
 			thumbnailAlt: "art room 2 thumbnail"
 		},
 		{
-			original: "/images/copiarts_art_room5.jpg",
-			thumbnail: "/images/copiarts_art_room5_thumbnail.jpg",
-			loading: "eager",
-			thumbnailLoading: "eager",
-			originalAlt: "art room 5",
-			thumbnailAlt: "art room 5 thumbnail"
-		},
-		{
 			original: "/images/copiarts_music1.jpg",
 			thumbnail: "/images/copiarts_music1_thumbnail.jpg",
 			loading: "eager",
