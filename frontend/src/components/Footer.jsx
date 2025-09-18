@@ -19,13 +19,10 @@ const Footer = memo(function Footer() {
         <footer id="footer">
 
             <div className="column" id="columnOne">
-                <a href="https://www.instagram.com/copiacircle/">
+                <a href="https://www.instagram.com/copiacircle/" target='_blank'>
                     <img className="InstaIcon" src="/images/instagram_icon.png" alt="instagram social" />
                     <span>Instagram</span>
                 </a>
-
-                {/* <img className="TikTokIcon" src="/images/tiktok_icon.png" alt="tik tok social" />
-                <span style={{marginLeft: '-1.9em'}}>TikTok</span> */}
             </div>
 
             <div className="column" id="columnTwo">

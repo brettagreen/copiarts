@@ -120,6 +120,14 @@ const formTheme =
 					}
 				}
 			},
+			MuiOutlinedInput: {
+				styleOverrides: {
+					input: {
+						color: '#f3f2f2',
+						borderColor: '#f3f2f2'
+					}
+				}
+			},
 			MuiFormLabel:  {
 				styleOverrides: {
 					root: {

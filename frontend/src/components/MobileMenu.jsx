@@ -54,8 +54,9 @@ function MobileMenu() {
 					<MenuItem className="Item" onClick={handleClose}><Link href='#mobilegalleryid' underline='hover'>Gallery</Link></MenuItem>
 					<MenuItem className="Item" onClick={handleClose}><Link href='#informationid' underline='hover'>Membership/Peer Support/Contact Us</Link></MenuItem>
 					<Divider className="MobileDivider" />
-					<MenuItem className="Item" onClick={handleClose}><img className="InstaIcon" src="/images/instagram_icon.png" alt="instagram social" /></MenuItem>
-					<MenuItem className="Item" onClick={handleClose}><img className="TikTokIcon" src="/images/tiktok_icon.png" alt="tik tok social" /></MenuItem>
+					<MenuItem className="Item" onClick={handleClose}><a href="https://www.instagram.com/copiacircle/" target='_blank'>
+																		<img className="InstaIcon" src="/images/instagram_icon.png" alt="instagram social" />
+																	</a></MenuItem>
 					<Divider className="MobileDivider" />
 					<div className="Item">
                 		<address id="mobileaddress" className="FooterAddress">
