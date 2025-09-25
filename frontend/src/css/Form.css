@@ -31,3 +31,7 @@
 		width: 90vw;
 	}
 }
+
+.outlined .MuiOutlinedInput-root:hover .MuiOulinedInput-notchedOutline {
+	border-color: '#f3f2f2';
+}

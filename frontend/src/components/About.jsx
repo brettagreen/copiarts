@@ -87,6 +87,7 @@ function About() {
 			const directus = createDirectus('https://copiarts.directus.app').with(rest()).with(staticToken(DIRECTUS_TOKEN));
 
 			let text = await directus.request(readItems('AboutUs'));
+			console.log('text', text);
 			text = text[0].text;
 			
 			setText(text);
@@ -99,6 +100,7 @@ function About() {
 		<div id="aboutid">
 			<section id="aboutText">
 				<h3>About Cornucopia</h3>
+				<img src="https://copiarts.directus.app/assets/882e1ce2-b011-4f90-9ff7-4adef740c1c6.jpg?width=297&amp;height=171" alt="Copiarts Music1"></img>
 				{text && <div dangerouslySetInnerHTML={{ __html: text }} />}
 			</section>
 			<div className="aboutimages">

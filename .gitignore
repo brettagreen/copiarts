@@ -13,3 +13,4 @@ backend/package-lock.json
 frontend/dist
 backend/Cornucopia.code-workspace
 backend/api/calendar/CalendarEvents.json
+backend/renew_token.sh

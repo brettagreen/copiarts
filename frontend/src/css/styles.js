@@ -112,28 +112,12 @@ const formTheme =
 						marginTop: '.5em',
 						marginBottom: '.8em',
 						width: '100%',
-						color: 'rgba(0, 0, 0, 0.87)',
-						borderColor: 'rgba(0, 0, 0, 0.87)',
-						'&.Mui-focused': {
-							borderColor: "rgba(0,0,0,.9)"
-						}
-					}
-				}
-			},
-			MuiOutlinedInput: {
-				styleOverrides: {
-					input: {
-						color: '#f3f2f2',
-						borderColor: '#f3f2f2'
 					}
 				}
 			},
 			MuiFormLabel:  {
 				styleOverrides: {
 					root: {
-						'&.:after': {
-							color: "rgba(0, 0, 0, 0.9)"
-						},
 						fontWeight: 'bold',
 						textAlign: 'left',
 					}
@@ -165,7 +149,7 @@ const formTheme =
 			},
 			MuiTextField: {
 				styleOverrides: {
-					root: {
+					input: {
 						fontWeight: 'bold'
 					}
 				}

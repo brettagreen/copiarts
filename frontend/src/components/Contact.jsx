@@ -234,19 +234,19 @@ function Contact() {
                     <form autoComplete="off" noValidate encType="multipart/form-data" onSubmit={submitAndClear}> 
                         <FormControl id="formwidth" margin="normal">
 
-                            <TextField type="text" required={true} label="first name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
+                            <TextField color="info" className="outlined" type="text" required={true} label="first name" name="nameFirst" value={form.nameFirst} onChange={handleChange}
                             />
                             {showNameFirstError && 
                                 <FormHelperText error={true}>Please provide a first name</FormHelperText>
                             }
 
-							<TextField type="text" required={false} label="last name" name="nameLast" value={form.nameLast} onChange={handleChange}
+							<TextField className="outlined" type="text" required={false} label="last name" name="nameLast" value={form.nameLast} onChange={handleChange}
                             />
                             {showNameLastError && 
                                 <FormHelperText error={true}>Please provide a last name</FormHelperText>
                             }
 
-                            <TextField inputProps={{type: "email"}} required={true} label="email" name="email" autoComplete='off' value={form.email} onChange={handleChange}
+                            <TextField className="outlined" inputProps={{type: "email"}} required={true} label="email" name="email" autoComplete='off' value={form.email} onChange={handleChange}
                             />
                             {showEmailError && 
                                 <FormHelperText error={true}>A real email address is required.</FormHelperText>
