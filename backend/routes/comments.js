@@ -3,7 +3,7 @@
  * @requires module:express
  * @requires module:/backend/models/Comment
  * @requires module:express.router
- * @requires modeule:nodemailer
+ * @requires module:nodemailer
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * @description handles incoming api requests, initiates appropriate database transaction, returns appriate response
