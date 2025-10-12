@@ -21,7 +21,7 @@ import '../css/App.css';
  * @requires module:/frontend/src/components/Footer
  * 
  * @description App component. Parent component of rest of application. Provides UseContext.Provider for downstream
- * components.
+ * components. Arranges components in a traditional, multi-page format.
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * 

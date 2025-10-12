@@ -9,21 +9,20 @@ import root from './main';
 import '../css/App.css';
 
 /**
- * @component /frontend/src/comonents/App
+ * @component /frontend/src/comonents/App_SinglePage
  * @requires module:react-router-dom.BrowserRouter
- * @requires module:react.useState
  * @requires module:module:mui/material/Box
  * @requires module:/frontend/src/userContext
- * @requires module:/frontend/src/components/NavigationBar
+ * @requires module:/frontend/src/components/NavigationBar_SinglePage
  * @requires module:/frontend/src/components/CopiartsRoutes
  * @requires module:/frontend/src/components/Footer
  * 
  * @description App component. Parent component of rest of application. Provides UseContext.Provider for downstream
- * components.
+ * components. Instructs the page to arrange components in a single page application manner.
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * 
- * @returns {JSX.Element} UserContext, NavBar, BrowserRouter and everything in between
+ * @returns {JSX.Element} UserContext, NavBar_SinglePage, BrowserRouter and singlePage argument passed to CopiartsRoutes component
  *
  */
 

@@ -23,7 +23,7 @@ const photoArray = [];
 
 /**
  * @description
- * https fetches photos/posts from the copiarts_test Instagram acct.
+ * https fetches photos/posts from the copiacircle Instagram acct.
  * pushes results to /backend/routes/photos endpoint for easy retrieval by
  * relevant frontend component(s)
  */
@@ -61,7 +61,7 @@ async function authAndGetPhotos() {
 	const responseObject = await axios.get(
 		`https://graph.instagram.com/v21.0/${ACCT}/media?access_token=${TOKEN}`
 	);
-	//console.log("response object", responseObject.data);
+	
 	/**
 	 * response object items. in this case, photo/media items.
 	 * @type {object}

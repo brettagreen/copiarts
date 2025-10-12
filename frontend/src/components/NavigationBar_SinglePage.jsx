@@ -15,6 +15,7 @@ import '../css/NavigationBar.css'
  * @requires module:mui/material/Link
  * @requires module:mui/material/styles/ThemeProvider
  * @requires module:/frontend/src/css/styles/toolbarMenuTheme
+ * @requires module:/frontend/src/components/MobileMenu
  * @description Navbar component. This goes on top. fixed
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0

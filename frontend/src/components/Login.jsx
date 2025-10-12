@@ -1,5 +1,5 @@
 
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormControl, TextField, Button, ThemeProvider, InputAdornment, IconButton } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
@@ -12,7 +12,6 @@ import '../css/Login.css';
  * @component /frontend/src/components/Login
  * @requires module:react.useEffect
  * @requires module:react.useState
- * @requires module:react.useContext
  * @requires module:react-router-dom/useNavigate
  * @requires module:mui/material/FormControl
  * @requires module:mui/material/TextField
@@ -24,7 +23,6 @@ import '../css/Login.css';
  * @requires module:mui/icons-material/VisibilityOffIcon
  * @requires module:mui/frontend/src/api
  * @requires module:/frontend/src/css/styles/formTheme
- * @requires module:/frontend/src/UserContext
  * @description Login component. allows for admin login. not for use for anything else.
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0

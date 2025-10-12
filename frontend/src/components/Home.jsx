@@ -20,7 +20,21 @@ import '../css/Events.css';
  */
 function Home({ singlePage }) {
 
+	/**
+	 * @description API token used to return text data from DIRECTUS headless CMS
+	 * @const - DIRECTUS_TOKEN
+	 */
 	const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN;
+
+	/**
+	 * @typedef {controlText} - useState hook. set text content for page
+	 * @property {string} text - page text
+	 * @property {function} setText - set page text
+	 * 
+	 */
+	/**
+	 * @type {controlText}
+	 */
 	const [text, setText] = useState(null);
 
     useEffect(() => {

@@ -1,16 +1,44 @@
+/**
+ * @typedef {Object} event - Cornucopia event widget object 
+ * @property {string} title
+ * @property {Date} start
+ * @property {Date} end
+ * @property {string} host
+ * @property {string} description
+ * 
+*/
+
 import { useEffect, useState } from 'react';
 import CopiartsApi from '../api';
 import '../css/Events.css'
 
+/**
+ * @component /frontend/src/components/Events
+ * @requires module:react.useEffect
+ * @requires module:react.useState
+ * @requires module:/frontend/src/api
+
+ * @description Events component. Renders event information clear and legibile
+ * @author Brett A. Green <brettalangreen@proton.me>
+ * @version 1.0
+ * 
+ * @returns {JSX.Element} - text document, some of it formatted. All event info will be rendered.
+ *
+ */
+
 function Events() {
 
-	const [events, setEvents] = useState([]);
-
 	/**
-	 * @const
-	 * google maps api key
+	 * 
+	 * @typedef {events} - useState hook. set events
+	 * @property {state} events - events in question
+	 * @property {function} setEvents - sets state of events in question
+	 * 
 	 */
-	const API_KEY = import.meta.env.VITE_MAPS_API_KEY;
+	/**
+     * @type {events}
+     */
+	const [events, setEvents] = useState([]);
 
 	let dateStart;
 	let dateEnd;
@@ -29,15 +57,6 @@ function Events() {
 
         fetchEvents();
     }, []);
-
-	function parseLocation(location) {
-		const segments = location.split(',');
-		let parsedLocation = '';
-		segments.forEach((val) => {
-			parsedLocation += val.replace(' ', '+');
-		})
-		return parsedLocation;
-	}
 
 	return(
 		events.length !== 0 ? events.map((event, idx) => {

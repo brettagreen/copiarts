@@ -6,7 +6,7 @@ import '../css/Footer.css';
  * @component /frontend/src/components/Footer
  * @requires module:mui/material/Link
  * 
- * @description Footer component. used at the bottom of all pages. holds some relevant links and looks pretty
+ * @description Footer component. used at the bottom of all non-mobile pages. holds some relevant links and looks pretty
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * 

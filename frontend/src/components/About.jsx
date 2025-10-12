@@ -8,13 +8,19 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 /**
  * @component /frontend/src/components/About
- * @requires module:mui/material/Link
+ * @requires module:react.useEffect
+ * @requires module:react:useState
+ * @requires directus/sdk/readItems
+ * @requires directus/sdk/createDirectus
+ * @requires directus/sdk/rest
+ * @requires directus/sdk/staticToken
+ * @requires module:react-image-gallery/ImageGallery
  * 
- * @description About component. mostly text, some of it formatted. Talks about history of Cornucopia.
+ * @description About component. mostly text, some of it formatted. Talks about history of Cornucopia. Also hosts image gallery component.
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * 
- * @returns {JSX.Element} - formatted text going over Cornucopia and its history.
+ * @returns {JSX.Element} - formatted text going over Cornucopia and its history. Also returns image gallery component.
  *
  */
 function About() {
@@ -78,7 +84,22 @@ function About() {
 		}
 	]
 
+
+	/**
+	 * @description API token used to return text data from DIRECTUS headless CMS
+	 * @const - DIRECTUS_TOKEN
+	 */
 	const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN;
+
+	/**
+	 * @typedef {controlText} - useState hook. set text content for page
+	 * @property {string} text - page text
+	 * @property {function} setText - set page text
+	 * 
+	 */
+	/**
+	 * @type {controlText}
+	 */
 	const [text, setText] = useState(null);
 
     useEffect(() => {

@@ -20,11 +20,10 @@ import Redirects from "./Redirects";
  * @requires module:/frontend/src/components/Admin
  * @requires module:/frontend/src/components/Login
  * @requires module:/frontend/src/components/AdditionalInformation
- * @requires module:/frontend/src/components/Contact
  * 
  * @description CopiartsRoutes component. extension of BrowserRouter component as defined in the App component. 
- * components. specified path values on the Route objects determine which site Component is rendered. url values are 
- * read potential path matches IN ORDER i.e. top-down. 
+ * specified path values on the Route objects determine which site Component is rendered. url values are 
+ * read potential path matches IN ORDER i.e. top-down. SINGLE PAGE apps (based on screen size) are handled differently!
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
 

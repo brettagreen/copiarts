@@ -8,7 +8,7 @@ import '../css/AdditionalInformation.css'
  * @requires module:mui/material/Link
  * @requires module:/frontend/src/components/Contact
 
- * @description AdditionalInformation component. info on membership, peer support, and Community Agreement text
+ * @description AdditionalInformation component. info on membership, peer support, and Community Agreement text and contact form, too.
  * @author Brett A. Green <brettalangreen@proton.me>
  * @version 1.0
  * 
@@ -17,7 +17,21 @@ import '../css/AdditionalInformation.css'
  */
 function AdditionalInformation() {
 
+	/**
+	 * @description API token used to return text data from DIRECTUS headless CMS
+	 * @const - DIRECTUS_TOKEN
+	 */
 	const DIRECTUS_TOKEN = import.meta.env.VITE_DIRECTUS_TOKEN;
+
+	/**
+	 * @typedef {controlText} - useState hook. set text content for page
+	 * @property {string} text - page text
+	 * @property {function} setText - set page text
+	 * 
+	 */
+	/**
+	 * @type {controlText}
+	 */
 	const [text, setText] = useState(null);
 
 	useEffect(() => {

@@ -26,11 +26,16 @@ import '../css/Gallery.css';
  * @requires module:mui/frontend/src/api
  * @requires module:react.useEffect
  * @requires module:react.useState
+ * @requires module:react.useRef
  * @requires module:/frontend/src/css/styles/galleryTheme
+ * @requires module:/frontend/src/css/styles/paginationTheme
  * @requires module:mui/material/Grid
  * @requires module:mui/material/Modal
  * @requires module:mui/material/Link
  * @requires module:mui/material/Button
+ * @requires module:mui/material/ImageList
+ * @requires module:mui/material/ImageListItem
+ * @requires module:mui/material/Pagination
  * @requires module:mui/material/Box
  * @requires module:emotion/react/ThemeProvider
  * @description Gallery component. shows images as pulled from copiarts instagram acct in an aesthetically pleasing manner.
@@ -53,10 +58,48 @@ function Gallery() {
      */
 	const [photos, setPhotos] = useState(null);
 
+	/**
+	 * @typedef {controlPaginatedPhotos} - useState hook. sets photo pagination
+	 * @property {[photo]} paginatedPhotos - value of pagination
+	 * @property {function} setPaginatedPhotos - set value of pagination
+	 * 
+	 */
+    /**
+     * @type {controlPaginatedPhotos}
+     */
 	const [paginatedPhotos, setPaginatedPhotos] = useState(null);
+
+	/**
+	 * @typedef {controlPage} - useState hook. set which page of photos is showing
+	 * @property {[photo]} page - photo page number
+	 * @property {function} setPage - set photo page number
+	 * 
+	 */
+    /**
+     * @type {controlPage}
+     */
 	const [page, setPage] = useState(1);
 
+	/**
+	 * @typedef {controlMobilePaginatedPhotos} - useState hook. sets mobile-site photo pagination
+	 * @property {[photo]} mobilePaginatedPhotos - value of mobile-site pagination
+	 * @property {function} setMobilePaginatedPhotos - set value of mobile-site pagination
+	 * 
+	 */
+    /**
+     * @type {controlMobilePaginatedPhotos}
+     */
 	const [mobilePaginatedPhotos, setMobilePaginatedPhotos] = useState(null);
+
+	/**
+	 * @typedef {controlMobilePage} - useState hook. set which page of photos is showing for mobile site
+	 * @property {[photo]} mobilePage - mobile-site photo page number
+	 * @property {function} setMobilePage - set mobile-site photo page number
+	 * 
+	 */
+    /**
+     * @type {controlMobilePage}
+     */
 	const [mobilePage, setMobilePage] = useState(1);
 
 	/**
@@ -111,6 +154,12 @@ function Gallery() {
         }
     }
 
+   /**
+     * given the chosen pagination page, load the correct batch of photos (non-mobile site) 
+     * @function
+     * @param {number} value
+     * @returns {undefined}
+     */
 	function handlePagination(event, value) {
 		const one = 10 * (value - 1);
 		const two = one + 10;
@@ -118,6 +167,12 @@ function Gallery() {
 		setPaginatedPhotos(photos.slice(one, two));
 	}
 
+   /**
+     * given the chosen pagination page, load the correct batch of photos (mobile site) 
+     * @function
+     * @param {number} value
+     * @returns {undefined}
+     */
 	function handleMobilePagination(event, value) {
 		const one = 10 * (value - 1);
 		const two = one + 10; 

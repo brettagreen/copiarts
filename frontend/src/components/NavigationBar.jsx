@@ -10,9 +10,11 @@ import '../css/NavigationBar.css'
 /**
  * @component /frontend/src/components/NavigationBar
  * @requires module:mui/material/Box
- * @requires module:mui/material/AppBar
+ * @requires module:mui/material/MuiAppBar
  * @requires module:mui/material/Toolbar
  * @requires module:mui/material/Link
+ * @requires module:react:memo
+ * @requires module:react:useEffect
  * @requires module:mui/material/styles/ThemeProvider
  * @requires module:/frontend/src/css/styles/toolbarMenuTheme
  * @description Navbar component. This goes on top. fixed
